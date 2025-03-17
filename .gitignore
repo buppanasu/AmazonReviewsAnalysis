@@ -27,6 +27,10 @@ numberofdistinctproducts/
 output_verified_reviews/
 productmaincategorydistribution/
 
-# Any other unwanted files
+# Any .jsonl file
+*.jsonl
+
+# Any output folder
+output*/
 
 
