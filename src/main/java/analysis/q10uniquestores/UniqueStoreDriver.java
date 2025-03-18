@@ -1,4 +1,4 @@
-package analysis.q9highesthelpfulvotes;
+package analysis.q10uniquestores;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -8,24 +8,24 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class HighestHelpfulVoteDriver {
-
-    public static void main(String[] args) throws Exception {
-    	if (args.length < 2) {
-            System.err.println("Usage: Highest Helpful Vote <input> <output>");
+public class UniqueStoreDriver {
+	
+	public static void main(String[] args) throws Exception {
+		if (args.length < 2) {
+            System.err.println("Usage: Store Count <input> <output>");
             System.exit(2);
         }
-    	
+		
         // Configuration and Job setup
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Highest Helpful Vote Count");
+        Job job = Job.getInstance(conf, "Store Count");
 
         // Set the Jar
-        job.setJarByClass(HighestHelpfulVoteDriver.class);
+        job.setJarByClass(UniqueStoreDriver.class);
 
         // Set Mapper and Reducer
-        job.setMapperClass(HighestHelpfulVoteMapper.class);
-        job.setReducerClass(HighestHelpfulVoteReducer.class);
+        job.setMapperClass(UniqueStoreMapper.class);
+        job.setReducerClass(UniqueStoreReducer.class);
         
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
@@ -47,4 +47,5 @@ public class HighestHelpfulVoteDriver {
         // Wait for job completion
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
+
 }
