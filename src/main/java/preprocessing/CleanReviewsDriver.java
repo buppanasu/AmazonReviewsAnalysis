@@ -28,6 +28,9 @@ public class CleanReviewsDriver {
         job.setMapperClass(CleanReviewsMapper.class);
         job.setReducerClass(DedupReducer.class);
         
+        // Force a single reducer for sequential numbering
+        job.setNumReduceTasks(1);
+        
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         
@@ -38,17 +41,6 @@ public class CleanReviewsDriver {
         // Submit the job and exit based on its success or failure.
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
-    
-    /**
-     * DedupReducer: For each composite key, output only one cleaned record.
-     * This effectively removes duplicate records.
-     */
-    public static class DedupReducer extends org.apache.hadoop.mapreduce.Reducer<Text, Text, Text, Text> {
-        @Override
-        protected void reduce(Text key, Iterable<Text> values, Context context)
-                throws java.io.IOException, InterruptedException {
-            // Emit only the first record for each composite key
-            context.write(null, values.iterator().next());
-        }
-    }
 }
+
+

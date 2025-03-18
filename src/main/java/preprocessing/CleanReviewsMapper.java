@@ -25,26 +25,33 @@ public class CleanReviewsMapper extends Mapper<LongWritable, Text, Text, Text> {
             throws IOException, InterruptedException {
 
         String jsonLine = value.toString();
-        // Print the raw line to see exactly what's being read
+        // Print the raw line for debugging
         System.out.println("DEBUG: Raw input line -> " + jsonLine);
 
         try {
             // Parse the JSON line into a JsonNode
             JsonNode rootNode = objectMapper.readTree(jsonLine);
 
-            // Check verified_purchase
+            // Check verified_purchase is present and true
             if (!rootNode.hasNonNull("verified_purchase") || !rootNode.get("verified_purchase").asBoolean()) {
                 System.out.println("DEBUG: Skipping record - 'verified_purchase' is missing or false.");
                 return;
             }
 
-            // Convert root node to ObjectNode to allow modifications
+            // Convert root node to ObjectNode so we can remove fields
             ObjectNode cleanNode = (ObjectNode) rootNode;
 
-            // Remove the "title" field
+            // 1) Remove the "title" field
             cleanNode.remove("title");
 
-            // Process "images": convert array to its count
+            // 2) Remove the "asin" field (but we'll still use it for the composite key)
+            String asin = "";
+            if (cleanNode.hasNonNull("asin")) {
+                asin = cleanNode.get("asin").asText();
+                cleanNode.remove("asin");
+            }
+
+            // Convert "images" array to its count
             if (cleanNode.has("images") && cleanNode.get("images").isArray()) {
                 int imageCount = cleanNode.get("images").size();
                 cleanNode.put("images", imageCount);
@@ -52,25 +59,22 @@ public class CleanReviewsMapper extends Mapper<LongWritable, Text, Text, Text> {
 
             // Build a composite key from user_id, asin, and timestamp
             String userId = cleanNode.hasNonNull("user_id") ? cleanNode.get("user_id").asText() : "";
-            String asin = cleanNode.hasNonNull("asin") ? cleanNode.get("asin").asText() : "";
             String timestamp = cleanNode.hasNonNull("timestamp") ? cleanNode.get("timestamp").asText() : "";
             String compositeKey = userId + "-" + asin + "-" + timestamp;
 
             // Convert cleaned JSON back to a String
             String cleanedJson = objectMapper.writeValueAsString(cleanNode);
 
-            // Print debug info before emitting
-            System.out.println("DEBUG: Emitting -> KEY: " + compositeKey 
-                               + " | VALUE: " + cleanedJson);
+            // Print debug info
+            System.out.println("DEBUG: Emitting -> KEY: " + compositeKey + " | VALUE: " + cleanedJson);
 
             // Emit the composite key and cleaned JSON record
             context.write(new Text(compositeKey), new Text(cleanedJson));
 
         } catch (Exception e) {
-            // Print the parse error for debugging
+            // Print parse error for debugging
             System.out.println("DEBUG: Parse error -> " + e.getMessage());
-            // Skip this record or optionally count it
-            // context.getCounter("CleanReviewsMapper", "PARSE_ERRORS").increment(1);
+            // Skip this record
         }
     }
 }
