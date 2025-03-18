@@ -34,9 +34,15 @@ public class CleanReviewsDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         
-        // Set the input and output paths
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        // Define Input & Output Paths
+        Path inPath = new Path(args[0]);
+        Path outPath = new Path(args[1]);
+        
+        // Delete Output Path if there is one.
+        outPath.getFileSystem(conf).delete(outPath, true);
+
+        FileInputFormat.addInputPath(job, inPath);
+        FileOutputFormat.setOutputPath(job, outPath);
         
         // Submit the job and exit based on its success or failure.
         System.exit(job.waitForCompletion(true) ? 0 : 1);

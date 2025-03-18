@@ -33,10 +33,10 @@ public class CleanReviewsMapper extends Mapper<LongWritable, Text, Text, Text> {
             JsonNode rootNode = objectMapper.readTree(jsonLine);
 
             // Check verified_purchase is present and true
-            if (!rootNode.hasNonNull("verified_purchase") || !rootNode.get("verified_purchase").asBoolean()) {
-                System.out.println("DEBUG: Skipping record - 'verified_purchase' is missing or false.");
-                return;
-            }
+//            if (!rootNode.hasNonNull("verified_purchase") || !rootNode.get("verified_purchase").asBoolean()) {
+//                System.out.println("DEBUG: Skipping record - 'verified_purchase' is missing or false.");
+//                return;
+//            }
 
             // Convert root node to ObjectNode so we can remove fields
             ObjectNode cleanNode = (ObjectNode) rootNode;
