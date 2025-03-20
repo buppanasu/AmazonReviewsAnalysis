@@ -1,0 +1,1621 @@
+month,main_category,time_period,average_rating,rating_count,year
+Jan,AMAZON FASHION,2020-01,4.5,10.0,2020.0
+Feb,AMAZON FASHION,2020-02,3.9560000000000004,16.0,2020.0
+Mar,AMAZON FASHION,2020-03,3.0,4.0,2020.0
+Apr,AMAZON FASHION,2020-04,4.556666666666667,5.0,2020.0
+May,AMAZON FASHION,2020-05,3.0,2.0,2020.0
+Jun,AMAZON FASHION,2020-06,3.5,4.0,2020.0
+Jul,AMAZON FASHION,2020-07,3.4,9.0,2020.0
+Aug,AMAZON FASHION,2020-08,1.75,7.0,2020.0
+Sep,AMAZON FASHION,2020-09,5.0,3.0,2020.0
+Oct,AMAZON FASHION,2020-10,4.0,4.0,2020.0
+Nov,AMAZON FASHION,2020-11,4.221666666666667,14.0,2020.0
+Dec,AMAZON FASHION,2020-12,3.8,6.0,2020.0
+Jan,AMAZON FASHION,2021-01,5.0,3.0,2021.0
+Feb,AMAZON FASHION,2021-02,2.5,2.0,2021.0
+Mar,AMAZON FASHION,2021-03,3.5,5.0,2021.0
+Apr,AMAZON FASHION,2021-04,3.5,4.0,2021.0
+May,AMAZON FASHION,2021-05,3.4433333333333334,5.0,2021.0
+Jun,AMAZON FASHION,2021-06,4.0,3.0,2021.0
+Jul,AMAZON FASHION,2021-07,3.7783333333333338,11.0,2021.0
+Aug,AMAZON FASHION,2021-08,2.94,12.0,2021.0
+Sep,AMAZON FASHION,2021-09,3.25,7.0,2021.0
+Oct,AMAZON FASHION,2021-10,4.335,4.0,2021.0
+Nov,AMAZON FASHION,2021-11,2.5,3.0,2021.0
+Dec,AMAZON FASHION,2021-12,2.2,6.0,2021.0
+Jan,AMAZON FASHION,2022-01,3.75,5.0,2022.0
+Feb,AMAZON FASHION,2022-02,3.5,4.0,2022.0
+Mar,AMAZON FASHION,2022-03,4.0,2.0,2022.0
+Apr,AMAZON FASHION,2022-04,5.0,4.0,2022.0
+May,AMAZON FASHION,2022-05,1.0,1.0,2022.0
+Jun,AMAZON FASHION,2022-06,3.6666666666666665,3.0,2022.0
+Jul,AMAZON FASHION,2022-07,4.2,5.0,2022.0
+Aug,AMAZON FASHION,2022-08,4.0,4.0,2022.0
+Sep,AMAZON FASHION,2022-09,4.0,6.0,2022.0
+Oct,AMAZON FASHION,2022-10,4.333333333333333,6.0,2022.0
+Nov,AMAZON FASHION,2022-11,4.5,4.0,2022.0
+Dec,AMAZON FASHION,2022-12,2.3333333333333335,3.0,2022.0
+Jan,AMAZON FASHION,2023-01,3.2,5.0,2023.0
+Feb,AMAZON FASHION,2023-02,5.0,2.0,2023.0
+Mar,AMAZON FASHION,2023-03,4.75,4.0,2023.0
+Apr,AMAZON FASHION,2023-04,5.0,3.0,2023.0
+May,AMAZON FASHION,2023-05,5.0,1.0,2023.0
+Jun,AMAZON FASHION,2023-06,4.0,3.0,2023.0
+Jul,AMAZON FASHION,2023-07,5.0,4.0,2023.0
+Aug,AMAZON FASHION,2023-08,3.25,4.0,2023.0
+Sep,AMAZON FASHION,,0.0,0.0,2023.0
+Jan,All Beauty,2020-01,4.483333333333333,32.0,2020.0
+Feb,All Beauty,2020-02,3.9166666666666665,30.0,2020.0
+Mar,All Beauty,2020-03,4.473000000000001,23.0,2020.0
+Apr,All Beauty,2020-04,4.675714285714286,15.0,2020.0
+May,All Beauty,2020-05,4.215,43.0,2020.0
+Jun,All Beauty,2020-06,3.73,27.0,2020.0
+Jul,All Beauty,2020-07,2.7708333333333335,36.0,2020.0
+Aug,All Beauty,2020-08,2.994545454545454,46.0,2020.0
+Sep,All Beauty,2020-09,4.8,22.0,2020.0
+Oct,All Beauty,2020-10,4.13,29.0,2020.0
+Nov,All Beauty,2020-11,4.416666666666667,24.0,2020.0
+Dec,All Beauty,2020-12,4.675714285714286,42.0,2020.0
+Jan,All Beauty,2021-01,3.7716666666666665,29.0,2021.0
+Feb,All Beauty,2021-02,4.048333333333333,28.0,2021.0
+Mar,All Beauty,2021-03,4.1257142857142854,38.0,2021.0
+Apr,All Beauty,2021-04,4.884,33.0,2021.0
+May,All Beauty,2021-05,4.305714285714286,31.0,2021.0
+Jun,All Beauty,2021-06,3.705,21.0,2021.0
+Jul,All Beauty,2021-07,4.27,28.0,2021.0
+Aug,All Beauty,2021-08,4.357142857142857,17.0,2021.0
+Sep,All Beauty,2021-09,4.0,7.0,2021.0
+Oct,All Beauty,2021-10,4.3225,14.0,2021.0
+Nov,All Beauty,2021-11,4.3125,11.0,2021.0
+Dec,All Beauty,2021-12,4.555555555555555,13.0,2021.0
+Jan,All Beauty,2022-01,3.8,14.0,2022.0
+Feb,All Beauty,2022-02,4.5285714285714285,18.0,2022.0
+Mar,All Beauty,2022-03,4.61625,15.0,2022.0
+Apr,All Beauty,2022-04,4.83375,18.0,2022.0
+May,All Beauty,2022-05,3.696,16.0,2022.0
+Jun,All Beauty,2022-06,3.8025,17.0,2022.0
+Jul,All Beauty,2022-07,3.516666666666667,18.0,2022.0
+Aug,All Beauty,2022-08,4.028333333333333,13.0,2022.0
+Sep,All Beauty,2022-09,3.783333333333333,20.0,2022.0
+Oct,All Beauty,2022-10,4.627777777777777,19.0,2022.0
+Nov,All Beauty,2022-11,3.7325,14.0,2022.0
+Dec,All Beauty,2022-12,3.6950000000000003,12.0,2022.0
+Jan,All Beauty,2023-01,3.4825,16.0,2023.0
+Feb,All Beauty,2023-02,3.761428571428571,19.0,2023.0
+Mar,All Beauty,2023-03,3.852222222222222,11.0,2023.0
+Apr,All Beauty,2023-04,3.125,6.0,2023.0
+May,All Beauty,2023-05,5.0,1.0,2023.0
+Jun,All Beauty,2023-06,5.0,5.0,2023.0
+Jul,All Beauty,2023-07,3.3333333333333335,3.0,2023.0
+Aug,All Beauty,2023-08,5.0,2.0,2023.0
+Sep,All Beauty,,0.0,0.0,2023.0
+Jan,All Electronics,2020-01,4.059590504451038,12541.0,2020.0
+Feb,All Electronics,2020-02,4.10375,8954.0,2020.0
+Mar,All Electronics,2020-03,3.966118271417741,6908.0,2020.0
+Apr,All Electronics,2020-04,3.805527156549521,6777.0,2020.0
+May,All Electronics,2020-05,3.8726406035665297,8852.0,2020.0
+Jun,All Electronics,2020-06,3.887491616364856,7738.0,2020.0
+Jul,All Electronics,2020-07,3.954372574385511,8228.0,2020.0
+Aug,All Electronics,2020-08,3.9533674121405755,8003.0,2020.0
+Sep,All Electronics,2020-09,3.9937492043284535,7611.0,2020.0
+Oct,All Electronics,2020-10,3.926623453152622,8128.0,2020.0
+Nov,All Electronics,2020-11,3.8938748495788205,7021.0,2020.0
+Dec,All Electronics,2020-12,3.9699520383693048,10286.0,2020.0
+Jan,All Electronics,2021-01,4.001824239900041,12516.0,2021.0
+Feb,All Electronics,2021-02,3.9010039805395844,9755.0,2021.0
+Mar,All Electronics,2021-03,3.921142061281337,12059.0,2021.0
+Apr,All Electronics,2021-04,3.8691461890878798,10377.0,2021.0
+May,All Electronics,2021-05,3.8674346257889987,8607.0,2021.0
+Jun,All Electronics,2021-06,3.8591537761601455,7872.0,2021.0
+Jul,All Electronics,2021-07,3.874684444444445,7967.0,2021.0
+Aug,All Electronics,2021-08,3.8436827195467425,7065.0,2021.0
+Sep,All Electronics,2021-09,3.807282104177411,5921.0,2021.0
+Oct,All Electronics,2021-10,3.7767111770524235,5897.0,2021.0
+Nov,All Electronics,2021-11,3.7295079522862826,5647.0,2021.0
+Dec,All Electronics,2021-12,3.762559934985778,8324.0,2021.0
+Jan,All Electronics,2022-01,3.8126628283555233,10781.0,2022.0
+Feb,All Electronics,2022-02,3.7583326244151425,7848.0,2022.0
+Mar,All Electronics,2022-03,3.8068401639344263,8354.0,2022.0
+Apr,All Electronics,2022-04,3.802374624946421,7642.0,2022.0
+May,All Electronics,2022-05,3.755403477485511,7017.0,2022.0
+Jun,All Electronics,2022-06,3.7906089743589746,6533.0,2022.0
+Jul,All Electronics,2022-07,3.807818109293977,7926.0,2022.0
+Aug,All Electronics,2022-08,3.8717700112739575,9016.0,2022.0
+Sep,All Electronics,2022-09,3.814530516431925,7941.0,2022.0
+Oct,All Electronics,2022-10,3.889188149288188,8684.0,2022.0
+Nov,All Electronics,2022-11,3.8966271721958927,9548.0,2022.0
+Dec,All Electronics,2022-12,3.8994994857730547,10828.0,2022.0
+Jan,All Electronics,2023-01,3.9056845700093135,12582.0,2023.0
+Feb,All Electronics,2023-02,3.8243190094683177,9038.0,2023.0
+Mar,All Electronics,2023-03,3.9153621730382295,11327.0,2023.0
+Apr,All Electronics,2023-04,3.84640522875817,7105.0,2023.0
+May,All Electronics,2023-05,3.890779761904762,3928.0,2023.0
+Jun,All Electronics,2023-06,3.7895121951219517,2540.0,2023.0
+Jul,All Electronics,2023-07,3.9488632162661736,2064.0,2023.0
+Aug,All Electronics,2023-08,3.980288944723618,1402.0,2023.0
+Sep,All Electronics,2023-09,4.090543478260869,101.0,2023.0
+Jan,Amazon Devices,2020-01,5.0,1.0,2020.0
+Feb,Amazon Devices,,0.0,0.0,2020.0
+Mar,Amazon Devices,,0.0,0.0,2020.0
+Apr,Amazon Devices,,0.0,0.0,2020.0
+May,Amazon Devices,2020-05,5.0,2.0,2020.0
+Jun,Amazon Devices,,0.0,0.0,2020.0
+Jul,Amazon Devices,,0.0,0.0,2020.0
+Aug,Amazon Devices,,0.0,0.0,2020.0
+Sep,Amazon Devices,,0.0,0.0,2020.0
+Oct,Amazon Devices,,0.0,0.0,2020.0
+Nov,Amazon Devices,,0.0,0.0,2020.0
+Dec,Amazon Devices,,0.0,0.0,2020.0
+Jan,Amazon Devices,,0.0,0.0,2021.0
+Feb,Amazon Devices,2021-02,5.0,1.0,2021.0
+Mar,Amazon Devices,,0.0,0.0,2021.0
+Apr,Amazon Devices,,0.0,0.0,2021.0
+May,Amazon Devices,,0.0,0.0,2021.0
+Jun,Amazon Devices,,0.0,0.0,2021.0
+Jul,Amazon Devices,,0.0,0.0,2021.0
+Aug,Amazon Devices,,0.0,0.0,2021.0
+Sep,Amazon Devices,,0.0,0.0,2021.0
+Oct,Amazon Devices,2021-10,5.0,2.0,2021.0
+Nov,Amazon Devices,,0.0,0.0,2021.0
+Dec,Amazon Devices,,0.0,0.0,2021.0
+Jan,Amazon Devices,,0.0,0.0,2022.0
+Feb,Amazon Devices,,0.0,0.0,2022.0
+Mar,Amazon Devices,,0.0,0.0,2022.0
+Apr,Amazon Devices,,0.0,0.0,2022.0
+May,Amazon Devices,,0.0,0.0,2022.0
+Jun,Amazon Devices,,0.0,0.0,2022.0
+Jul,Amazon Devices,2022-07,5.0,1.0,2022.0
+Aug,Amazon Devices,,0.0,0.0,2022.0
+Sep,Amazon Devices,,0.0,0.0,2022.0
+Oct,Amazon Devices,,0.0,0.0,2022.0
+Nov,Amazon Devices,,0.0,0.0,2022.0
+Dec,Amazon Devices,,0.0,0.0,2022.0
+Jan,Amazon Devices,,0.0,0.0,2023.0
+Feb,Amazon Devices,,0.0,0.0,2023.0
+Mar,Amazon Devices,,0.0,0.0,2023.0
+Apr,Amazon Devices,,0.0,0.0,2023.0
+May,Amazon Devices,,0.0,0.0,2023.0
+Jun,Amazon Devices,,0.0,0.0,2023.0
+Jul,Amazon Devices,,0.0,0.0,2023.0
+Aug,Amazon Devices,,0.0,0.0,2023.0
+Sep,Amazon Devices,,0.0,0.0,2023.0
+Jan,Amazon Home,2020-01,4.144857142857143,235.0,2020.0
+Feb,Amazon Home,2020-02,4.161086956521739,140.0,2020.0
+Mar,Amazon Home,2020-03,4.373913043478261,118.0,2020.0
+Apr,Amazon Home,2020-04,3.794090909090909,120.0,2020.0
+May,Amazon Home,2020-05,4.180681818181818,160.0,2020.0
+Jun,Amazon Home,2020-06,3.54125,142.0,2020.0
+Jul,Amazon Home,2020-07,3.9355555555555553,130.0,2020.0
+Aug,Amazon Home,2020-08,4.064705882352942,159.0,2020.0
+Sep,Amazon Home,2020-09,4.34804347826087,136.0,2020.0
+Oct,Amazon Home,2020-10,4.237592592592593,182.0,2020.0
+Nov,Amazon Home,2020-11,4.1681395348837205,123.0,2020.0
+Dec,Amazon Home,2020-12,4.2024,186.0,2020.0
+Jan,Amazon Home,2021-01,4.121780821917808,207.0,2021.0
+Feb,Amazon Home,2021-02,4.105833333333333,203.0,2021.0
+Mar,Amazon Home,2021-03,3.947105263157895,222.0,2021.0
+Apr,Amazon Home,2021-04,3.909302325581395,227.0,2021.0
+May,Amazon Home,2021-05,3.786911764705882,197.0,2021.0
+Jun,Amazon Home,2021-06,3.869423076923077,169.0,2021.0
+Jul,Amazon Home,2021-07,3.8033846153846156,163.0,2021.0
+Aug,Amazon Home,2021-08,3.897017543859649,162.0,2021.0
+Sep,Amazon Home,2021-09,3.9754,130.0,2021.0
+Oct,Amazon Home,2021-10,4.017384615384615,145.0,2021.0
+Nov,Amazon Home,2021-11,3.976086956521739,120.0,2021.0
+Dec,Amazon Home,2021-12,3.912328767123288,217.0,2021.0
+Jan,Amazon Home,2022-01,4.083974358974359,281.0,2022.0
+Feb,Amazon Home,2022-02,4.110392156862745,188.0,2022.0
+Mar,Amazon Home,2022-03,4.060740740740741,180.0,2022.0
+Apr,Amazon Home,2022-04,3.8211475409836066,159.0,2022.0
+May,Amazon Home,2022-05,3.3448333333333333,129.0,2022.0
+Jun,Amazon Home,2022-06,4.051568627450981,128.0,2022.0
+Jul,Amazon Home,2022-07,3.5683673469387753,118.0,2022.0
+Aug,Amazon Home,2022-08,4.185892857142857,156.0,2022.0
+Sep,Amazon Home,2022-09,4.01516129032258,151.0,2022.0
+Oct,Amazon Home,2022-10,4.083150684931507,182.0,2022.0
+Nov,Amazon Home,2022-11,4.306304347826087,154.0,2022.0
+Dec,Amazon Home,2022-12,4.088873239436619,263.0,2022.0
+Jan,Amazon Home,2023-01,4.0053947368421055,261.0,2023.0
+Feb,Amazon Home,2023-02,4.047462686567164,166.0,2023.0
+Mar,Amazon Home,2023-03,3.8740983606557378,179.0,2023.0
+Apr,Amazon Home,2023-04,3.9282978723404254,106.0,2023.0
+May,Amazon Home,2023-05,4.0575,54.0,2023.0
+Jun,Amazon Home,2023-06,4.196521739130435,50.0,2023.0
+Jul,Amazon Home,2023-07,4.077333333333333,33.0,2023.0
+Aug,Amazon Home,2023-08,3.9000000000000004,20.0,2023.0
+Sep,Amazon Home,2023-09,4.333333333333333,4.0,2023.0
+Jan,Appliances,2020-01,5.0,1.0,2020.0
+Feb,Appliances,,0.0,0.0,2020.0
+Mar,Appliances,2020-03,5.0,1.0,2020.0
+Apr,Appliances,,0.0,0.0,2020.0
+May,Appliances,2020-05,5.0,1.0,2020.0
+Jun,Appliances,,0.0,0.0,2020.0
+Jul,Appliances,,0.0,0.0,2020.0
+Aug,Appliances,,0.0,0.0,2020.0
+Sep,Appliances,2020-09,5.0,1.0,2020.0
+Oct,Appliances,2020-10,5.0,1.0,2020.0
+Nov,Appliances,2020-11,5.0,1.0,2020.0
+Dec,Appliances,2020-12,5.0,1.0,2020.0
+Jan,Appliances,,0.0,0.0,2021.0
+Feb,Appliances,2021-02,5.0,2.0,2021.0
+Mar,Appliances,,0.0,0.0,2021.0
+Apr,Appliances,2021-04,5.0,3.0,2021.0
+May,Appliances,,0.0,0.0,2021.0
+Jun,Appliances,,0.0,0.0,2021.0
+Jul,Appliances,2021-07,2.0,3.0,2021.0
+Aug,Appliances,2021-08,1.0,1.0,2021.0
+Sep,Appliances,,0.0,0.0,2021.0
+Oct,Appliances,2021-10,5.0,4.0,2021.0
+Nov,Appliances,,0.0,0.0,2021.0
+Dec,Appliances,2021-12,5.0,1.0,2021.0
+Jan,Appliances,2022-01,2.0,1.0,2022.0
+Feb,Appliances,2022-02,2.915,5.0,2022.0
+Mar,Appliances,2022-03,5.0,1.0,2022.0
+Apr,Appliances,2022-04,1.5,4.0,2022.0
+May,Appliances,2022-05,3.0,2.0,2022.0
+Jun,Appliances,2022-06,3.83,6.0,2022.0
+Jul,Appliances,2022-07,3.466666666666667,7.0,2022.0
+Aug,Appliances,2022-08,3.365,13.0,2022.0
+Sep,Appliances,,0.0,0.0,2022.0
+Oct,Appliances,2022-10,4.25,3.0,2022.0
+Nov,Appliances,2022-11,3.0833333333333335,7.0,2022.0
+Dec,Appliances,2022-12,3.57,8.0,2022.0
+Jan,Appliances,2023-01,3.563333333333333,18.0,2023.0
+Feb,Appliances,2023-02,3.25,8.0,2023.0
+Mar,Appliances,2023-03,3.5,7.0,2023.0
+Apr,Appliances,2023-04,2.2,5.0,2023.0
+May,Appliances,2023-05,3.67,3.0,2023.0
+Jun,Appliances,2023-06,5.0,1.0,2023.0
+Jul,Appliances,2023-07,2.33,3.0,2023.0
+Aug,Appliances,2023-08,5.0,1.0,2023.0
+Sep,Appliances,2023-09,1.0,1.0,2023.0
+Jan,"Arts, Crafts & Sewing",2020-01,4.75,3.0,2020.0
+Feb,"Arts, Crafts & Sewing",2020-02,5.0,1.0,2020.0
+Mar,"Arts, Crafts & Sewing",2020-03,2.5,4.0,2020.0
+Apr,"Arts, Crafts & Sewing",,0.0,0.0,2020.0
+May,"Arts, Crafts & Sewing",2020-05,4.0,4.0,2020.0
+Jun,"Arts, Crafts & Sewing",2020-06,4.0,4.0,2020.0
+Jul,"Arts, Crafts & Sewing",2020-07,2.8,6.0,2020.0
+Aug,"Arts, Crafts & Sewing",2020-08,4.0,1.0,2020.0
+Sep,"Arts, Crafts & Sewing",2020-09,5.0,1.0,2020.0
+Oct,"Arts, Crafts & Sewing",2020-10,1.0,1.0,2020.0
+Nov,"Arts, Crafts & Sewing",2020-11,4.0,3.0,2020.0
+Dec,"Arts, Crafts & Sewing",,0.0,0.0,2020.0
+Jan,"Arts, Crafts & Sewing",2021-01,2.9,10.0,2021.0
+Feb,"Arts, Crafts & Sewing",2021-02,4.5,2.0,2021.0
+Mar,"Arts, Crafts & Sewing",2021-03,5.0,3.0,2021.0
+Apr,"Arts, Crafts & Sewing",2021-04,3.5566666666666666,5.0,2021.0
+May,"Arts, Crafts & Sewing",2021-05,3.0,7.0,2021.0
+Jun,"Arts, Crafts & Sewing",2021-06,5.0,3.0,2021.0
+Jul,"Arts, Crafts & Sewing",2021-07,5.0,4.0,2021.0
+Aug,"Arts, Crafts & Sewing",2021-08,3.0,2.0,2021.0
+Sep,"Arts, Crafts & Sewing",2021-09,3.2783333333333338,8.0,2021.0
+Oct,"Arts, Crafts & Sewing",2021-10,2.5425,7.0,2021.0
+Nov,"Arts, Crafts & Sewing",2021-11,5.0,6.0,2021.0
+Dec,"Arts, Crafts & Sewing",2021-12,1.125,5.0,2021.0
+Jan,"Arts, Crafts & Sewing",2022-01,3.75,3.0,2022.0
+Feb,"Arts, Crafts & Sewing",2022-02,4.375,6.0,2022.0
+Mar,"Arts, Crafts & Sewing",2022-03,2.75,10.0,2022.0
+Apr,"Arts, Crafts & Sewing",2022-04,4.07,8.0,2022.0
+May,"Arts, Crafts & Sewing",2022-05,3.6666666666666665,3.0,2022.0
+Jun,"Arts, Crafts & Sewing",2022-06,3.5,2.0,2022.0
+Jul,"Arts, Crafts & Sewing",2022-07,5.0,1.0,2022.0
+Aug,"Arts, Crafts & Sewing",2022-08,4.0,5.0,2022.0
+Sep,"Arts, Crafts & Sewing",2022-09,3.75,8.0,2022.0
+Oct,"Arts, Crafts & Sewing",2022-10,2.9575,10.0,2022.0
+Nov,"Arts, Crafts & Sewing",2022-11,3.6666666666666665,4.0,2022.0
+Dec,"Arts, Crafts & Sewing",2022-12,4.75,3.0,2022.0
+Jan,"Arts, Crafts & Sewing",2023-01,3.89,5.0,2023.0
+Feb,"Arts, Crafts & Sewing",2023-02,1.0,1.0,2023.0
+Mar,"Arts, Crafts & Sewing",2023-03,1.0,1.0,2023.0
+Apr,"Arts, Crafts & Sewing",,0.0,0.0,2023.0
+May,"Arts, Crafts & Sewing",2023-05,5.0,1.0,2023.0
+Jun,"Arts, Crafts & Sewing",,0.0,0.0,2023.0
+Jul,"Arts, Crafts & Sewing",2023-07,5.0,1.0,2023.0
+Aug,"Arts, Crafts & Sewing",,0.0,0.0,2023.0
+Sep,"Arts, Crafts & Sewing",,0.0,0.0,2023.0
+Jan,Audible Audiobooks,,0.0,0.0,2020.0
+Feb,Audible Audiobooks,,0.0,0.0,2020.0
+Mar,Audible Audiobooks,,0.0,0.0,2020.0
+Apr,Audible Audiobooks,,0.0,0.0,2020.0
+May,Audible Audiobooks,,0.0,0.0,2020.0
+Jun,Audible Audiobooks,,0.0,0.0,2020.0
+Jul,Audible Audiobooks,,0.0,0.0,2020.0
+Aug,Audible Audiobooks,,0.0,0.0,2020.0
+Sep,Audible Audiobooks,,0.0,0.0,2020.0
+Oct,Audible Audiobooks,,0.0,0.0,2020.0
+Nov,Audible Audiobooks,2020-11,5.0,1.0,2020.0
+Dec,Audible Audiobooks,,0.0,0.0,2020.0
+Jan,Audible Audiobooks,,0.0,0.0,2021.0
+Feb,Audible Audiobooks,,0.0,0.0,2021.0
+Mar,Audible Audiobooks,,0.0,0.0,2021.0
+Apr,Audible Audiobooks,,0.0,0.0,2021.0
+May,Audible Audiobooks,,0.0,0.0,2021.0
+Jun,Audible Audiobooks,,0.0,0.0,2021.0
+Jul,Audible Audiobooks,,0.0,0.0,2021.0
+Aug,Audible Audiobooks,2021-08,5.0,1.0,2021.0
+Sep,Audible Audiobooks,,0.0,0.0,2021.0
+Oct,Audible Audiobooks,,0.0,0.0,2021.0
+Nov,Audible Audiobooks,,0.0,0.0,2021.0
+Dec,Audible Audiobooks,,0.0,0.0,2021.0
+Jan,Audible Audiobooks,,0.0,0.0,2022.0
+Feb,Audible Audiobooks,,0.0,0.0,2022.0
+Mar,Audible Audiobooks,,0.0,0.0,2022.0
+Apr,Audible Audiobooks,,0.0,0.0,2022.0
+May,Audible Audiobooks,,0.0,0.0,2022.0
+Jun,Audible Audiobooks,,0.0,0.0,2022.0
+Jul,Audible Audiobooks,,0.0,0.0,2022.0
+Aug,Audible Audiobooks,,0.0,0.0,2022.0
+Sep,Audible Audiobooks,,0.0,0.0,2022.0
+Oct,Audible Audiobooks,,0.0,0.0,2022.0
+Nov,Audible Audiobooks,,0.0,0.0,2022.0
+Dec,Audible Audiobooks,,0.0,0.0,2022.0
+Jan,Audible Audiobooks,,0.0,0.0,2023.0
+Feb,Audible Audiobooks,,0.0,0.0,2023.0
+Mar,Audible Audiobooks,,0.0,0.0,2023.0
+Apr,Audible Audiobooks,,0.0,0.0,2023.0
+May,Audible Audiobooks,,0.0,0.0,2023.0
+Jun,Audible Audiobooks,,0.0,0.0,2023.0
+Jul,Audible Audiobooks,,0.0,0.0,2023.0
+Aug,Audible Audiobooks,,0.0,0.0,2023.0
+Sep,Audible Audiobooks,,0.0,0.0,2023.0
+Jan,Automotive,2020-01,4.0,5.0,2020.0
+Feb,Automotive,2020-02,4.666666666666667,3.0,2020.0
+Mar,Automotive,2020-03,5.0,1.0,2020.0
+Apr,Automotive,2020-04,5.0,3.0,2020.0
+May,Automotive,2020-05,3.8,6.0,2020.0
+Jun,Automotive,2020-06,4.5,5.0,2020.0
+Jul,Automotive,2020-07,1.0,1.0,2020.0
+Aug,Automotive,2020-08,2.3333333333333335,3.0,2020.0
+Sep,Automotive,2020-09,3.6666666666666665,3.0,2020.0
+Oct,Automotive,2020-10,3.5,6.0,2020.0
+Nov,Automotive,2020-11,3.5,4.0,2020.0
+Dec,Automotive,2020-12,4.1,6.0,2020.0
+Jan,Automotive,2021-01,4.0,3.0,2021.0
+Feb,Automotive,2021-02,3.3333333333333335,9.0,2021.0
+Mar,Automotive,2021-03,3.857142857142857,8.0,2021.0
+Apr,Automotive,2021-04,3.8333333333333335,7.0,2021.0
+May,Automotive,2021-05,3.8,6.0,2021.0
+Jun,Automotive,2021-06,4.0,5.0,2021.0
+Jul,Automotive,2021-07,3.0,4.0,2021.0
+Aug,Automotive,2021-08,3.8,5.0,2021.0
+Sep,Automotive,2021-09,1.0,1.0,2021.0
+Oct,Automotive,2021-10,4.0,1.0,2021.0
+Nov,Automotive,2021-11,3.6666666666666665,4.0,2021.0
+Dec,Automotive,2021-12,2.6666666666666665,3.0,2021.0
+Jan,Automotive,2022-01,3.5566666666666666,5.0,2022.0
+Feb,Automotive,2022-02,4.666666666666667,4.0,2022.0
+Mar,Automotive,2022-03,3.0,4.0,2022.0
+Apr,Automotive,2022-04,5.0,3.0,2022.0
+May,Automotive,2022-05,3.5,3.0,2022.0
+Jun,Automotive,2022-06,4.333333333333333,3.0,2022.0
+Jul,Automotive,2022-07,2.0,1.0,2022.0
+Aug,Automotive,2022-08,2.875,5.0,2022.0
+Sep,Automotive,2022-09,5.0,1.0,2022.0
+Oct,Automotive,2022-10,2.0,2.0,2022.0
+Nov,Automotive,2022-11,4.0,5.0,2022.0
+Dec,Automotive,2022-12,4.285714285714286,8.0,2022.0
+Jan,Automotive,2023-01,4.333333333333333,5.0,2023.0
+Feb,Automotive,2023-02,4.333333333333333,3.0,2023.0
+Mar,Automotive,2023-03,3.0,6.0,2023.0
+Apr,Automotive,2023-04,4.0,4.0,2023.0
+May,Automotive,2023-05,3.5,4.0,2023.0
+Jun,Automotive,2023-06,3.0,1.0,2023.0
+Jul,Automotive,2023-07,5.0,1.0,2023.0
+Aug,Automotive,,0.0,0.0,2023.0
+Sep,Automotive,,0.0,0.0,2023.0
+Jan,Baby,2020-01,4.5,2.0,2020.0
+Feb,Baby,2020-02,4.666666666666667,4.0,2020.0
+Mar,Baby,2020-03,5.0,2.0,2020.0
+Apr,Baby,2020-04,5.0,3.0,2020.0
+May,Baby,2020-05,4.625,9.0,2020.0
+Jun,Baby,2020-06,5.0,4.0,2020.0
+Jul,Baby,2020-07,4.2,5.0,2020.0
+Aug,Baby,2020-08,4.666666666666667,7.0,2020.0
+Sep,Baby,,0.0,0.0,2020.0
+Oct,Baby,2020-10,4.57,13.0,2020.0
+Nov,Baby,2020-11,4.335,5.0,2020.0
+Dec,Baby,2020-12,5.0,3.0,2020.0
+Jan,Baby,2021-01,4.5,6.0,2021.0
+Feb,Baby,2021-02,2.6666666666666665,3.0,2021.0
+Mar,Baby,2021-03,4.333333333333333,5.0,2021.0
+Apr,Baby,2021-04,3.0,3.0,2021.0
+May,Baby,2021-05,4.3,11.0,2021.0
+Jun,Baby,2021-06,4.11,5.0,2021.0
+Jul,Baby,2021-07,3.0825,7.0,2021.0
+Aug,Baby,2021-08,3.0,3.0,2021.0
+Sep,Baby,2021-09,3.0,2.0,2021.0
+Oct,Baby,2021-10,1.0,1.0,2021.0
+Nov,Baby,2021-11,5.0,1.0,2021.0
+Dec,Baby,2021-12,4.0,6.0,2021.0
+Jan,Baby,2022-01,5.0,3.0,2022.0
+Feb,Baby,2022-02,1.0,1.0,2022.0
+Mar,Baby,2022-03,3.0,5.0,2022.0
+Apr,Baby,2022-04,4.2,7.0,2022.0
+May,Baby,,0.0,0.0,2022.0
+Jun,Baby,,0.0,0.0,2022.0
+Jul,Baby,2022-07,2.3333333333333335,3.0,2022.0
+Aug,Baby,,0.0,0.0,2022.0
+Sep,Baby,,0.0,0.0,2022.0
+Oct,Baby,2022-10,1.0,1.0,2022.0
+Nov,Baby,,0.0,0.0,2022.0
+Dec,Baby,2022-12,4.0,1.0,2022.0
+Jan,Baby,2023-01,5.0,1.0,2023.0
+Feb,Baby,2023-02,1.0,1.0,2023.0
+Mar,Baby,2023-03,3.0,1.0,2023.0
+Apr,Baby,,0.0,0.0,2023.0
+May,Baby,,0.0,0.0,2023.0
+Jun,Baby,,0.0,0.0,2023.0
+Jul,Baby,,0.0,0.0,2023.0
+Aug,Baby,,0.0,0.0,2023.0
+Sep,Baby,,0.0,0.0,2023.0
+Jan,Books,2020-01,4.542380952380952,55.0,2020.0
+Feb,Books,2020-02,4.7,23.0,2020.0
+Mar,Books,2020-03,4.961538461538462,18.0,2020.0
+Apr,Books,2020-04,4.65,16.0,2020.0
+May,Books,2020-05,4.786363636363636,25.0,2020.0
+Jun,Books,2020-06,4.590999999999999,22.0,2020.0
+Jul,Books,2020-07,3.8891666666666667,26.0,2020.0
+Aug,Books,2020-08,4.2,17.0,2020.0
+Sep,Books,2020-09,4.7272727272727275,18.0,2020.0
+Oct,Books,2020-10,4.083333333333333,23.0,2020.0
+Nov,Books,2020-11,4.55,21.0,2020.0
+Dec,Books,2020-12,4.714285714285714,18.0,2020.0
+Jan,Books,2021-01,4.9591666666666665,27.0,2021.0
+Feb,Books,2021-02,3.799090909090909,20.0,2021.0
+Mar,Books,2021-03,4.857142857142857,17.0,2021.0
+Apr,Books,2021-04,4.875714285714286,17.0,2021.0
+May,Books,2021-05,4.2225,17.0,2021.0
+Jun,Books,2021-06,3.6875,14.0,2021.0
+Jul,Books,2021-07,4.988888888888889,24.0,2021.0
+Aug,Books,2021-08,4.444444444444445,12.0,2021.0
+Sep,Books,2021-09,4.5,16.0,2021.0
+Oct,Books,2021-10,4.666666666666667,14.0,2021.0
+Nov,Books,2021-11,4.636363636363637,14.0,2021.0
+Dec,Books,2021-12,4.2727272727272725,16.0,2021.0
+Jan,Books,2022-01,4.4366666666666665,30.0,2022.0
+Feb,Books,2022-02,4.890909090909091,16.0,2022.0
+Mar,Books,2022-03,4.428571428571429,8.0,2022.0
+Apr,Books,2022-04,4.5,12.0,2022.0
+May,Books,2022-05,4.422222222222222,18.0,2022.0
+Jun,Books,2022-06,4.7,9.0,2022.0
+Jul,Books,2022-07,4.428571428571429,13.0,2022.0
+Aug,Books,2022-08,4.717692307692308,20.0,2022.0
+Sep,Books,2022-09,4.77125,17.0,2022.0
+Oct,Books,2022-10,4.89625,13.0,2022.0
+Nov,Books,2022-11,4.8100000000000005,10.0,2022.0
+Dec,Books,2022-12,4.667142857142857,10.0,2022.0
+Jan,Books,2023-01,4.888888888888889,13.0,2023.0
+Feb,Books,2023-02,4.944444444444445,18.0,2023.0
+Mar,Books,2023-03,3.7777777777777777,12.0,2023.0
+Apr,Books,2023-04,4.333333333333333,10.0,2023.0
+May,Books,2023-05,4.4,5.0,2023.0
+Jun,Books,2023-06,4.6,5.0,2023.0
+Jul,Books,2023-07,5.0,5.0,2023.0
+Aug,Books,2023-08,5.0,4.0,2023.0
+Sep,Books,,0.0,0.0,2023.0
+Jan,Buy a Kindle,2020-01,4.454545454545454,13.0,2020.0
+Feb,Buy a Kindle,2020-02,4.625,12.0,2020.0
+Mar,Buy a Kindle,2020-03,4.584615384615384,24.0,2020.0
+Apr,Buy a Kindle,2020-04,4.292,58.0,2020.0
+May,Buy a Kindle,2020-05,4.4766666666666675,68.0,2020.0
+Jun,Buy a Kindle,2020-06,4.707857142857143,41.0,2020.0
+Jul,Buy a Kindle,2020-07,4.351111111111111,23.0,2020.0
+Aug,Buy a Kindle,2020-08,4.61,17.0,2020.0
+Sep,Buy a Kindle,2020-09,4.875,11.0,2020.0
+Oct,Buy a Kindle,2020-10,4.352222222222222,13.0,2020.0
+Nov,Buy a Kindle,2020-11,4.639166666666667,18.0,2020.0
+Dec,Buy a Kindle,2020-12,4.153846153846154,13.0,2020.0
+Jan,Buy a Kindle,2021-01,4.6775,15.0,2021.0
+Feb,Buy a Kindle,2021-02,3.875,13.0,2021.0
+Mar,Buy a Kindle,2021-03,4.333333333333333,10.0,2021.0
+Apr,Buy a Kindle,2021-04,4.267,16.0,2021.0
+May,Buy a Kindle,2021-05,4.267,12.0,2021.0
+Jun,Buy a Kindle,2021-06,4.0,8.0,2021.0
+Jul,Buy a Kindle,2021-07,4.5,4.0,2021.0
+Aug,Buy a Kindle,2021-08,4.5625,9.0,2021.0
+Sep,Buy a Kindle,2021-09,4.5,7.0,2021.0
+Oct,Buy a Kindle,2021-10,4.222222222222222,11.0,2021.0
+Nov,Buy a Kindle,2021-11,3.25,4.0,2021.0
+Dec,Buy a Kindle,2021-12,4.090909090909091,13.0,2021.0
+Jan,Buy a Kindle,2022-01,4.875,8.0,2022.0
+Feb,Buy a Kindle,2022-02,4.970000000000001,19.0,2022.0
+Mar,Buy a Kindle,2022-03,4.3125,10.0,2022.0
+Apr,Buy a Kindle,2022-04,4.666666666666667,7.0,2022.0
+May,Buy a Kindle,2022-05,4.75,8.0,2022.0
+Jun,Buy a Kindle,2022-06,4.857142857142857,9.0,2022.0
+Jul,Buy a Kindle,2022-07,5.0,2.0,2022.0
+Aug,Buy a Kindle,2022-08,4.166666666666667,6.0,2022.0
+Sep,Buy a Kindle,2022-09,4.25,9.0,2022.0
+Oct,Buy a Kindle,2022-10,4.714285714285714,10.0,2022.0
+Nov,Buy a Kindle,2022-11,4.5,6.0,2022.0
+Dec,Buy a Kindle,2022-12,3.5625,10.0,2022.0
+Jan,Buy a Kindle,2023-01,4.333333333333333,11.0,2023.0
+Feb,Buy a Kindle,2023-02,4.333333333333333,3.0,2023.0
+Mar,Buy a Kindle,2023-03,1.5,2.0,2023.0
+Apr,Buy a Kindle,2023-04,4.666666666666667,6.0,2023.0
+May,Buy a Kindle,2023-05,5.0,1.0,2023.0
+Jun,Buy a Kindle,2023-06,5.0,1.0,2023.0
+Jul,Buy a Kindle,2023-07,5.0,1.0,2023.0
+Aug,Buy a Kindle,2023-08,4.0,1.0,2023.0
+Sep,Buy a Kindle,,0.0,0.0,2023.0
+Jan,Camera & Photo,2020-01,4.359230769230769,23.0,2020.0
+Feb,Camera & Photo,2020-02,3.844666666666667,22.0,2020.0
+Mar,Camera & Photo,2020-03,4.0,17.0,2020.0
+Apr,Camera & Photo,2020-04,4.090909090909091,17.0,2020.0
+May,Camera & Photo,2020-05,4.282857142857143,36.0,2020.0
+Jun,Camera & Photo,2020-06,4.29,27.0,2020.0
+Jul,Camera & Photo,2020-07,4.162777777777778,34.0,2020.0
+Aug,Camera & Photo,2020-08,4.01625,26.0,2020.0
+Sep,Camera & Photo,2020-09,3.95,18.0,2020.0
+Oct,Camera & Photo,2020-10,3.9850000000000003,23.0,2020.0
+Nov,Camera & Photo,2020-11,4.076923076923077,25.0,2020.0
+Dec,Camera & Photo,2020-12,4.5344444444444445,35.0,2020.0
+Jan,Camera & Photo,2021-01,4.168125,50.0,2021.0
+Feb,Camera & Photo,2021-02,4.223571428571429,29.0,2021.0
+Mar,Camera & Photo,2021-03,4.304615384615385,55.0,2021.0
+Apr,Camera & Photo,2021-04,3.9235714285714285,38.0,2021.0
+May,Camera & Photo,2021-05,4.2821428571428575,34.0,2021.0
+Jun,Camera & Photo,2021-06,3.7118181818181815,27.0,2021.0
+Jul,Camera & Photo,2021-07,4.5858823529411765,35.0,2021.0
+Aug,Camera & Photo,2021-08,4.5576923076923075,23.0,2021.0
+Sep,Camera & Photo,2021-09,3.9792307692307696,29.0,2021.0
+Oct,Camera & Photo,2021-10,3.9375,16.0,2021.0
+Nov,Camera & Photo,2021-11,4.035714285714286,12.0,2021.0
+Dec,Camera & Photo,2021-12,3.928888888888889,19.0,2021.0
+Jan,Camera & Photo,2022-01,4.333076923076923,19.0,2022.0
+Feb,Camera & Photo,2022-02,3.8333333333333335,21.0,2022.0
+Mar,Camera & Photo,2022-03,4.277777777777778,11.0,2022.0
+Apr,Camera & Photo,2022-04,3.939090909090909,23.0,2022.0
+May,Camera & Photo,2022-05,4.25,13.0,2022.0
+Jun,Camera & Photo,2022-06,3.625,16.0,2022.0
+Jul,Camera & Photo,2022-07,4.5,12.0,2022.0
+Aug,Camera & Photo,2022-08,4.061428571428571,21.0,2022.0
+Sep,Camera & Photo,2022-09,3.783,30.0,2022.0
+Oct,Camera & Photo,2022-10,4.27625,31.0,2022.0
+Nov,Camera & Photo,2022-11,3.8106666666666666,31.0,2022.0
+Dec,Camera & Photo,2022-12,3.9777777777777774,23.0,2022.0
+Jan,Camera & Photo,2023-01,4.14,57.0,2023.0
+Feb,Camera & Photo,2023-02,3.95,36.0,2023.0
+Mar,Camera & Photo,2023-03,4.224,52.0,2023.0
+Apr,Camera & Photo,2023-04,3.8400000000000003,75.0,2023.0
+May,Camera & Photo,2023-05,3.5141666666666667,19.0,2023.0
+Jun,Camera & Photo,2023-06,3.9757142857142855,16.0,2023.0
+Jul,Camera & Photo,2023-07,3.4285714285714284,11.0,2023.0
+Aug,Camera & Photo,2023-08,4.0,3.0,2023.0
+Sep,Camera & Photo,,0.0,0.0,2023.0
+Jan,Car Electronics,2020-01,5.0,3.0,2020.0
+Feb,Car Electronics,2020-02,5.0,3.0,2020.0
+Mar,Car Electronics,2020-03,5.0,2.0,2020.0
+Apr,Car Electronics,2020-04,3.5,2.0,2020.0
+May,Car Electronics,2020-05,5.0,3.0,2020.0
+Jun,Car Electronics,2020-06,2.0,2.0,2020.0
+Jul,Car Electronics,,0.0,0.0,2020.0
+Aug,Car Electronics,2020-08,5.0,1.0,2020.0
+Sep,Car Electronics,2020-09,5.0,2.0,2020.0
+Oct,Car Electronics,,0.0,0.0,2020.0
+Nov,Car Electronics,2020-11,1.0,1.0,2020.0
+Dec,Car Electronics,2020-12,3.0,2.0,2020.0
+Jan,Car Electronics,2021-01,2.0,2.0,2021.0
+Feb,Car Electronics,2021-02,4.0,2.0,2021.0
+Mar,Car Electronics,2021-03,4.0,2.0,2021.0
+Apr,Car Electronics,,0.0,0.0,2021.0
+May,Car Electronics,2021-05,5.0,1.0,2021.0
+Jun,Car Electronics,2021-06,3.0,1.0,2021.0
+Jul,Car Electronics,,0.0,0.0,2021.0
+Aug,Car Electronics,,0.0,0.0,2021.0
+Sep,Car Electronics,,0.0,0.0,2021.0
+Oct,Car Electronics,,0.0,0.0,2021.0
+Nov,Car Electronics,,0.0,0.0,2021.0
+Dec,Car Electronics,,0.0,0.0,2021.0
+Jan,Car Electronics,,0.0,0.0,2022.0
+Feb,Car Electronics,2022-02,5.0,2.0,2022.0
+Mar,Car Electronics,,0.0,0.0,2022.0
+Apr,Car Electronics,,0.0,0.0,2022.0
+May,Car Electronics,2022-05,2.5,2.0,2022.0
+Jun,Car Electronics,2022-06,1.0,1.0,2022.0
+Jul,Car Electronics,2022-07,1.0,1.0,2022.0
+Aug,Car Electronics,2022-08,2.0,2.0,2022.0
+Sep,Car Electronics,2022-09,2.33,3.0,2022.0
+Oct,Car Electronics,2022-10,4.33,3.0,2022.0
+Nov,Car Electronics,,0.0,0.0,2022.0
+Dec,Car Electronics,,0.0,0.0,2022.0
+Jan,Car Electronics,2023-01,5.0,2.0,2023.0
+Feb,Car Electronics,2023-02,5.0,1.0,2023.0
+Mar,Car Electronics,,0.0,0.0,2023.0
+Apr,Car Electronics,2023-04,3.67,3.0,2023.0
+May,Car Electronics,2023-05,4.0,1.0,2023.0
+Jun,Car Electronics,2023-06,4.0,1.0,2023.0
+Jul,Car Electronics,,0.0,0.0,2023.0
+Aug,Car Electronics,,0.0,0.0,2023.0
+Sep,Car Electronics,,0.0,0.0,2023.0
+Jan,Cell Phones & Accessories,2020-01,4.3023652694610774,2128.0,2020.0
+Feb,Cell Phones & Accessories,2020-02,4.205116279069768,1701.0,2020.0
+Mar,Cell Phones & Accessories,2020-03,4.162698412698413,1170.0,2020.0
+Apr,Cell Phones & Accessories,2020-04,4.108177570093458,1037.0,2020.0
+May,Cell Phones & Accessories,2020-05,4.067218543046358,1500.0,2020.0
+Jun,Cell Phones & Accessories,2020-06,4.091851851851851,1363.0,2020.0
+Jul,Cell Phones & Accessories,2020-07,4.167344827586207,1465.0,2020.0
+Aug,Cell Phones & Accessories,2020-08,4.11100358422939,1398.0,2020.0
+Sep,Cell Phones & Accessories,2020-09,4.253162055335968,1403.0,2020.0
+Oct,Cell Phones & Accessories,2020-10,4.199922480620155,1600.0,2020.0
+Nov,Cell Phones & Accessories,2020-11,4.105303643724696,1140.0,2020.0
+Dec,Cell Phones & Accessories,2020-12,4.1158271604938275,2074.0,2020.0
+Jan,Cell Phones & Accessories,2021-01,4.133490990990991,2582.0,2021.0
+Feb,Cell Phones & Accessories,2021-02,4.077983651226158,1900.0,2021.0
+Mar,Cell Phones & Accessories,2021-03,4.01982062780269,2640.0,2021.0
+Apr,Cell Phones & Accessories,2021-04,4.050724299065421,2283.0,2021.0
+May,Cell Phones & Accessories,2021-05,4.024102564102565,1655.0,2021.0
+Jun,Cell Phones & Accessories,2021-06,4.0391494845360825,1603.0,2021.0
+Jul,Cell Phones & Accessories,2021-07,3.9689893617021275,1419.0,2021.0
+Aug,Cell Phones & Accessories,2021-08,4.052380952380952,1137.0,2021.0
+Sep,Cell Phones & Accessories,2021-09,3.948145695364238,948.0,2021.0
+Oct,Cell Phones & Accessories,2021-10,3.844888178913738,1163.0,2021.0
+Nov,Cell Phones & Accessories,2021-11,3.914579124579125,986.0,2021.0
+Dec,Cell Phones & Accessories,2021-12,3.874166666666667,1562.0,2021.0
+Jan,Cell Phones & Accessories,2022-01,3.772532467532468,2027.0,2022.0
+Feb,Cell Phones & Accessories,2022-02,3.9375141242937857,1386.0,2022.0
+Mar,Cell Phones & Accessories,2022-03,3.9246323529411766,1528.0,2022.0
+Apr,Cell Phones & Accessories,2022-04,3.899873737373737,1401.0,2022.0
+May,Cell Phones & Accessories,2022-05,4.033611859838275,1217.0,2022.0
+Jun,Cell Phones & Accessories,2022-06,3.9487988826815643,1163.0,2022.0
+Jul,Cell Phones & Accessories,2022-07,3.9486318407960197,1290.0,2022.0
+Aug,Cell Phones & Accessories,2022-08,3.9824489795918367,1403.0,2022.0
+Sep,Cell Phones & Accessories,2022-09,3.9621969696969694,1391.0,2022.0
+Oct,Cell Phones & Accessories,2022-10,4.142733333333333,1571.0,2022.0
+Nov,Cell Phones & Accessories,2022-11,3.9323853211009174,1594.0,2022.0
+Dec,Cell Phones & Accessories,2022-12,4.023464419475656,2026.0,2022.0
+Jan,Cell Phones & Accessories,2023-01,4.001138613861386,2457.0,2023.0
+Feb,Cell Phones & Accessories,2023-02,4.030362473347548,1439.0,2023.0
+Mar,Cell Phones & Accessories,2023-03,3.9602868068833654,1795.0,2023.0
+Apr,Cell Phones & Accessories,2023-04,3.9793963254593177,1007.0,2023.0
+May,Cell Phones & Accessories,2023-05,4.120718954248366,678.0,2023.0
+Jun,Cell Phones & Accessories,2023-06,4.150776699029126,414.0,2023.0
+Jul,Cell Phones & Accessories,2023-07,4.2291803278688525,332.0,2023.0
+Aug,Cell Phones & Accessories,2023-08,4.230827067669173,222.0,2023.0
+Sep,Cell Phones & Accessories,2023-09,3.75,12.0,2023.0
+Jan,Collectible Coins,,0.0,0.0,2020.0
+Feb,Collectible Coins,,0.0,0.0,2020.0
+Mar,Collectible Coins,,0.0,0.0,2020.0
+Apr,Collectible Coins,,0.0,0.0,2020.0
+May,Collectible Coins,,0.0,0.0,2020.0
+Jun,Collectible Coins,,0.0,0.0,2020.0
+Jul,Collectible Coins,,0.0,0.0,2020.0
+Aug,Collectible Coins,,0.0,0.0,2020.0
+Sep,Collectible Coins,,0.0,0.0,2020.0
+Oct,Collectible Coins,,0.0,0.0,2020.0
+Nov,Collectible Coins,,0.0,0.0,2020.0
+Dec,Collectible Coins,,0.0,0.0,2020.0
+Jan,Collectible Coins,,0.0,0.0,2021.0
+Feb,Collectible Coins,,0.0,0.0,2021.0
+Mar,Collectible Coins,,0.0,0.0,2021.0
+Apr,Collectible Coins,,0.0,0.0,2021.0
+May,Collectible Coins,2021-05,5.0,1.0,2021.0
+Jun,Collectible Coins,,0.0,0.0,2021.0
+Jul,Collectible Coins,,0.0,0.0,2021.0
+Aug,Collectible Coins,,0.0,0.0,2021.0
+Sep,Collectible Coins,,0.0,0.0,2021.0
+Oct,Collectible Coins,,0.0,0.0,2021.0
+Nov,Collectible Coins,,0.0,0.0,2021.0
+Dec,Collectible Coins,,0.0,0.0,2021.0
+Jan,Collectible Coins,,0.0,0.0,2022.0
+Feb,Collectible Coins,,0.0,0.0,2022.0
+Mar,Collectible Coins,,0.0,0.0,2022.0
+Apr,Collectible Coins,,0.0,0.0,2022.0
+May,Collectible Coins,,0.0,0.0,2022.0
+Jun,Collectible Coins,,0.0,0.0,2022.0
+Jul,Collectible Coins,,0.0,0.0,2022.0
+Aug,Collectible Coins,,0.0,0.0,2022.0
+Sep,Collectible Coins,,0.0,0.0,2022.0
+Oct,Collectible Coins,,0.0,0.0,2022.0
+Nov,Collectible Coins,,0.0,0.0,2022.0
+Dec,Collectible Coins,,0.0,0.0,2022.0
+Jan,Collectible Coins,,0.0,0.0,2023.0
+Feb,Collectible Coins,,0.0,0.0,2023.0
+Mar,Collectible Coins,,0.0,0.0,2023.0
+Apr,Collectible Coins,,0.0,0.0,2023.0
+May,Collectible Coins,,0.0,0.0,2023.0
+Jun,Collectible Coins,,0.0,0.0,2023.0
+Jul,Collectible Coins,,0.0,0.0,2023.0
+Aug,Collectible Coins,,0.0,0.0,2023.0
+Sep,Collectible Coins,,0.0,0.0,2023.0
+Jan,Computers,2020-01,4.024996271439225,16483.0,2020.0
+Feb,Computers,2020-02,3.9963471074380164,12777.0,2020.0
+Mar,Computers,2020-03,3.8745367412140577,10370.0,2020.0
+Apr,Computers,2020-04,3.7291232014388487,10407.0,2020.0
+May,Computers,2020-05,3.788245192307692,13226.0,2020.0
+Jun,Computers,2020-06,3.754243208279431,11974.0,2020.0
+Jul,Computers,2020-07,3.850955730244104,12518.0,2020.0
+Aug,Computers,2020-08,3.872131423757372,11809.0,2020.0
+Sep,Computers,2020-09,3.8635493965131875,11850.0,2020.0
+Oct,Computers,2020-10,3.8253566851772747,12763.0,2020.0
+Nov,Computers,2020-11,3.864685968819599,11126.0,2020.0
+Dec,Computers,2020-12,3.9000960430272764,14873.0,2020.0
+Jan,Computers,2021-01,3.909956169925826,17496.0,2021.0
+Feb,Computers,2021-02,3.8918562657999276,14288.0,2021.0
+Mar,Computers,2021-03,3.916014988595634,17650.0,2021.0
+Apr,Computers,2021-04,3.926260899895361,15172.0,2021.0
+May,Computers,2021-05,3.84312881097561,12226.0,2021.0
+Jun,Computers,2021-06,3.86154912836767,11708.0,2021.0
+Jul,Computers,2021-07,3.8338670338316287,11761.0,2021.0
+Aug,Computers,2021-08,3.8143850042123,10261.0,2021.0
+Sep,Computers,2021-09,3.8070923288929723,8452.0,2021.0
+Oct,Computers,2021-10,3.7718360655737704,7857.0,2021.0
+Nov,Computers,2021-11,3.766153091265947,7627.0,2021.0
+Dec,Computers,2021-12,3.8368465788355293,9491.0,2021.0
+Jan,Computers,2022-01,3.843965718737826,11539.0,2022.0
+Feb,Computers,2022-02,3.7074233409610984,8389.0,2022.0
+Mar,Computers,2022-03,3.837224594363792,9150.0,2022.0
+Apr,Computers,2022-04,3.8428511821974967,8196.0,2022.0
+May,Computers,2022-05,3.8308011869436203,7517.0,2022.0
+Jun,Computers,2022-06,3.8174749498998,7080.0,2022.0
+Jul,Computers,2022-07,3.81185150812065,8495.0,2022.0
+Aug,Computers,2022-08,3.8415489249670904,9203.0,2022.0
+Sep,Computers,2022-09,3.8103943145346166,8249.0,2022.0
+Oct,Computers,2022-10,3.8384905660377364,8399.0,2022.0
+Nov,Computers,2022-11,3.8898185202419726,8233.0,2022.0
+Dec,Computers,2022-12,3.878277328796257,9490.0,2022.0
+Jan,Computers,2023-01,3.9296576923076927,10885.0,2023.0
+Feb,Computers,2023-02,3.8834317343173437,8330.0,2023.0
+Mar,Computers,2023-03,3.9009429175475687,9347.0,2023.0
+Apr,Computers,2023-04,3.8715380549682874,5999.0,2023.0
+May,Computers,2023-05,3.885769230769231,3452.0,2023.0
+Jun,Computers,2023-06,3.8322157996146435,2259.0,2023.0
+Jul,Computers,2023-07,3.925580912863071,2048.0,2023.0
+Aug,Computers,2023-08,3.954249291784702,1315.0,2023.0
+Sep,Computers,2023-09,4.246666666666667,80.0,2023.0
+Jan,Digital Music,2020-01,5.0,5.0,2020.0
+Feb,Digital Music,2020-02,4.4,7.0,2020.0
+Mar,Digital Music,2020-03,4.5,4.0,2020.0
+Apr,Digital Music,2020-04,3.0,2.0,2020.0
+May,Digital Music,2020-05,5.0,7.0,2020.0
+Jun,Digital Music,2020-06,4.571428571428571,7.0,2020.0
+Jul,Digital Music,2020-07,4.556666666666667,5.0,2020.0
+Aug,Digital Music,2020-08,4.0,6.0,2020.0
+Sep,Digital Music,,0.0,0.0,2020.0
+Oct,Digital Music,2020-10,5.0,3.0,2020.0
+Nov,Digital Music,2020-11,5.0,5.0,2020.0
+Dec,Digital Music,2020-12,5.0,3.0,2020.0
+Jan,Digital Music,2021-01,5.0,3.0,2021.0
+Feb,Digital Music,2021-02,5.0,5.0,2021.0
+Mar,Digital Music,2021-03,4.2,5.0,2021.0
+Apr,Digital Music,2021-04,4.0,4.0,2021.0
+May,Digital Music,2021-05,3.25,4.0,2021.0
+Jun,Digital Music,2021-06,5.0,5.0,2021.0
+Jul,Digital Music,2021-07,4.4175,6.0,2021.0
+Aug,Digital Music,2021-08,4.166666666666667,9.0,2021.0
+Sep,Digital Music,2021-09,4.666666666666667,4.0,2021.0
+Oct,Digital Music,2021-10,3.75,6.0,2021.0
+Nov,Digital Music,2021-11,3.5714285714285716,8.0,2021.0
+Dec,Digital Music,2021-12,5.0,4.0,2021.0
+Jan,Digital Music,2022-01,4.934,8.0,2022.0
+Feb,Digital Music,2022-02,2.8,10.0,2022.0
+Mar,Digital Music,2022-03,5.0,3.0,2022.0
+Apr,Digital Music,2022-04,5.0,3.0,2022.0
+May,Digital Music,2022-05,5.0,2.0,2022.0
+Jun,Digital Music,2022-06,5.0,2.0,2022.0
+Jul,Digital Music,2022-07,3.5,2.0,2022.0
+Aug,Digital Music,2022-08,5.0,3.0,2022.0
+Sep,Digital Music,2022-09,5.0,5.0,2022.0
+Oct,Digital Music,2022-10,4.75,4.0,2022.0
+Nov,Digital Music,2022-11,4.33,3.0,2022.0
+Dec,Digital Music,2022-12,5.0,2.0,2022.0
+Jan,Digital Music,2023-01,5.0,4.0,2023.0
+Feb,Digital Music,2023-02,5.0,3.0,2023.0
+Mar,Digital Music,2023-03,4.714285714285714,7.0,2023.0
+Apr,Digital Music,,0.0,0.0,2023.0
+May,Digital Music,2023-05,1.0,1.0,2023.0
+Jun,Digital Music,,0.0,0.0,2023.0
+Jul,Digital Music,,0.0,0.0,2023.0
+Aug,Digital Music,,0.0,0.0,2023.0
+Sep,Digital Music,,0.0,0.0,2023.0
+Jan,GPS & Navigation,2020-01,3.8,5.0,2020.0
+Feb,GPS & Navigation,2020-02,2.0,1.0,2020.0
+Mar,GPS & Navigation,,0.0,0.0,2020.0
+Apr,GPS & Navigation,2020-04,5.0,1.0,2020.0
+May,GPS & Navigation,2020-05,5.0,1.0,2020.0
+Jun,GPS & Navigation,2020-06,5.0,1.0,2020.0
+Jul,GPS & Navigation,2020-07,5.0,2.0,2020.0
+Aug,GPS & Navigation,2020-08,5.0,1.0,2020.0
+Sep,GPS & Navigation,,0.0,0.0,2020.0
+Oct,GPS & Navigation,2020-10,5.0,1.0,2020.0
+Nov,GPS & Navigation,,0.0,0.0,2020.0
+Dec,GPS & Navigation,2020-12,5.0,1.0,2020.0
+Jan,GPS & Navigation,2021-01,4.9,6.0,2021.0
+Feb,GPS & Navigation,2021-02,4.6,5.0,2021.0
+Mar,GPS & Navigation,2021-03,5.0,3.0,2021.0
+Apr,GPS & Navigation,2021-04,5.0,1.0,2021.0
+May,GPS & Navigation,,0.0,0.0,2021.0
+Jun,GPS & Navigation,,0.0,0.0,2021.0
+Jul,GPS & Navigation,,0.0,0.0,2021.0
+Aug,GPS & Navigation,,0.0,0.0,2021.0
+Sep,GPS & Navigation,,0.0,0.0,2021.0
+Oct,GPS & Navigation,,0.0,0.0,2021.0
+Nov,GPS & Navigation,,0.0,0.0,2021.0
+Dec,GPS & Navigation,,0.0,0.0,2021.0
+Jan,GPS & Navigation,,0.0,0.0,2022.0
+Feb,GPS & Navigation,,0.0,0.0,2022.0
+Mar,GPS & Navigation,,0.0,0.0,2022.0
+Apr,GPS & Navigation,,0.0,0.0,2022.0
+May,GPS & Navigation,,0.0,0.0,2022.0
+Jun,GPS & Navigation,,0.0,0.0,2022.0
+Jul,GPS & Navigation,,0.0,0.0,2022.0
+Aug,GPS & Navigation,,0.0,0.0,2022.0
+Sep,GPS & Navigation,,0.0,0.0,2022.0
+Oct,GPS & Navigation,,0.0,0.0,2022.0
+Nov,GPS & Navigation,,0.0,0.0,2022.0
+Dec,GPS & Navigation,,0.0,0.0,2022.0
+Jan,GPS & Navigation,,0.0,0.0,2023.0
+Feb,GPS & Navigation,,0.0,0.0,2023.0
+Mar,GPS & Navigation,,0.0,0.0,2023.0
+Apr,GPS & Navigation,,0.0,0.0,2023.0
+May,GPS & Navigation,,0.0,0.0,2023.0
+Jun,GPS & Navigation,,0.0,0.0,2023.0
+Jul,GPS & Navigation,,0.0,0.0,2023.0
+Aug,GPS & Navigation,,0.0,0.0,2023.0
+Sep,GPS & Navigation,,0.0,0.0,2023.0
+Jan,Gift Cards,,0.0,0.0,2020.0
+Feb,Gift Cards,,0.0,0.0,2020.0
+Mar,Gift Cards,,0.0,0.0,2020.0
+Apr,Gift Cards,,0.0,0.0,2020.0
+May,Gift Cards,,0.0,0.0,2020.0
+Jun,Gift Cards,,0.0,0.0,2020.0
+Jul,Gift Cards,,0.0,0.0,2020.0
+Aug,Gift Cards,,0.0,0.0,2020.0
+Sep,Gift Cards,,0.0,0.0,2020.0
+Oct,Gift Cards,,0.0,0.0,2020.0
+Nov,Gift Cards,,0.0,0.0,2020.0
+Dec,Gift Cards,,0.0,0.0,2020.0
+Jan,Gift Cards,,0.0,0.0,2021.0
+Feb,Gift Cards,,0.0,0.0,2021.0
+Mar,Gift Cards,,0.0,0.0,2021.0
+Apr,Gift Cards,,0.0,0.0,2021.0
+May,Gift Cards,,0.0,0.0,2021.0
+Jun,Gift Cards,,0.0,0.0,2021.0
+Jul,Gift Cards,,0.0,0.0,2021.0
+Aug,Gift Cards,,0.0,0.0,2021.0
+Sep,Gift Cards,,0.0,0.0,2021.0
+Oct,Gift Cards,,0.0,0.0,2021.0
+Nov,Gift Cards,,0.0,0.0,2021.0
+Dec,Gift Cards,,0.0,0.0,2021.0
+Jan,Gift Cards,,0.0,0.0,2022.0
+Feb,Gift Cards,,0.0,0.0,2022.0
+Mar,Gift Cards,,0.0,0.0,2022.0
+Apr,Gift Cards,,0.0,0.0,2022.0
+May,Gift Cards,,0.0,0.0,2022.0
+Jun,Gift Cards,,0.0,0.0,2022.0
+Jul,Gift Cards,,0.0,0.0,2022.0
+Aug,Gift Cards,,0.0,0.0,2022.0
+Sep,Gift Cards,,0.0,0.0,2022.0
+Oct,Gift Cards,,0.0,0.0,2022.0
+Nov,Gift Cards,,0.0,0.0,2022.0
+Dec,Gift Cards,,0.0,0.0,2022.0
+Jan,Gift Cards,2023-01,5.0,2.0,2023.0
+Feb,Gift Cards,2023-02,5.0,1.0,2023.0
+Mar,Gift Cards,2023-03,5.0,2.0,2023.0
+Apr,Gift Cards,,0.0,0.0,2023.0
+May,Gift Cards,,0.0,0.0,2023.0
+Jun,Gift Cards,,0.0,0.0,2023.0
+Jul,Gift Cards,,0.0,0.0,2023.0
+Aug,Gift Cards,,0.0,0.0,2023.0
+Sep,Gift Cards,,0.0,0.0,2023.0
+Jan,Grocery,2020-01,3.4,55.0,2020.0
+Feb,Grocery,2020-02,4.3025,62.0,2020.0
+Mar,Grocery,2020-03,4.195,34.0,2020.0
+Apr,Grocery,2020-04,4.04,24.0,2020.0
+May,Grocery,2020-05,4.63,16.0,2020.0
+Jun,Grocery,2020-06,4.27,11.0,2020.0
+Jul,Grocery,2020-07,3.75,12.0,2020.0
+Aug,Grocery,2020-08,3.75,4.0,2020.0
+Sep,Grocery,2020-09,3.723333333333333,8.0,2020.0
+Oct,Grocery,2020-10,3.9175,11.0,2020.0
+Nov,Grocery,2020-11,2.635,12.0,2020.0
+Dec,Grocery,2020-12,3.985,36.0,2020.0
+Jan,Grocery,2021-01,4.68,56.0,2021.0
+Feb,Grocery,2021-02,4.77,64.0,2021.0
+Mar,Grocery,2021-03,3.532,103.0,2021.0
+Apr,Grocery,2021-04,3.8183333333333334,123.0,2021.0
+May,Grocery,2021-05,3.88,64.0,2021.0
+Jun,Grocery,2021-06,4.0825,28.0,2021.0
+Jul,Grocery,2021-07,3.44,39.0,2021.0
+Aug,Grocery,2021-08,4.07,13.0,2021.0
+Sep,Grocery,2021-09,2.9050000000000002,17.0,2021.0
+Oct,Grocery,2021-10,2.473333333333333,20.0,2021.0
+Nov,Grocery,2021-11,2.9766666666666666,23.0,2021.0
+Dec,Grocery,2021-12,2.876,103.0,2021.0
+Jan,Grocery,2022-01,3.4480000000000004,102.0,2022.0
+Feb,Grocery,2022-02,3.3600000000000003,58.0,2022.0
+Mar,Grocery,2022-03,2.2466666666666666,73.0,2022.0
+Apr,Grocery,2022-04,3.94,64.0,2022.0
+May,Grocery,2022-05,4.779999999999999,69.0,2022.0
+Jun,Grocery,2022-06,4.5,40.0,2022.0
+Jul,Grocery,2022-07,4.234999999999999,36.0,2022.0
+Aug,Grocery,2022-08,4.5,24.0,2022.0
+Sep,Grocery,2022-09,4.68,23.0,2022.0
+Oct,Grocery,2022-10,4.65,27.0,2022.0
+Nov,Grocery,2022-11,3.5,36.0,2022.0
+Dec,Grocery,2022-12,3.378,103.0,2022.0
+Jan,Grocery,2023-01,4.036666666666666,88.0,2023.0
+Feb,Grocery,2023-02,3.353333333333333,91.0,2023.0
+Mar,Grocery,2023-03,4.3875,78.0,2023.0
+Apr,Grocery,2023-04,2.36,43.0,2023.0
+May,Grocery,2023-05,3.2,10.0,2023.0
+Jun,Grocery,2023-06,1.0,1.0,2023.0
+Jul,Grocery,2023-07,3.86,7.0,2023.0
+Aug,Grocery,2023-08,4.5,4.0,2023.0
+Sep,Grocery,,0.0,0.0,2023.0
+Jan,Handmade,,0.0,0.0,2020.0
+Feb,Handmade,,0.0,0.0,2020.0
+Mar,Handmade,,0.0,0.0,2020.0
+Apr,Handmade,,0.0,0.0,2020.0
+May,Handmade,,0.0,0.0,2020.0
+Jun,Handmade,,0.0,0.0,2020.0
+Jul,Handmade,,0.0,0.0,2020.0
+Aug,Handmade,,0.0,0.0,2020.0
+Sep,Handmade,,0.0,0.0,2020.0
+Oct,Handmade,,0.0,0.0,2020.0
+Nov,Handmade,,0.0,0.0,2020.0
+Dec,Handmade,,0.0,0.0,2020.0
+Jan,Handmade,,0.0,0.0,2021.0
+Feb,Handmade,,0.0,0.0,2021.0
+Mar,Handmade,,0.0,0.0,2021.0
+Apr,Handmade,,0.0,0.0,2021.0
+May,Handmade,,0.0,0.0,2021.0
+Jun,Handmade,,0.0,0.0,2021.0
+Jul,Handmade,,0.0,0.0,2021.0
+Aug,Handmade,,0.0,0.0,2021.0
+Sep,Handmade,,0.0,0.0,2021.0
+Oct,Handmade,,0.0,0.0,2021.0
+Nov,Handmade,,0.0,0.0,2021.0
+Dec,Handmade,,0.0,0.0,2021.0
+Jan,Handmade,,0.0,0.0,2022.0
+Feb,Handmade,,0.0,0.0,2022.0
+Mar,Handmade,,0.0,0.0,2022.0
+Apr,Handmade,,0.0,0.0,2022.0
+May,Handmade,2022-05,1.0,1.0,2022.0
+Jun,Handmade,,0.0,0.0,2022.0
+Jul,Handmade,,0.0,0.0,2022.0
+Aug,Handmade,,0.0,0.0,2022.0
+Sep,Handmade,,0.0,0.0,2022.0
+Oct,Handmade,,0.0,0.0,2022.0
+Nov,Handmade,,0.0,0.0,2022.0
+Dec,Handmade,,0.0,0.0,2022.0
+Jan,Handmade,,0.0,0.0,2023.0
+Feb,Handmade,,0.0,0.0,2023.0
+Mar,Handmade,,0.0,0.0,2023.0
+Apr,Handmade,,0.0,0.0,2023.0
+May,Handmade,,0.0,0.0,2023.0
+Jun,Handmade,,0.0,0.0,2023.0
+Jul,Handmade,,0.0,0.0,2023.0
+Aug,Handmade,,0.0,0.0,2023.0
+Sep,Handmade,,0.0,0.0,2023.0
+Jan,Health & Personal Care,2020-01,4.333333333333333,7.0,2020.0
+Feb,Health & Personal Care,2020-02,5.0,5.0,2020.0
+Mar,Health & Personal Care,2020-03,4.0,3.0,2020.0
+Apr,Health & Personal Care,2020-04,3.0,2.0,2020.0
+May,Health & Personal Care,2020-05,5.0,2.0,2020.0
+Jun,Health & Personal Care,2020-06,4.75,4.0,2020.0
+Jul,Health & Personal Care,2020-07,4.4,7.0,2020.0
+Aug,Health & Personal Care,2020-08,3.3333333333333335,4.0,2020.0
+Sep,Health & Personal Care,2020-09,4.75,3.0,2020.0
+Oct,Health & Personal Care,2020-10,5.0,2.0,2020.0
+Nov,Health & Personal Care,2020-11,1.0,3.0,2020.0
+Dec,Health & Personal Care,2020-12,4.1,7.0,2020.0
+Jan,Health & Personal Care,2021-01,3.6666666666666665,6.0,2021.0
+Feb,Health & Personal Care,2021-02,3.9175,6.0,2021.0
+Mar,Health & Personal Care,2021-03,2.335,4.0,2021.0
+Apr,Health & Personal Care,2021-04,3.75,8.0,2021.0
+May,Health & Personal Care,2021-05,3.1875,10.0,2021.0
+Jun,Health & Personal Care,2021-06,3.0,11.0,2021.0
+Jul,Health & Personal Care,2021-07,3.5,10.0,2021.0
+Aug,Health & Personal Care,2021-08,3.817,16.0,2021.0
+Sep,Health & Personal Care,2021-09,2.6,7.0,2021.0
+Oct,Health & Personal Care,2021-10,3.1666666666666665,7.0,2021.0
+Nov,Health & Personal Care,2021-11,2.75,5.0,2021.0
+Dec,Health & Personal Care,2021-12,4.0,5.0,2021.0
+Jan,Health & Personal Care,2022-01,1.6666666666666667,6.0,2022.0
+Feb,Health & Personal Care,2022-02,2.3333333333333335,3.0,2022.0
+Mar,Health & Personal Care,2022-03,4.0,8.0,2022.0
+Apr,Health & Personal Care,2022-04,2.58375,14.0,2022.0
+May,Health & Personal Care,2022-05,3.0,4.0,2022.0
+Jun,Health & Personal Care,2022-06,5.0,5.0,2022.0
+Jul,Health & Personal Care,2022-07,3.1666666666666665,6.0,2022.0
+Aug,Health & Personal Care,2022-08,3.5,6.0,2022.0
+Sep,Health & Personal Care,2022-09,3.8333333333333335,6.0,2022.0
+Oct,Health & Personal Care,2022-10,4.285714285714286,10.0,2022.0
+Nov,Health & Personal Care,2022-11,3.6666666666666665,4.0,2022.0
+Dec,Health & Personal Care,2022-12,2.8333333333333335,7.0,2022.0
+Jan,Health & Personal Care,2023-01,3.6,6.0,2023.0
+Feb,Health & Personal Care,2023-02,3.8175,19.0,2023.0
+Mar,Health & Personal Care,2023-03,4.9175,7.0,2023.0
+Apr,Health & Personal Care,2023-04,4.75,5.0,2023.0
+May,Health & Personal Care,2023-05,5.0,1.0,2023.0
+Jun,Health & Personal Care,2023-06,5.0,1.0,2023.0
+Jul,Health & Personal Care,,0.0,0.0,2023.0
+Aug,Health & Personal Care,2023-08,5.0,1.0,2023.0
+Sep,Health & Personal Care,,0.0,0.0,2023.0
+Jan,Home Audio & Theater,2020-01,4.047878787878788,176.0,2020.0
+Feb,Home Audio & Theater,2020-02,3.6478947368421055,129.0,2020.0
+Mar,Home Audio & Theater,2020-03,3.8726923076923074,109.0,2020.0
+Apr,Home Audio & Theater,2020-04,3.6017391304347828,106.0,2020.0
+May,Home Audio & Theater,2020-05,3.7092592592592593,163.0,2020.0
+Jun,Home Audio & Theater,2020-06,3.4575925925925928,118.0,2020.0
+Jul,Home Audio & Theater,2020-07,4.0777777777777775,113.0,2020.0
+Aug,Home Audio & Theater,2020-08,3.7835714285714284,108.0,2020.0
+Sep,Home Audio & Theater,2020-09,3.8215384615384616,110.0,2020.0
+Oct,Home Audio & Theater,2020-10,3.6487755102040813,116.0,2020.0
+Nov,Home Audio & Theater,2020-11,3.5066666666666664,77.0,2020.0
+Dec,Home Audio & Theater,2020-12,3.4648888888888885,85.0,2020.0
+Jan,Home Audio & Theater,2021-01,3.8696774193548387,129.0,2021.0
+Feb,Home Audio & Theater,2021-02,3.394285714285714,108.0,2021.0
+Mar,Home Audio & Theater,2021-03,3.3968333333333334,133.0,2021.0
+Apr,Home Audio & Theater,2021-04,3.830625,96.0,2021.0
+May,Home Audio & Theater,2021-05,3.66475,92.0,2021.0
+Jun,Home Audio & Theater,2021-06,3.708157894736842,79.0,2021.0
+Jul,Home Audio & Theater,2021-07,3.8633333333333333,77.0,2021.0
+Aug,Home Audio & Theater,2021-08,3.572413793103448,48.0,2021.0
+Sep,Home Audio & Theater,2021-09,3.6272727272727274,44.0,2021.0
+Oct,Home Audio & Theater,2021-10,4.005199999999999,36.0,2021.0
+Nov,Home Audio & Theater,2021-11,3.583636363636364,44.0,2021.0
+Dec,Home Audio & Theater,2021-12,3.9070967741935485,45.0,2021.0
+Jan,Home Audio & Theater,2022-01,3.790625,69.0,2022.0
+Feb,Home Audio & Theater,2022-02,4.088421052631579,46.0,2022.0
+Mar,Home Audio & Theater,2022-03,3.596896551724138,61.0,2022.0
+Apr,Home Audio & Theater,2022-04,3.842941176470588,30.0,2022.0
+May,Home Audio & Theater,2022-05,3.464736842105263,36.0,2022.0
+Jun,Home Audio & Theater,2022-06,4.392352941176471,25.0,2022.0
+Jul,Home Audio & Theater,2022-07,4.316470588235294,38.0,2022.0
+Aug,Home Audio & Theater,2022-08,3.2622222222222224,33.0,2022.0
+Sep,Home Audio & Theater,2022-09,3.814090909090909,50.0,2022.0
+Oct,Home Audio & Theater,2022-10,3.936470588235294,30.0,2022.0
+Nov,Home Audio & Theater,2022-11,3.1221428571428573,28.0,2022.0
+Dec,Home Audio & Theater,2022-12,3.802857142857143,35.0,2022.0
+Jan,Home Audio & Theater,2023-01,3.258095238095238,42.0,2023.0
+Feb,Home Audio & Theater,2023-02,3.9463157894736844,41.0,2023.0
+Mar,Home Audio & Theater,2023-03,3.23,33.0,2023.0
+Apr,Home Audio & Theater,2023-04,3.1076923076923078,21.0,2023.0
+May,Home Audio & Theater,2023-05,3.4583333333333335,18.0,2023.0
+Jun,Home Audio & Theater,2023-06,3.75,11.0,2023.0
+Jul,Home Audio & Theater,2023-07,2.857142857142857,8.0,2023.0
+Aug,Home Audio & Theater,2023-08,4.4,5.0,2023.0
+Sep,Home Audio & Theater,2023-09,5.0,1.0,2023.0
+Jan,Industrial & Scientific,2020-01,4.372,214.0,2020.0
+Feb,Industrial & Scientific,2020-02,4.308354430379747,194.0,2020.0
+Mar,Industrial & Scientific,2020-03,4.161194029850747,158.0,2020.0
+Apr,Industrial & Scientific,2020-04,3.467758620689655,163.0,2020.0
+May,Industrial & Scientific,2020-05,3.7306172839506173,289.0,2020.0
+Jun,Industrial & Scientific,2020-06,3.8544827586206893,284.0,2020.0
+Jul,Industrial & Scientific,2020-07,4.012252252252252,329.0,2020.0
+Aug,Industrial & Scientific,2020-08,4.195811965811966,342.0,2020.0
+Sep,Industrial & Scientific,2020-09,4.1001,287.0,2020.0
+Oct,Industrial & Scientific,2020-10,3.9688181818181816,296.0,2020.0
+Nov,Industrial & Scientific,2020-11,4.042330097087379,269.0,2020.0
+Dec,Industrial & Scientific,2020-12,3.8176666666666668,336.0,2020.0
+Jan,Industrial & Scientific,2021-01,4.027784431137724,527.0,2021.0
+Feb,Industrial & Scientific,2021-02,3.8333783783783786,436.0,2021.0
+Mar,Industrial & Scientific,2021-03,3.893354037267081,529.0,2021.0
+Apr,Industrial & Scientific,2021-04,3.8474666666666666,490.0,2021.0
+May,Industrial & Scientific,2021-05,3.8038028169014084,408.0,2021.0
+Jun,Industrial & Scientific,2021-06,4.085103448275862,347.0,2021.0
+Jul,Industrial & Scientific,2021-07,3.8265068493150682,371.0,2021.0
+Aug,Industrial & Scientific,2021-08,3.8812030075187973,306.0,2021.0
+Sep,Industrial & Scientific,2021-09,3.559922480620155,248.0,2021.0
+Oct,Industrial & Scientific,2021-10,3.6043089430894306,241.0,2021.0
+Nov,Industrial & Scientific,2021-11,3.735081967213115,226.0,2021.0
+Dec,Industrial & Scientific,2021-12,3.616449275362319,283.0,2021.0
+Jan,Industrial & Scientific,2022-01,3.826530612244898,351.0,2022.0
+Feb,Industrial & Scientific,2022-02,3.797894736842105,278.0,2022.0
+Mar,Industrial & Scientific,2022-03,3.8816666666666664,307.0,2022.0
+Apr,Industrial & Scientific,2022-04,3.744964539007092,264.0,2022.0
+May,Industrial & Scientific,2022-05,3.7865185185185184,246.0,2022.0
+Jun,Industrial & Scientific,2022-06,3.8980152671755723,241.0,2022.0
+Jul,Industrial & Scientific,2022-07,3.9280281690140844,285.0,2022.0
+Aug,Industrial & Scientific,2022-08,3.7725625000000003,318.0,2022.0
+Sep,Industrial & Scientific,2022-09,3.7920805369127515,273.0,2022.0
+Oct,Industrial & Scientific,2022-10,3.7928930817610067,314.0,2022.0
+Nov,Industrial & Scientific,2022-11,3.8128378378378374,364.0,2022.0
+Dec,Industrial & Scientific,2022-12,4.036227544910179,409.0,2022.0
+Jan,Industrial & Scientific,2023-01,4.082580645161291,437.0,2023.0
+Feb,Industrial & Scientific,2023-02,4.003708609271523,328.0,2023.0
+Mar,Industrial & Scientific,2023-03,3.998095238095238,441.0,2023.0
+Apr,Industrial & Scientific,2023-04,3.881972789115646,287.0,2023.0
+May,Industrial & Scientific,2023-05,3.897065217391304,139.0,2023.0
+Jun,Industrial & Scientific,2023-06,3.884852941176471,86.0,2023.0
+Jul,Industrial & Scientific,2023-07,4.300508474576271,82.0,2023.0
+Aug,Industrial & Scientific,2023-08,3.63265306122449,61.0,2023.0
+Sep,Industrial & Scientific,2023-09,5.0,2.0,2023.0
+Jan,Movies & TV,2020-01,4.66969696969697,59.0,2020.0
+Feb,Movies & TV,2020-02,4.315789473684211,41.0,2020.0
+Mar,Movies & TV,2020-03,3.9453846153846155,36.0,2020.0
+Apr,Movies & TV,2020-04,4.266666666666667,17.0,2020.0
+May,Movies & TV,2020-05,4.1022727272727275,32.0,2020.0
+Jun,Movies & TV,2020-06,4.25,21.0,2020.0
+Jul,Movies & TV,2020-07,4.205882352941177,21.0,2020.0
+Aug,Movies & TV,2020-08,4.409090909090909,19.0,2020.0
+Sep,Movies & TV,2020-09,3.911764705882353,23.0,2020.0
+Oct,Movies & TV,2020-10,4.625,26.0,2020.0
+Nov,Movies & TV,2020-11,4.4645,36.0,2020.0
+Dec,Movies & TV,2020-12,3.952631578947368,30.0,2020.0
+Jan,Movies & TV,2021-01,4.4468,44.0,2021.0
+Feb,Movies & TV,2021-02,4.088235294117647,25.0,2021.0
+Mar,Movies & TV,2021-03,4.09,39.0,2021.0
+Apr,Movies & TV,2021-04,4.043478260869565,29.0,2021.0
+May,Movies & TV,2021-05,4.166666666666667,26.0,2021.0
+Jun,Movies & TV,2021-06,4.529411764705882,24.0,2021.0
+Jul,Movies & TV,2021-07,4.088235294117647,22.0,2021.0
+Aug,Movies & TV,2021-08,4.769230769230769,17.0,2021.0
+Sep,Movies & TV,2021-09,3.979375,21.0,2021.0
+Oct,Movies & TV,2021-10,4.284117647058824,27.0,2021.0
+Nov,Movies & TV,2021-11,4.541666666666667,16.0,2021.0
+Dec,Movies & TV,2021-12,4.5,16.0,2021.0
+Jan,Movies & TV,2022-01,4.0194117647058825,27.0,2022.0
+Feb,Movies & TV,2022-02,4.360833333333333,15.0,2022.0
+Mar,Movies & TV,2022-03,4.2631578947368425,22.0,2022.0
+Apr,Movies & TV,2022-04,4.067,16.0,2022.0
+May,Movies & TV,2022-05,3.852222222222222,12.0,2022.0
+Jun,Movies & TV,2022-06,4.2727272727272725,14.0,2022.0
+Jul,Movies & TV,2022-07,4.3475,17.0,2022.0
+Aug,Movies & TV,2022-08,4.4,11.0,2022.0
+Sep,Movies & TV,2022-09,4.461538461538462,13.0,2022.0
+Oct,Movies & TV,2022-10,5.0,6.0,2022.0
+Nov,Movies & TV,2022-11,4.916666666666667,13.0,2022.0
+Dec,Movies & TV,2022-12,4.818181818181818,14.0,2022.0
+Jan,Movies & TV,2023-01,4.846153846153846,15.0,2023.0
+Feb,Movies & TV,2023-02,4.535714285714286,18.0,2023.0
+Mar,Movies & TV,2023-03,4.690714285714286,17.0,2023.0
+Apr,Movies & TV,2023-04,3.6,5.0,2023.0
+May,Movies & TV,2023-05,5.0,3.0,2023.0
+Jun,Movies & TV,2023-06,4.166666666666667,8.0,2023.0
+Jul,Movies & TV,2023-07,4.75,4.0,2023.0
+Aug,Movies & TV,2023-08,5.0,2.0,2023.0
+Sep,Movies & TV,,0.0,0.0,2023.0
+Jan,Musical Instruments,2020-01,4.21375,27.0,2020.0
+Feb,Musical Instruments,2020-02,4.3,24.0,2020.0
+Mar,Musical Instruments,2020-03,4.136,21.0,2020.0
+Apr,Musical Instruments,2020-04,3.714,17.0,2020.0
+May,Musical Instruments,2020-05,3.082,24.0,2020.0
+Jun,Musical Instruments,2020-06,3.808888888888889,22.0,2020.0
+Jul,Musical Instruments,2020-07,4.481111111111111,22.0,2020.0
+Aug,Musical Instruments,2020-08,4.023333333333333,29.0,2020.0
+Sep,Musical Instruments,2020-09,3.944,37.0,2020.0
+Oct,Musical Instruments,2020-10,3.033333333333333,31.0,2020.0
+Nov,Musical Instruments,2020-11,3.673333333333334,22.0,2020.0
+Dec,Musical Instruments,2020-12,4.136666666666667,23.0,2020.0
+Jan,Musical Instruments,2021-01,4.117,30.0,2021.0
+Feb,Musical Instruments,2021-02,4.2625,37.0,2021.0
+Mar,Musical Instruments,2021-03,3.736666666666667,34.0,2021.0
+Apr,Musical Instruments,2021-04,3.566666666666667,34.0,2021.0
+May,Musical Instruments,2021-05,3.7481818181818185,22.0,2021.0
+Jun,Musical Instruments,2021-06,3.5715384615384616,23.0,2021.0
+Jul,Musical Instruments,2021-07,3.25,17.0,2021.0
+Aug,Musical Instruments,2021-08,3.8055555555555554,16.0,2021.0
+Sep,Musical Instruments,2021-09,4.136,20.0,2021.0
+Oct,Musical Instruments,2021-10,3.7666666666666666,25.0,2021.0
+Nov,Musical Instruments,2021-11,3.39875,27.0,2021.0
+Dec,Musical Instruments,2021-12,3.2113333333333336,23.0,2021.0
+Jan,Musical Instruments,2022-01,4.090909090909091,13.0,2022.0
+Feb,Musical Instruments,2022-02,3.1614285714285715,22.0,2022.0
+Mar,Musical Instruments,2022-03,3.761111111111111,25.0,2022.0
+Apr,Musical Instruments,2022-04,3.0415,34.0,2022.0
+May,Musical Instruments,2022-05,3.111111111111111,17.0,2022.0
+Jun,Musical Instruments,2022-06,3.8181818181818183,12.0,2022.0
+Jul,Musical Instruments,2022-07,3.5780000000000003,24.0,2022.0
+Aug,Musical Instruments,2022-08,3.8972222222222226,28.0,2022.0
+Sep,Musical Instruments,2022-09,3.289473684210526,32.0,2022.0
+Oct,Musical Instruments,2022-10,3.678,21.0,2022.0
+Nov,Musical Instruments,2022-11,2.7941176470588234,20.0,2022.0
+Dec,Musical Instruments,2022-12,4.25,20.0,2022.0
+Jan,Musical Instruments,2023-01,3.2053846153846157,18.0,2023.0
+Feb,Musical Instruments,2023-02,3.222,22.0,2023.0
+Mar,Musical Instruments,2023-03,4.478,22.0,2023.0
+Apr,Musical Instruments,2023-04,2.8333333333333335,12.0,2023.0
+May,Musical Instruments,2023-05,3.5,8.0,2023.0
+Jun,Musical Instruments,2023-06,4.583333333333333,9.0,2023.0
+Jul,Musical Instruments,2023-07,4.25,9.0,2023.0
+Aug,Musical Instruments,2023-08,4.666666666666667,3.0,2023.0
+Sep,Musical Instruments,,0.0,0.0,2023.0
+Jan,Office Products,2020-01,4.666176470588235,117.0,2020.0
+Feb,Office Products,2020-02,4.519714285714286,105.0,2020.0
+Mar,Office Products,2020-03,4.185757575757576,92.0,2020.0
+Apr,Office Products,2020-04,4.40483870967742,81.0,2020.0
+May,Office Products,2020-05,4.433888888888889,90.0,2020.0
+Jun,Office Products,2020-06,4.475142857142857,99.0,2020.0
+Jul,Office Products,2020-07,4.416052631578947,113.0,2020.0
+Aug,Office Products,2020-08,4.53921052631579,115.0,2020.0
+Sep,Office Products,2020-09,4.445476190476191,148.0,2020.0
+Oct,Office Products,2020-10,4.368378378378378,110.0,2020.0
+Nov,Office Products,2020-11,4.609,100.0,2020.0
+Dec,Office Products,2020-12,4.594772727272727,145.0,2020.0
+Jan,Office Products,2021-01,4.524090909090909,163.0,2021.0
+Feb,Office Products,2021-02,4.270208333333334,168.0,2021.0
+Mar,Office Products,2021-03,4.370238095238095,172.0,2021.0
+Apr,Office Products,2021-04,4.293529411764706,140.0,2021.0
+May,Office Products,2021-05,4.5163414634146335,123.0,2021.0
+Jun,Office Products,2021-06,4.523333333333333,87.0,2021.0
+Jul,Office Products,2021-07,4.19875,77.0,2021.0
+Aug,Office Products,2021-08,4.162258064516129,65.0,2021.0
+Sep,Office Products,2021-09,4.605806451612903,50.0,2021.0
+Oct,Office Products,2021-10,4.03625,44.0,2021.0
+Nov,Office Products,2021-11,4.253103448275862,47.0,2021.0
+Dec,Office Products,2021-12,3.7655555555555558,59.0,2021.0
+Jan,Office Products,2022-01,4.390370370370371,64.0,2022.0
+Feb,Office Products,2022-02,4.288399999999999,54.0,2022.0
+Mar,Office Products,2022-03,4.113448275862069,49.0,2022.0
+Apr,Office Products,2022-04,4.12375,39.0,2022.0
+May,Office Products,2022-05,4.26,39.0,2022.0
+Jun,Office Products,2022-06,3.9923809523809526,36.0,2022.0
+Jul,Office Products,2022-07,4.179615384615385,39.0,2022.0
+Aug,Office Products,2022-08,4.070434782608696,38.0,2022.0
+Sep,Office Products,2022-09,4.366071428571429,50.0,2022.0
+Oct,Office Products,2022-10,3.9935714285714283,48.0,2022.0
+Nov,Office Products,2022-11,4.376666666666667,54.0,2022.0
+Dec,Office Products,2022-12,4.4775,53.0,2022.0
+Jan,Office Products,2023-01,4.531851851851852,51.0,2023.0
+Feb,Office Products,2023-02,4.238636363636363,57.0,2023.0
+Mar,Office Products,2023-03,4.362857142857143,58.0,2023.0
+Apr,Office Products,2023-04,4.596,41.0,2023.0
+May,Office Products,2023-05,4.4915,28.0,2023.0
+Jun,Office Products,2023-06,4.642857142857143,16.0,2023.0
+Jul,Office Products,2023-07,4.75,10.0,2023.0
+Aug,Office Products,2023-08,4.8125,11.0,2023.0
+Sep,Office Products,,0.0,0.0,2023.0
+Jan,Others,2020-01,4.054131147540984,794.0,2020.0
+Feb,Others,2020-02,3.8816058394160584,624.0,2020.0
+Mar,Others,2020-03,3.802394366197183,470.0,2020.0
+Apr,Others,2020-04,3.6828703703703702,421.0,2020.0
+May,Others,2020-05,3.7489416058394163,653.0,2020.0
+Jun,Others,2020-06,3.906872586872587,665.0,2020.0
+Jul,Others,2020-07,3.9222710622710624,694.0,2020.0
+Aug,Others,2020-08,3.8766528925619834,553.0,2020.0
+Sep,Others,2020-09,4.014177777777778,488.0,2020.0
+Oct,Others,2020-10,3.715990990990991,485.0,2020.0
+Nov,Others,2020-11,3.73274678111588,421.0,2020.0
+Dec,Others,2020-12,3.793024911032028,566.0,2020.0
+Jan,Others,2021-01,3.8859580838323358,740.0,2021.0
+Feb,Others,2021-02,3.8723723723723724,610.0,2021.0
+Mar,Others,2021-03,3.852873563218391,800.0,2021.0
+Apr,Others,2021-04,3.7777777777777777,762.0,2021.0
+May,Others,2021-05,3.8338961038961035,564.0,2021.0
+Jun,Others,2021-06,3.625738255033557,541.0,2021.0
+Jul,Others,2021-07,3.8287762237762237,495.0,2021.0
+Aug,Others,2021-08,3.79455938697318,458.0,2021.0
+Sep,Others,2021-09,3.8302845528455283,416.0,2021.0
+Oct,Others,2021-10,3.7308181818181816,339.0,2021.0
+Nov,Others,2021-11,3.6114830508474576,367.0,2021.0
+Dec,Others,2021-12,3.6811340206185568,489.0,2021.0
+Jan,Others,2022-01,3.6850273224043715,645.0,2022.0
+Feb,Others,2022-02,3.721535433070866,455.0,2022.0
+Mar,Others,2022-03,3.642930402930403,493.0,2022.0
+Apr,Others,2022-04,3.6522357723577237,434.0,2022.0
+May,Others,2022-05,3.752194092827004,420.0,2022.0
+Jun,Others,2022-06,3.838544061302682,442.0,2022.0
+Jul,Others,2022-07,3.8325089605734766,564.0,2022.0
+Aug,Others,2022-08,3.9007823129251697,600.0,2022.0
+Sep,Others,2022-09,3.8551515151515154,614.0,2022.0
+Oct,Others,2022-10,3.8923510971786834,685.0,2022.0
+Nov,Others,2022-11,3.864658385093168,663.0,2022.0
+Dec,Others,2022-12,3.8708354430379748,740.0,2022.0
+Jan,Others,2023-01,3.937130801687764,893.0,2023.0
+Feb,Others,2023-02,3.8998365122615803,670.0,2023.0
+Mar,Others,2023-03,3.8166812227074236,832.0,2023.0
+Apr,Others,2023-04,3.7594962216624683,560.0,2023.0
+May,Others,2023-05,3.9999022004889975,538.0,2023.0
+Jun,Others,2023-06,3.89463976945245,451.0,2023.0
+Jul,Others,2023-07,4.122361963190184,398.0,2023.0
+Aug,Others,2023-08,4.265387323943662,391.0,2023.0
+Sep,Others,2023-09,4.404761904761905,26.0,2023.0
+Jan,Pet Supplies,2020-01,5.0,1.0,2020.0
+Feb,Pet Supplies,,0.0,0.0,2020.0
+Mar,Pet Supplies,2020-03,4.5,4.0,2020.0
+Apr,Pet Supplies,2020-04,5.0,1.0,2020.0
+May,Pet Supplies,,0.0,0.0,2020.0
+Jun,Pet Supplies,2020-06,4.67,3.0,2020.0
+Jul,Pet Supplies,2020-07,5.0,1.0,2020.0
+Aug,Pet Supplies,2020-08,5.0,1.0,2020.0
+Sep,Pet Supplies,2020-09,3.0,3.0,2020.0
+Oct,Pet Supplies,2020-10,4.17,12.0,2020.0
+Nov,Pet Supplies,2020-11,3.0,2.0,2020.0
+Dec,Pet Supplies,2020-12,3.9375,7.0,2020.0
+Jan,Pet Supplies,2021-01,3.2325,11.0,2021.0
+Feb,Pet Supplies,2021-02,5.0,1.0,2021.0
+Mar,Pet Supplies,2021-03,5.0,3.0,2021.0
+Apr,Pet Supplies,2021-04,4.0,7.0,2021.0
+May,Pet Supplies,2021-05,3.0,3.0,2021.0
+Jun,Pet Supplies,2021-06,1.0,2.0,2021.0
+Jul,Pet Supplies,2021-07,3.33,3.0,2021.0
+Aug,Pet Supplies,2021-08,3.5566666666666666,5.0,2021.0
+Sep,Pet Supplies,2021-09,3.25,12.0,2021.0
+Oct,Pet Supplies,2021-10,3.223333333333333,5.0,2021.0
+Nov,Pet Supplies,2021-11,5.0,1.0,2021.0
+Dec,Pet Supplies,2021-12,3.6666666666666665,3.0,2021.0
+Jan,Pet Supplies,2022-01,3.5,6.0,2022.0
+Feb,Pet Supplies,2022-02,2.665,7.0,2022.0
+Mar,Pet Supplies,2022-03,1.86,7.0,2022.0
+Apr,Pet Supplies,2022-04,1.0,2.0,2022.0
+May,Pet Supplies,2022-05,3.67,3.0,2022.0
+Jun,Pet Supplies,2022-06,1.5,2.0,2022.0
+Jul,Pet Supplies,2022-07,5.0,1.0,2022.0
+Aug,Pet Supplies,2022-08,3.165,4.0,2022.0
+Sep,Pet Supplies,2022-09,3.0,1.0,2022.0
+Oct,Pet Supplies,2022-10,4.165,4.0,2022.0
+Nov,Pet Supplies,2022-11,2.0,4.0,2022.0
+Dec,Pet Supplies,,0.0,0.0,2022.0
+Jan,Pet Supplies,2023-01,1.0,1.0,2023.0
+Feb,Pet Supplies,2023-02,1.75,4.0,2023.0
+Mar,Pet Supplies,2023-03,1.2149999999999999,8.0,2023.0
+Apr,Pet Supplies,2023-04,1.0,5.0,2023.0
+May,Pet Supplies,2023-05,1.5,3.0,2023.0
+Jun,Pet Supplies,2023-06,1.5,4.0,2023.0
+Jul,Pet Supplies,2023-07,5.0,1.0,2023.0
+Aug,Pet Supplies,2023-08,1.0,2.0,2023.0
+Sep,Pet Supplies,,0.0,0.0,2023.0
+Jan,Portable Audio & Accessories,2020-01,4.667142857142857,16.0,2020.0
+Feb,Portable Audio & Accessories,2020-02,4.134,9.0,2020.0
+Mar,Portable Audio & Accessories,2020-03,4.443333333333333,9.0,2020.0
+Apr,Portable Audio & Accessories,2020-04,4.5,7.0,2020.0
+May,Portable Audio & Accessories,2020-05,4.583333333333333,13.0,2020.0
+Jun,Portable Audio & Accessories,2020-06,4.6,7.0,2020.0
+Jul,Portable Audio & Accessories,2020-07,2.0,4.0,2020.0
+Aug,Portable Audio & Accessories,2020-08,4.611666666666667,9.0,2020.0
+Sep,Portable Audio & Accessories,2020-09,5.0,3.0,2020.0
+Oct,Portable Audio & Accessories,2020-10,3.6666666666666665,5.0,2020.0
+Nov,Portable Audio & Accessories,2020-11,3.25,6.0,2020.0
+Dec,Portable Audio & Accessories,2020-12,4.611666666666667,18.0,2020.0
+Jan,Portable Audio & Accessories,2021-01,4.4911111111111115,20.0,2021.0
+Feb,Portable Audio & Accessories,2021-02,3.416923076923077,26.0,2021.0
+Mar,Portable Audio & Accessories,2021-03,3.4583333333333335,21.0,2021.0
+Apr,Portable Audio & Accessories,2021-04,3.514545454545454,22.0,2021.0
+May,Portable Audio & Accessories,2021-05,4.144444444444444,18.0,2021.0
+Jun,Portable Audio & Accessories,2021-06,4.9375,11.0,2021.0
+Jul,Portable Audio & Accessories,2021-07,3.5558333333333336,14.0,2021.0
+Aug,Portable Audio & Accessories,2021-08,4.40625,13.0,2021.0
+Sep,Portable Audio & Accessories,2021-09,3.9722222222222223,15.0,2021.0
+Oct,Portable Audio & Accessories,2021-10,4.5,5.0,2021.0
+Nov,Portable Audio & Accessories,2021-11,3.25,4.0,2021.0
+Dec,Portable Audio & Accessories,2021-12,5.0,6.0,2021.0
+Jan,Portable Audio & Accessories,2022-01,3.5,7.0,2022.0
+Feb,Portable Audio & Accessories,2022-02,4.285714285714286,13.0,2022.0
+Mar,Portable Audio & Accessories,2022-03,3.5,4.0,2022.0
+Apr,Portable Audio & Accessories,2022-04,4.25,4.0,2022.0
+May,Portable Audio & Accessories,2022-05,3.16625,12.0,2022.0
+Jun,Portable Audio & Accessories,2022-06,3.857142857142857,9.0,2022.0
+Jul,Portable Audio & Accessories,2022-07,4.279999999999999,20.0,2022.0
+Aug,Portable Audio & Accessories,2022-08,4.09,24.0,2022.0
+Sep,Portable Audio & Accessories,2022-09,4.583,21.0,2022.0
+Oct,Portable Audio & Accessories,2022-10,4.291666666666667,16.0,2022.0
+Nov,Portable Audio & Accessories,2022-11,4.083333333333333,20.0,2022.0
+Dec,Portable Audio & Accessories,2022-12,3.75,20.0,2022.0
+Jan,Portable Audio & Accessories,2023-01,4.251052631578947,35.0,2023.0
+Feb,Portable Audio & Accessories,2023-02,4.1370588235294115,25.0,2023.0
+Mar,Portable Audio & Accessories,2023-03,3.8076923076923075,20.0,2023.0
+Apr,Portable Audio & Accessories,2023-04,4.406000000000001,30.0,2023.0
+May,Portable Audio & Accessories,2023-05,4.110833333333333,14.0,2023.0
+Jun,Portable Audio & Accessories,2023-06,4.125,9.0,2023.0
+Jul,Portable Audio & Accessories,2023-07,4.4,5.0,2023.0
+Aug,Portable Audio & Accessories,2023-08,4.3,6.0,2023.0
+Sep,Portable Audio & Accessories,,0.0,0.0,2023.0
+Jan,Software,2020-01,3.76027027027027,224.0,2020.0
+Feb,Software,2020-02,3.716785714285714,128.0,2020.0
+Mar,Software,2020-03,4.103809523809524,79.0,2020.0
+Apr,Software,2020-04,3.6531578947368417,59.0,2020.0
+May,Software,2020-05,4.294074074074074,74.0,2020.0
+Jun,Software,2020-06,3.9604166666666667,57.0,2020.0
+Jul,Software,2020-07,3.544761904761905,57.0,2020.0
+Aug,Software,2020-08,4.0195,49.0,2020.0
+Sep,Software,2020-09,3.6527586206896556,53.0,2020.0
+Oct,Software,2020-10,3.1405555555555558,31.0,2020.0
+Nov,Software,2020-11,4.129090909090909,32.0,2020.0
+Dec,Software,2020-12,3.6944444444444446,48.0,2020.0
+Jan,Software,2021-01,3.4099999999999997,65.0,2021.0
+Feb,Software,2021-02,3.753,49.0,2021.0
+Mar,Software,2021-03,4.252,62.0,2021.0
+Apr,Software,2021-04,4.36875,69.0,2021.0
+May,Software,2021-05,4.086538461538462,41.0,2021.0
+Jun,Software,2021-06,4.2084,42.0,2021.0
+Jul,Software,2021-07,3.9403448275862067,54.0,2021.0
+Aug,Software,2021-08,3.9139999999999997,44.0,2021.0
+Sep,Software,2021-09,3.678421052631579,35.0,2021.0
+Oct,Software,2021-10,3.3333333333333335,33.0,2021.0
+Nov,Software,2021-11,3.419655172413793,46.0,2021.0
+Dec,Software,2021-12,3.9079545454545452,81.0,2021.0
+Jan,Software,2022-01,3.6834666666666664,144.0,2022.0
+Feb,Software,2022-02,3.678048780487805,64.0,2022.0
+Mar,Software,2022-03,3.83046511627907,73.0,2022.0
+Apr,Software,2022-04,3.941860465116279,59.0,2022.0
+May,Software,2022-05,3.6027659574468087,56.0,2022.0
+Jun,Software,2022-06,3.0126470588235295,55.0,2022.0
+Jul,Software,2022-07,3.5744736842105267,53.0,2022.0
+Aug,Software,2022-08,3.761086956521739,69.0,2022.0
+Sep,Software,2022-09,3.785757575757576,50.0,2022.0
+Oct,Software,2022-10,3.9075555555555557,59.0,2022.0
+Nov,Software,2022-11,4.1869565217391305,78.0,2022.0
+Dec,Software,2022-12,3.9503333333333335,134.0,2022.0
+Jan,Software,2023-01,3.9309638554216866,188.0,2023.0
+Feb,Software,2023-02,3.883934426229508,116.0,2023.0
+Mar,Software,2023-03,3.987837837837838,151.0,2023.0
+Apr,Software,2023-04,4.2421428571428565,63.0,2023.0
+May,Software,2023-05,4.074074074074074,31.0,2023.0
+Jun,Software,2023-06,4.147058823529412,25.0,2023.0
+Jul,Software,2023-07,4.305833333333333,17.0,2023.0
+Aug,Software,2023-08,4.818181818181818,15.0,2023.0
+Sep,Software,2023-09,5.0,1.0,2023.0
+Jan,Sports & Outdoors,2020-01,3.8359259259259257,75.0,2020.0
+Feb,Sports & Outdoors,2020-02,3.8745833333333333,69.0,2020.0
+Mar,Sports & Outdoors,2020-03,4.426666666666667,57.0,2020.0
+Apr,Sports & Outdoors,2020-04,3.473076923076923,39.0,2020.0
+May,Sports & Outdoors,2020-05,3.742,30.0,2020.0
+Jun,Sports & Outdoors,2020-06,3.608,38.0,2020.0
+Jul,Sports & Outdoors,2020-07,3.6315789473684212,31.0,2020.0
+Aug,Sports & Outdoors,2020-08,3.89125,33.0,2020.0
+Sep,Sports & Outdoors,2020-09,4.278125,34.0,2020.0
+Oct,Sports & Outdoors,2020-10,4.256153846153846,20.0,2020.0
+Nov,Sports & Outdoors,2020-11,4.482,26.0,2020.0
+Dec,Sports & Outdoors,2020-12,3.8685,39.0,2020.0
+Jan,Sports & Outdoors,2021-01,4.084761904761905,44.0,2021.0
+Feb,Sports & Outdoors,2021-02,3.584761904761905,40.0,2021.0
+Mar,Sports & Outdoors,2021-03,3.7983333333333333,44.0,2021.0
+Apr,Sports & Outdoors,2021-04,4.002307692307692,31.0,2021.0
+May,Sports & Outdoors,2021-05,3.674285714285714,30.0,2021.0
+Jun,Sports & Outdoors,2021-06,3.97875,15.0,2021.0
+Jul,Sports & Outdoors,2021-07,4.1,25.0,2021.0
+Aug,Sports & Outdoors,2021-08,3.9725,17.0,2021.0
+Sep,Sports & Outdoors,2021-09,4.5,13.0,2021.0
+Oct,Sports & Outdoors,2021-10,4.0425,15.0,2021.0
+Nov,Sports & Outdoors,2021-11,3.875,11.0,2021.0
+Dec,Sports & Outdoors,2021-12,3.567,15.0,2021.0
+Jan,Sports & Outdoors,2022-01,3.8461538461538463,19.0,2022.0
+Feb,Sports & Outdoors,2022-02,4.375,12.0,2022.0
+Mar,Sports & Outdoors,2022-03,3.8790909090909094,19.0,2022.0
+Apr,Sports & Outdoors,2022-04,4.486923076923077,17.0,2022.0
+May,Sports & Outdoors,2022-05,3.8329999999999997,15.0,2022.0
+Jun,Sports & Outdoors,2022-06,3.025,23.0,2022.0
+Jul,Sports & Outdoors,2022-07,3.7291666666666665,17.0,2022.0
+Aug,Sports & Outdoors,2022-08,4.348181818181818,17.0,2022.0
+Sep,Sports & Outdoors,2022-09,3.8181818181818183,17.0,2022.0
+Oct,Sports & Outdoors,2022-10,3.7857142857142856,10.0,2022.0
+Nov,Sports & Outdoors,2022-11,2.9444444444444446,10.0,2022.0
+Dec,Sports & Outdoors,2022-12,4.333333333333333,24.0,2022.0
+Jan,Sports & Outdoors,2023-01,3.8266666666666667,20.0,2023.0
+Feb,Sports & Outdoors,2023-02,3.8,14.0,2023.0
+Mar,Sports & Outdoors,2023-03,3.6944444444444446,13.0,2023.0
+Apr,Sports & Outdoors,2023-04,3.888888888888889,10.0,2023.0
+May,Sports & Outdoors,2023-05,4.5,5.0,2023.0
+Jun,Sports & Outdoors,2023-06,5.0,3.0,2023.0
+Jul,Sports & Outdoors,2023-07,2.5,4.0,2023.0
+Aug,Sports & Outdoors,2023-08,5.0,4.0,2023.0
+Sep,Sports & Outdoors,,0.0,0.0,2023.0
+Jan,Tools & Home Improvement,2020-01,4.1496875,150.0,2020.0
+Feb,Tools & Home Improvement,2020-02,4.584375,127.0,2020.0
+Mar,Tools & Home Improvement,2020-03,4.350769230769231,96.0,2020.0
+Apr,Tools & Home Improvement,2020-04,4.1925,105.0,2020.0
+May,Tools & Home Improvement,2020-05,4.185862068965517,108.0,2020.0
+Jun,Tools & Home Improvement,2020-06,4.0321428571428575,95.0,2020.0
+Jul,Tools & Home Improvement,2020-07,4.050689655172413,96.0,2020.0
+Aug,Tools & Home Improvement,2020-08,4.472413793103448,81.0,2020.0
+Sep,Tools & Home Improvement,2020-09,3.9612903225806453,82.0,2020.0
+Oct,Tools & Home Improvement,2020-10,4.501481481481481,61.0,2020.0
+Nov,Tools & Home Improvement,2020-11,4.1339999999999995,70.0,2020.0
+Dec,Tools & Home Improvement,2020-12,4.035625,92.0,2020.0
+Jan,Tools & Home Improvement,2021-01,4.410816326530612,128.0,2021.0
+Feb,Tools & Home Improvement,2021-02,4.391875,79.0,2021.0
+Mar,Tools & Home Improvement,2021-03,4.3302564102564105,126.0,2021.0
+Apr,Tools & Home Improvement,2021-04,3.7700000000000005,113.0,2021.0
+May,Tools & Home Improvement,2021-05,4.058181818181818,97.0,2021.0
+Jun,Tools & Home Improvement,2021-06,4.132820512820513,82.0,2021.0
+Jul,Tools & Home Improvement,2021-07,4.28469387755102,102.0,2021.0
+Aug,Tools & Home Improvement,2021-08,3.948461538461539,92.0,2021.0
+Sep,Tools & Home Improvement,2021-09,4.026923076923077,71.0,2021.0
+Oct,Tools & Home Improvement,2021-10,4.031621621621621,73.0,2021.0
+Nov,Tools & Home Improvement,2021-11,4.156333333333333,59.0,2021.0
+Dec,Tools & Home Improvement,2021-12,4.2397368421052635,89.0,2021.0
+Jan,Tools & Home Improvement,2022-01,4.091777777777778,135.0,2022.0
+Feb,Tools & Home Improvement,2022-02,3.64304347826087,89.0,2022.0
+Mar,Tools & Home Improvement,2022-03,4.055853658536585,87.0,2022.0
+Apr,Tools & Home Improvement,2022-04,4.244358974358974,94.0,2022.0
+May,Tools & Home Improvement,2022-05,4.1238636363636365,88.0,2022.0
+Jun,Tools & Home Improvement,2022-06,4.0001999999999995,92.0,2022.0
+Jul,Tools & Home Improvement,2022-07,4.198771929824562,110.0,2022.0
+Aug,Tools & Home Improvement,2022-08,4.3140677966101695,140.0,2022.0
+Sep,Tools & Home Improvement,2022-09,4.0430769230769235,112.0,2022.0
+Oct,Tools & Home Improvement,2022-10,4.143090909090909,119.0,2022.0
+Nov,Tools & Home Improvement,2022-11,4.352857142857142,101.0,2022.0
+Dec,Tools & Home Improvement,2022-12,4.2501999999999995,140.0,2022.0
+Jan,Tools & Home Improvement,2023-01,4.128888888888889,159.0,2023.0
+Feb,Tools & Home Improvement,2023-02,3.805454545454545,101.0,2023.0
+Mar,Tools & Home Improvement,2023-03,4.361111111111111,136.0,2023.0
+Apr,Tools & Home Improvement,2023-04,4.2953125,75.0,2023.0
+May,Tools & Home Improvement,2023-05,3.9957142857142856,63.0,2023.0
+Jun,Tools & Home Improvement,2023-06,4.417142857142857,39.0,2023.0
+Jul,Tools & Home Improvement,2023-07,4.424545454545455,36.0,2023.0
+Aug,Tools & Home Improvement,2023-08,4.25,17.0,2023.0
+Sep,Tools & Home Improvement,2023-09,1.0,1.0,2023.0
+Jan,Toys & Games,2020-01,4.2734736842105265,772.0,2020.0
+Feb,Toys & Games,2020-02,4.374382470119522,595.0,2020.0
+Mar,Toys & Games,2020-03,4.25565,383.0,2020.0
+Apr,Toys & Games,2020-04,4.190054945054945,286.0,2020.0
+May,Toys & Games,2020-05,4.217244444444445,371.0,2020.0
+Jun,Toys & Games,2020-06,4.147608695652174,291.0,2020.0
+Jul,Toys & Games,2020-07,4.157322404371585,298.0,2020.0
+Aug,Toys & Games,2020-08,4.3913450292397656,291.0,2020.0
+Sep,Toys & Games,2020-09,4.245795454545455,287.0,2020.0
+Oct,Toys & Games,2020-10,4.263764705882354,291.0,2020.0
+Nov,Toys & Games,2020-11,4.125066666666666,268.0,2020.0
+Dec,Toys & Games,2020-12,4.143879310344827,518.0,2020.0
+Jan,Toys & Games,2021-01,4.263309608540926,612.0,2021.0
+Feb,Toys & Games,2021-02,4.269061032863849,393.0,2021.0
+Mar,Toys & Games,2021-03,4.143524590163934,488.0,2021.0
+Apr,Toys & Games,2021-04,4.201814345991561,465.0,2021.0
+May,Toys & Games,2021-05,4.145399061032864,357.0,2021.0
+Jun,Toys & Games,2021-06,4.098368421052632,334.0,2021.0
+Jul,Toys & Games,2021-07,4.246647727272727,344.0,2021.0
+Aug,Toys & Games,2021-08,4.040324074074074,386.0,2021.0
+Sep,Toys & Games,2021-09,3.9838235294117648,252.0,2021.0
+Oct,Toys & Games,2021-10,4.119047619047619,223.0,2021.0
+Nov,Toys & Games,2021-11,3.993411764705882,263.0,2021.0
+Dec,Toys & Games,2021-12,3.951658536585366,383.0,2021.0
+Jan,Toys & Games,2022-01,4.199174757281553,446.0,2022.0
+Feb,Toys & Games,2022-02,4.056792452830188,256.0,2022.0
+Mar,Toys & Games,2022-03,4.041428571428572,303.0,2022.0
+Apr,Toys & Games,2022-04,4.238125,272.0,2022.0
+May,Toys & Games,2022-05,4.065523255813954,271.0,2022.0
+Jun,Toys & Games,2022-06,4.149636363636364,301.0,2022.0
+Jul,Toys & Games,2022-07,4.076401869158879,385.0,2022.0
+Aug,Toys & Games,2022-08,4.07819512195122,354.0,2022.0
+Sep,Toys & Games,2022-09,4.085966850828729,298.0,2022.0
+Oct,Toys & Games,2022-10,4.183045685279188,310.0,2022.0
+Nov,Toys & Games,2022-11,4.244391534391535,290.0,2022.0
+Dec,Toys & Games,2022-12,4.04542735042735,470.0,2022.0
+Jan,Toys & Games,2023-01,4.070876494023905,491.0,2023.0
+Feb,Toys & Games,2023-02,3.8318536585365854,373.0,2023.0
+Mar,Toys & Games,2023-03,3.926131687242798,471.0,2023.0
+Apr,Toys & Games,2023-04,4.129695431472081,322.0,2023.0
+May,Toys & Games,2023-05,4.24504132231405,161.0,2023.0
+Jun,Toys & Games,2023-06,3.9892941176470584,107.0,2023.0
+Jul,Toys & Games,2023-07,4.1459375,78.0,2023.0
+Aug,Toys & Games,2023-08,4.385416666666667,52.0,2023.0
+Sep,Toys & Games,2023-09,3.0,3.0,2023.0
+Jan,Video Games,2020-01,4.0705661743411525,34949.0,2020.0
+Feb,Video Games,2020-02,4.118190541466758,24683.0,2020.0
+Mar,Video Games,2020-03,3.9783784884905278,18326.0,2020.0
+Apr,Video Games,2020-04,3.773889119601329,16059.0,2020.0
+May,Video Games,2020-05,3.860280356128054,17842.0,2020.0
+Jun,Video Games,2020-06,3.8878221675886087,15816.0,2020.0
+Jul,Video Games,2020-07,3.931809900990099,16505.0,2020.0
+Aug,Video Games,2020-08,3.9688440748440748,14876.0,2020.0
+Sep,Video Games,2020-09,3.945826594788859,13680.0,2020.0
+Oct,Video Games,2020-10,3.9469103356890463,13793.0,2020.0
+Nov,Video Games,2020-11,3.8491623160892265,14368.0,2020.0
+Dec,Video Games,2020-12,3.8997162720781664,21368.0,2020.0
+Jan,Video Games,2021-01,4.0095849999999995,22459.0,2021.0
+Feb,Video Games,2021-02,3.8985279282645244,17620.0,2021.0
+Mar,Video Games,2021-03,3.9549657591448137,21506.0,2021.0
+Apr,Video Games,2021-04,3.9464986187845303,19181.0,2021.0
+May,Video Games,2021-05,3.968926521239954,15660.0,2021.0
+Jun,Video Games,2021-06,3.9447443068318018,14186.0,2021.0
+Jul,Video Games,2021-07,3.9374598453301606,14566.0,2021.0
+Aug,Video Games,2021-08,3.879830172033525,12495.0,2021.0
+Sep,Video Games,2021-09,3.854573624194348,10236.0,2021.0
+Oct,Video Games,2021-10,3.8295910591821185,10083.0,2021.0
+Nov,Video Games,2021-11,3.853034232365145,10337.0,2021.0
+Dec,Video Games,2021-12,3.8237253306205496,15368.0,2021.0
+Jan,Video Games,2022-01,3.895601128880527,17635.0,2022.0
+Feb,Video Games,2022-02,3.8007939966109903,11945.0,2022.0
+Mar,Video Games,2022-03,3.835608308605341,13658.0,2022.0
+Apr,Video Games,2022-04,3.8804825090470447,11599.0,2022.0
+May,Video Games,2022-05,3.8623669250645998,10235.0,2022.0
+Jun,Video Games,2022-06,3.8428423066411583,9595.0,2022.0
+Jul,Video Games,2022-07,3.849779866435815,11256.0,2022.0
+Aug,Video Games,2022-08,3.8657363420427555,12211.0,2022.0
+Sep,Video Games,2022-09,3.884677298778968,11177.0,2022.0
+Oct,Video Games,2022-10,3.926791915003887,10710.0,2022.0
+Nov,Video Games,2022-11,3.9092204164550535,12185.0,2022.0
+Dec,Video Games,2022-12,3.879171189979123,15897.0,2022.0
+Jan,Video Games,2023-01,4.0003154750793355,17569.0,2023.0
+Feb,Video Games,2023-02,3.860726652036089,11720.0,2023.0
+Mar,Video Games,2023-03,3.907563507841838,12920.0,2023.0
+Apr,Video Games,2023-04,3.8696953872932984,8270.0,2023.0
+May,Video Games,2023-05,3.8077646562631795,5096.0,2023.0
+Jun,Video Games,2023-06,3.8336342857142856,3400.0,2023.0
+Jul,Video Games,2023-07,3.9963951250801797,2910.0,2023.0
+Aug,Video Games,2023-08,4.015186832740214,1827.0,2023.0
+Sep,Video Games,2023-09,4.207971014492754,148.0,2023.0
