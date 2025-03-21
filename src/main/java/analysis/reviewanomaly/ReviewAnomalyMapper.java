@@ -28,12 +28,12 @@ public class ReviewAnomalyMapper extends Mapper<Object, Text, Text, Text> {
                 long timestamp = jsonNode.get("timestamp").asLong();
 
                 // Only emit data if verified_purchase == false
-                if (!verifiedPurchase) {
+//                if (!verifiedPurchase) {
                     // Emit key-value pair with user_id and timestamp
                     outputKey.set(userId);
                     outputValue.set("1," + timestamp);  // "1" for count, and the timestamp
                     context.write(outputKey, outputValue);
-                }
+//                }
             } catch (Exception e) {
                 // Skip invalid entries (if any)
                 e.printStackTrace();

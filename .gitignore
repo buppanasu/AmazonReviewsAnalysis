@@ -18,6 +18,8 @@ AmazonReviewAnalytics/Video_Games.jsonl
 AmazonReviewAnalytics/cleanedreviews/part-r-00000
 AmazonReviewAnalytics/merged_output/part-r-00000
 
+# .env file
+.env
 
 # Hadoop output files (or any generated output you don't want tracked)
 cleanedproductmeta/
@@ -29,6 +31,7 @@ productmaincategorydistribution/
 
 # Any .jsonl file
 *.jsonl
+*.csv
 
 # Any output folder
 output*/
