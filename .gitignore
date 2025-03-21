@@ -17,6 +17,17 @@ AmazonReviewAnalytics/meta_Video_Games.jsonl
 AmazonReviewAnalytics/Video_Games.jsonl
 AmazonReviewAnalytics/cleanedreviews/part-r-00000
 AmazonReviewAnalytics/merged_output/part-r-00000
+.vscode
+cleanedreviews2
+cleanedreviews3
+OverallProductRatingDistribution
+ProductFeaturesAnalysisResults
+ProductMetadataAnalysisResults
+RatingByYear
+reviewcountbyuser
+userwithmostreviews
+VerifiedToUnverifiedRatio
+WeightedAverageRatingAndVariance
 
 # .env file
 .env
