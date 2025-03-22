@@ -8,15 +8,8 @@ public class ProductFeaturesReducer extends Reducer<Text, Text, Text, Text> {
     @Override
     protected void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
-        // If a product appears more than once, sum the counts.
-        int totalFeatures = 0;
-        for (Text val : values) {
-            try {
-                totalFeatures += Integer.parseInt(val.toString());
-            } catch(NumberFormatException e) {
-                // Skip any unparsable values.
-            }
-        }
-        context.write(key, new Text(String.valueOf(totalFeatures)));
+        // If a product appears more than once, you might want to decide how to combine them.
+        // For now, we'll simply take the first occurrence.
+        context.write(key, values.iterator().next());
     }
 }

@@ -24,10 +24,14 @@ OverallProductRatingDistribution
 ProductFeaturesAnalysisResults
 ProductMetadataAnalysisResults
 RatingByYear
+TopEngagementResults
 reviewcountbyuser
 userwithmostreviews
 VerifiedToUnverifiedRatio
 WeightedAverageRatingAndVariance
+ProductDescriptionAnalysisResults
+ProductFeaturesAnalysisResultsUpdated
+DescriptionTokenAnalysisResults
 
 # .env file
 .env

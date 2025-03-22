@@ -16,36 +16,43 @@ public class ProductFeaturesMapper extends Mapper<LongWritable, Text, Text, Text
     @Override
     protected void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
-        // Each line: <Category>\t<JSON string>
+        // Each line is expected to be: <Category>\t<JSON string>
         String line = value.toString();
         String[] parts = line.split("\t", 2);
         if (parts.length < 2) {
             return; // skip malformed lines
         }
         
-        // The JSON part is the second field.
         String jsonStr = parts[1].trim();
         try {
             JsonNode root = objectMapper.readTree(jsonStr);
+            
+            // Extract parent_asin
             if (!root.hasNonNull("parent_asin")) {
                 return;
             }
             String parentAsin = root.get("parent_asin").asText();
             
-            // Get the "features" field as text.
+            // Extract the features field as text.
             if (!root.has("features")) {
                 return;
             }
             String featuresStr = root.get("features").asText();
-            // Parse the features string into a JSON array.
             JsonNode featuresNode = objectMapper.readTree(featuresStr);
             int featureCount = 0;
             if (featuresNode.isArray()) {
                 featureCount = featuresNode.size();
             }
             
+            // Extract the rating number. (Assume it's stored in "rating_number")
+            String ratingNumber = "0";  // default value
+            if (root.hasNonNull("rating_number")) {
+                ratingNumber = root.get("rating_number").asText();
+            }
+            
+            // Emit key as parent_asin and value as "featureCount,ratingNumber"
             outKey.set(parentAsin);
-            outValue.set(String.valueOf(featureCount));
+            outValue.set(featureCount + "," + ratingNumber);
             context.write(outKey, outValue);
         } catch (Exception e) {
             System.err.println("ProductFeaturesMapper parse error: " + e.getMessage() + " | Line: " + line);
