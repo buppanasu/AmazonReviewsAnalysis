@@ -44,6 +44,8 @@ numberofdistinctproducts/
 output_verified_reviews/
 productmaincategorydistribution/
 
+reviewcountbyuser.txt
+
 # Any .jsonl file
 *.jsonl
 *.csv
