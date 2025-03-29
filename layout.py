@@ -280,29 +280,65 @@ def create_layout(categories1, categories2, category_rating_categories):
                   )
               ]
           ),
-          
-          # Average Rating Over Time by Category
-          html.Div(
-              className="card",
-              children=[
-                  html.Div(
-                      className="card-header",
-                      children=[
-                          html.H3("Average Rating Over Time by Category", className="card-title"),
-                          # Remove the individual dropdown here
-                      ]
-                  ),
-                  html.Div(
-                      className="graph-container",
-                      children=[
-                          dcc.Graph(
-                              id="category-rating-graph",
-                              config={"displayModeBar": False}
-                          )
-                      ]
-                  )
-              ]
-          ),
+        
+        # Category-Specific Sentiment Word Cloud (NEW)
+        html.Div(
+            className="card",
+            children=[
+                html.Div(
+                    className="card-header",
+                    children=[
+                        html.H3("Category Sentiment Word Cloud", className="card-title"),
+                        html.Div(
+                            className="dropdown-container",
+                            children=[
+                                dcc.Dropdown(
+                                    id="category-sentiment-dropdown",
+                                    options=[
+                                        {"label": "Positive Sentiment", "value": "positive"},
+                                        {"label": "Negative Sentiment", "value": "negative"}
+                                    ],
+                                    value="positive",
+                                    clearable=False
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                html.Div(
+                    className="graph-container",
+                    children=[
+                        dcc.Graph(
+                            id="category-sentiment-wordcloud",
+                            config={"displayModeBar": False}
+                        )
+                    ]
+                )
+            ]
+        ),
+        
+        # Average Rating Over Time by Category
+        html.Div(
+            className="card",
+            children=[
+                html.Div(
+                    className="card-header",
+                    children=[
+                        html.H3("Average Rating Over Time by Category", className="card-title"),
+                        # Remove the individual dropdown here
+                    ]
+                ),
+                html.Div(
+                    className="graph-container",
+                    children=[
+                        dcc.Graph(
+                            id="category-rating-graph",
+                            config={"displayModeBar": False}
+                        )
+                    ]
+                )
+            ]
+        ),
           
           # First row of specific visualizations
           html.Div(

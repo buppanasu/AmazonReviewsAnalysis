@@ -278,182 +278,294 @@ def load_average_rating_data(cache):
     return _load_average_rating_data()
 
 def load_sentiment_analysis_data(cache):
-    """Load and process sentiment analysis data with caching"""
-    @cache.memoize()
-    def _load_sentiment_data():
-        try:
-            # Load the data from CSV
-            print("Loading sentiment analysis data...")
-            print(f"Current working directory: {os.getcwd()}")
-            
-            # Check if file exists
-            if os.path.exists("SentimentAnalysis2.csv"):
-                print("SentimentAnalysis2.csv file found!")
-                
-                try:
-                    # Load the CSV file with escapechar to handle commas inside JSON text
-                    df = pd.read_csv("SentimentAnalysis2.csv", header=None, escapechar='\\')
-                    
-                    # Rename the columns
-                    df.columns = ['main_category', 'year', 'sentiment', 'word_freq', 'sentiment_count']
-                    
-                    print(f"Loaded CSV with {len(df)} rows")
-                    print("Sample data:")
-                    print(df.head())
-                    
-                    # Process positive words - collect all words across all categories/years
-                    positive_words = {}
-                    filtered_positive = df[df['sentiment'] == 'positive']
-                    for _, row in filtered_positive.iterrows():
-                        try:
-                            word_freq_str = row['word_freq']
-                            # If word_freq is stored as a JSON string, parse it
-                            if isinstance(word_freq_str, str) and '{' in word_freq_str:
-                                try:
-                                    word_freq_dict = json.loads(word_freq_str.replace("'", "\""))
-                                    for word, count in word_freq_dict.items():
-                                        if word in positive_words:
-                                            positive_words[word] += count
-                                        else:
-                                            positive_words[word] = count
-                                except json.JSONDecodeError:
-                                    # If it's not valid JSON, treat it as a single word
-                                    word = word_freq_str
-                                    count = row['sentiment_count']
-                                    if word in positive_words:
-                                        positive_words[word] += count
-                                    else:
-                                        positive_words[word] = count
-                            else:
-                                # Treat as a single word
-                                word = word_freq_str
-                                count = row['sentiment_count']
-                                if word in positive_words:
-                                    positive_words[word] += count
-                                else:
-                                    positive_words[word] = count
-                        except Exception as e:
-                            print(f"Error processing positive word: {e}")
-                    
-                    # Process negative words - collect all words across all categories/years
-                    negative_words = {}
-                    filtered_negative = df[df['sentiment'] == 'negative']
-                    for _, row in filtered_negative.iterrows():
-                        try:
-                            word_freq_str = row['word_freq']
-                            # If word_freq is stored as a JSON string, parse it
-                            if isinstance(word_freq_str, str) and '{' in word_freq_str:
-                                try:
-                                    word_freq_dict = json.loads(word_freq_str.replace("'", "\""))
-                                    for word, count in word_freq_dict.items():
-                                        if word in negative_words:
-                                            negative_words[word] += count
-                                        else:
-                                            negative_words[word] = count
-                                except json.JSONDecodeError:
-                                    # If it's not valid JSON, treat it as a single word
-                                    word = word_freq_str
-                                    count = row['sentiment_count']
-                                    if word in negative_words:
-                                        negative_words[word] += count
-                                    else:
-                                        negative_words[word] = count
-                            else:
-                                # Treat as a single word
-                                word = word_freq_str
-                                count = row['sentiment_count']
-                                if word in negative_words:
-                                    negative_words[word] += count
-                                else:
-                                    negative_words[word] = count
-                        except Exception as e:
-                            print(f"Error processing negative word: {e}")
-                    
-                    # Calculate sentiment counts based on sentiment
-                    pos_count = df[df['sentiment'] == 'positive']['sentiment_count'].sum()
-                    neg_count = df[df['sentiment'] == 'negative']['sentiment_count'].sum()
-                    neu_count = df[df['sentiment'] == 'neutral']['sentiment_count'].sum()
-                    
-                    # Create sentiment counts dictionary
-                    sentiment_counts = {
-                        "Positive": int(pos_count),
-                        "Negative": int(neg_count),
-                        "Neutral": int(neu_count)
-                    }
-                    
-                    print(f"Calculated sentiment counts: {sentiment_counts}")
-                    print(f"Processed {len(positive_words)} positive words and {len(negative_words)} negative words")
-                    
-                    return positive_words, negative_words, sentiment_counts
-                    
-                except Exception as e:
-                    print(f"Error processing CSV file: {e}")
-                    import traceback
-                    traceback.print_exc()
-            else:
-                print("SentimentAnalysis2.csv file NOT found!")
-                # List files in current directory
-                print("Files in current directory:")
-                for file in os.listdir():
-                    print(f"  - {file}")
-            
-            # Create sample data as fallback
-            print("Creating sample sentiment data as fallback...")
-            positive_words = {
-                "game": 2500, "play": 2000, "condition": 1800, "time": 1500, 
-                "lot": 1200, "seller": 1000, "book": 900, "people": 850, 
-                "space": 800, "fun": 750, "read": 700, "art": 650, 
-                "finding": 600, "enjoying": 550, "series": 500, "marine": 450
-            }
-            negative_words = {
-                "bad": 450, "poor": 400, "terrible": 350, "worst": 300, 
-                "disappointed": 250, "broken": 200, "waste": 180, "awful": 150, 
-                "useless": 130, "return": 120, "cheap": 110, "damage": 100, 
-                "wrong": 90, "missing": 80, "expensive": 70, "defective": 60
-            }
-            
-            # Create sentiment counts data
-            sentiment_counts = {
-                "Positive": 95000,
-                "Negative": 15000,
-                "Neutral": 7000
-            }
-            
-            print(f"Created sample data with {len(positive_words)} positive words and {len(negative_words)} negative words")
-            print(f"Created sentiment counts: {sentiment_counts}")
-            return positive_words, negative_words, sentiment_counts
-                
-        except Exception as e:
-            print(f"Error loading sentiment analysis data: {e}")
-            traceback.print_exc()
-            
-            # Create sample data as fallback
-            print("Creating sample sentiment data as fallback...")
-            positive_words = {
-                "game": 2500, "play": 2000, "condition": 1800, "time": 1500, 
-                "lot": 1200, "seller": 1000, "book": 900, "people": 850, 
-                "space": 800, "fun": 750, "read": 700, "art": 650, 
-                "finding": 600, "enjoying": 550, "series": 500, "marine": 450
-            }
-            negative_words = {
-                "bad": 450, "poor": 400, "terrible": 350, "worst": 300, 
-                "disappointed": 250, "broken": 200, "waste": 180, "awful": 150, 
-                "useless": 130, "return": 120, "cheap": 110, "damage": 100, 
-                "wrong": 90, "missing": 80, "expensive": 70, "defective": 60
-            }
-            
-            # Create sentiment counts data based on your image
-            sentiment_counts = {
-                "Positive": 95000,
-                "Negative": 15000,
-                "Neutral": 7000
-            }
-            
-            print(f"Created sample data with {len(positive_words)} positive words and {len(negative_words)} negative words")
-            print(f"Created sentiment counts: {sentiment_counts}")
-            return positive_words, negative_words, sentiment_counts
-    
-    return _load_sentiment_data()
+  """Load and process sentiment analysis data with caching"""
+  @cache.memoize()
+  def _load_sentiment_data():
+      try:
+          # Load the data from CSV
+          print("Loading sentiment analysis data...")
+          print(f"Current working directory: {os.getcwd()}")
+          
+          # Check if file exists
+          if os.path.exists("SentimentAnalysis2.csv"):
+              print("SentimentAnalysis2.csv file found!")
+              
+              try:
+                  # Load the CSV file with escapechar to handle commas inside JSON text
+                  df = pd.read_csv("SentimentAnalysis2.csv", header=None, escapechar='\\')
+                  
+                  # Rename the columns
+                  df.columns = ['main_category', 'year', 'sentiment', 'word_freq', 'sentiment_count']
+                  
+                  print(f"Loaded CSV with {len(df)} rows")
+                  print("Sample data:")
+                  print(df.head())
+                  
+                  # Process positive words - collect all words across all categories/years
+                  positive_words = {}
+                  filtered_positive = df[df['sentiment'] == 'positive']
+                  for _, row in filtered_positive.iterrows():
+                      try:
+                          word_freq_str = row['word_freq']
+                          # If word_freq is stored as a JSON string, parse it
+                          if isinstance(word_freq_str, str) and '{' in word_freq_str:
+                              try:
+                                  word_freq_dict = json.loads(word_freq_str.replace("'", "\""))
+                                  for word, count in word_freq_dict.items():
+                                      if word in positive_words:
+                                          positive_words[word] += count
+                                      else:
+                                          positive_words[word] = count
+                              except json.JSONDecodeError:
+                                  # If it's not valid JSON, treat it as a single word
+                                  word = word_freq_str
+                                  count = row['sentiment_count']
+                                  if word in positive_words:
+                                      positive_words[word] += count
+                                  else:
+                                      positive_words[word] = count
+                          else:
+                              # Treat as a single word
+                              word = word_freq_str
+                              count = row['sentiment_count']
+                              if word in positive_words:
+                                  positive_words[word] += count
+                              else:
+                                  positive_words[word] = count
+                      except Exception as e:
+                          print(f"Error processing positive word: {e}")
+                  
+                  # Process negative words - collect all words across all categories/years
+                  negative_words = {}
+                  filtered_negative = df[df['sentiment'] == 'negative']
+                  for _, row in filtered_negative.iterrows():
+                      try:
+                          word_freq_str = row['word_freq']
+                          # If word_freq is stored as a JSON string, parse it
+                          if isinstance(word_freq_str, str) and '{' in word_freq_str:
+                              try:
+                                  word_freq_dict = json.loads(word_freq_str.replace("'", "\""))
+                                  for word, count in word_freq_dict.items():
+                                      if word in negative_words:
+                                          negative_words[word] += count
+                                      else:
+                                          negative_words[word] = count
+                              except json.JSONDecodeError:
+                                  # If it's not valid JSON, treat it as a single word
+                                  word = word_freq_str
+                                  count = row['sentiment_count']
+                                  if word in negative_words:
+                                      negative_words[word] += count
+                                  else:
+                                      negative_words[word] = count
+                          else:
+                              # Treat as a single word
+                              word = word_freq_str
+                              count = row['sentiment_count']
+                              if word in negative_words:
+                                  negative_words[word] += count
+                              else:
+                                  negative_words[word] = count
+                      except Exception as e:
+                          print(f"Error processing negative word: {e}")
+                  
+                  # Create category-specific word dictionaries
+                  category_sentiment_words = {}
+                  
+                  # Process each category and sentiment combination
+                  for category in df['main_category'].unique():
+                      category_sentiment_words[category] = {'positive': {}, 'negative': {}}
+                      
+                      # Process positive words for this category
+                      cat_positive = df[(df['main_category'] == category) & (df['sentiment'] == 'positive')]
+                      for _, row in cat_positive.iterrows():
+                          try:
+                              word_freq_str = row['word_freq']
+                              # If word_freq is stored as a JSON string, parse it
+                              if isinstance(word_freq_str, str) and '{' in word_freq_str:
+                                  try:
+                                      word_freq_dict = json.loads(word_freq_str.replace("'", "\""))
+                                      for word, count in word_freq_dict.items():
+                                          if word in category_sentiment_words[category]['positive']:
+                                              category_sentiment_words[category]['positive'][word] += count
+                                          else:
+                                              category_sentiment_words[category]['positive'][word] = count
+                                  except json.JSONDecodeError:
+                                      # If it's not valid JSON, treat it as a single word
+                                      word = word_freq_str
+                                      count = row['sentiment_count']
+                                      if word in category_sentiment_words[category]['positive']:
+                                          category_sentiment_words[category]['positive'][word] += count
+                                      else:
+                                          category_sentiment_words[category]['positive'][word] = count
+                              else:
+                                  # Treat as a single word
+                                  word = word_freq_str
+                                  count = row['sentiment_count']
+                                  if word in category_sentiment_words[category]['positive']:
+                                      category_sentiment_words[category]['positive'][word] += count
+                                  else:
+                                      category_sentiment_words[category]['positive'][word] = count
+                          except Exception as e:
+                              print(f"Error processing category positive word: {e}")
+                      
+                      # Process negative words for this category
+                      cat_negative = df[(df['main_category'] == category) & (df['sentiment'] == 'negative')]
+                      for _, row in cat_negative.iterrows():
+                          try:
+                              word_freq_str = row['word_freq']
+                              # If word_freq is stored as a JSON string, parse it
+                              if isinstance(word_freq_str, str) and '{' in word_freq_str:
+                                  try:
+                                      word_freq_dict = json.loads(word_freq_str.replace("'", "\""))
+                                      for word, count in word_freq_dict.items():
+                                          if word in category_sentiment_words[category]['negative']:
+                                              category_sentiment_words[category]['negative'][word] += count
+                                          else:
+                                              category_sentiment_words[category]['negative'][word] = count
+                                  except json.JSONDecodeError:
+                                      # If it's not valid JSON, treat it as a single word
+                                      word = word_freq_str
+                                      count = row['sentiment_count']
+                                      if word in category_sentiment_words[category]['negative']:
+                                          category_sentiment_words[category]['negative'][word] += count
+                                      else:
+                                          category_sentiment_words[category]['negative'][word] = count
+                              else:
+                                  # Treat as a single word
+                                  word = word_freq_str
+                                  count = row['sentiment_count']
+                                  if word in category_sentiment_words[category]['negative']:
+                                      category_sentiment_words[category]['negative'][word] += count
+                                  else:
+                                      category_sentiment_words[category]['negative'][word] = count
+                          except Exception as e:
+                              print(f"Error processing category negative word: {e}")
+                  
+                  # Calculate sentiment counts based on sentiment
+                  pos_count = df[df['sentiment'] == 'positive']['sentiment_count'].sum()
+                  neg_count = df[df['sentiment'] == 'negative']['sentiment_count'].sum()
+                  neu_count = df[df['sentiment'] == 'neutral']['sentiment_count'].sum()
+                  
+                  # Create sentiment counts dictionary
+                  sentiment_counts = {
+                      "Positive": int(pos_count),
+                      "Negative": int(neg_count),
+                      "Neutral": int(neu_count)
+                  }
+                  
+                  print(f"Calculated sentiment counts: {sentiment_counts}")
+                  print(f"Processed {len(positive_words)} positive words and {len(negative_words)} negative words")
+                  print(f"Processed sentiment words for {len(category_sentiment_words)} categories")
+                  
+                  return positive_words, negative_words, sentiment_counts, category_sentiment_words
+                  
+              except Exception as e:
+                  print(f"Error processing CSV file: {e}")
+                  import traceback
+                  traceback.print_exc()
+          else:
+              print("SentimentAnalysis2.csv file NOT found!")
+              # List files in current directory
+              print("Files in current directory:")
+              for file in os.listdir():
+                  print(f"  - {file}")
+          
+          # Create sample data as fallback
+          print("Creating sample sentiment data as fallback...")
+          positive_words = {
+              "game": 2500, "play": 2000, "condition": 1800, "time": 1500, 
+              "lot": 1200, "seller": 1000, "book": 900, "people": 850, 
+              "space": 800, "fun": 750, "read": 700, "art": 650, 
+              "finding": 600, "enjoying": 550, "series": 500, "marine": 450
+          }
+          negative_words = {
+              "bad": 450, "poor": 400, "terrible": 350, "worst": 300, 
+              "disappointed": 250, "broken": 200, "waste": 180, "awful": 150, 
+              "useless": 130, "return": 120, "cheap": 110, "damage": 100, 
+              "wrong": 90, "missing": 80, "expensive": 70, "defective": 60
+          }
+          
+          # Create sentiment counts data
+          sentiment_counts = {
+              "Positive": 95000,
+              "Negative": 15000,
+              "Neutral": 7000
+          }
+          
+          # Create sample category-specific word dictionaries
+          category_sentiment_words = {}
+          sample_categories = ["Books", "Electronics", "Toys", "Clothing", "Home"]
+          
+          for category in sample_categories:
+              category_sentiment_words[category] = {
+                  'positive': {
+                      "great": 500, "love": 400, "excellent": 350, "perfect": 300, 
+                      "awesome": 250, "amazing": 200, "good": 180, "nice": 150, 
+                      "quality": 130, "recommend": 120, "value": 110, "easy": 100
+                  },
+                  'negative': {
+                      "bad": 150, "poor": 120, "terrible": 100, "worst": 90, 
+                      "disappointed": 80, "broken": 70, "waste": 60, "awful": 50, 
+                      "useless": 40, "return": 35, "cheap": 30, "damage": 25
+                  }
+              }
+          
+          print(f"Created sample data with {len(positive_words)} positive words and {len(negative_words)} negative words")
+          print(f"Created sentiment counts: {sentiment_counts}")
+          print(f"Created sample category sentiment words for {len(category_sentiment_words)} categories")
+          return positive_words, negative_words, sentiment_counts, category_sentiment_words
+              
+      except Exception as e:
+          print(f"Error loading sentiment analysis data: {e}")
+          traceback.print_exc()
+          
+          # Create sample data as fallback
+          print("Creating sample sentiment data as fallback...")
+          positive_words = {
+              "game": 2500, "play": 2000, "condition": 1800, "time": 1500, 
+              "lot": 1200, "seller": 1000, "book": 900, "people": 850, 
+              "space": 800, "fun": 750, "read": 700, "art": 650, 
+              "finding": 600, "enjoying": 550, "series": 500, "marine": 450
+          }
+          negative_words = {
+              "bad": 450, "poor": 400, "terrible": 350, "worst": 300, 
+              "disappointed": 250, "broken": 200, "waste": 180, "awful": 150, 
+              "useless": 130, "return": 120, "cheap": 110, "damage": 100, 
+              "wrong": 90, "missing": 80, "expensive": 70, "defective": 60
+          }
+          
+          # Create sentiment counts data based on your image
+          sentiment_counts = {
+              "Positive": 95000,
+              "Negative": 15000,
+              "Neutral": 7000
+          }
+          
+          # Create sample category-specific word dictionaries
+          category_sentiment_words = {}
+          sample_categories = ["Books", "Electronics", "Toys", "Clothing", "Home"]
+          
+          for category in sample_categories:
+              category_sentiment_words[category] = {
+                  'positive': {
+                      "great": 500, "love": 400, "excellent": 350, "perfect": 300, 
+                      "awesome": 250, "amazing": 200, "good": 180, "nice": 150, 
+                      "quality": 130, "recommend": 120, "value": 110, "easy": 100
+                  },
+                  'negative': {
+                      "bad": 150, "poor": 120, "terrible": 100, "worst": 90, 
+                      "disappointed": 80, "broken": 70, "waste": 60, "awful": 50, 
+                      "useless": 40, "return": 35, "cheap": 30, "damage": 25
+                  }
+              }
+          
+          print(f"Created sample data with {len(positive_words)} positive words and {len(negative_words)} negative words")
+          print(f"Created sentiment counts: {sentiment_counts}")
+          print(f"Created sample category sentiment words for {len(category_sentiment_words)} categories")
+          return positive_words, negative_words, sentiment_counts, category_sentiment_words
+  
+  return _load_sentiment_data()
 
 
 def load_sentiment_by_year_data(cache):
@@ -545,4 +657,3 @@ def load_sentiment_by_year_data(cache):
             return df_sentiment_by_year
     
     return _load_sentiment_by_year_data()
-

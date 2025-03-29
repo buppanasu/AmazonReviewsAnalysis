@@ -15,7 +15,7 @@ import random
 import math
 import colorsys
 
-def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtered, df_features_merged, df_desc, future_periods, df_avg_rating, df_category_rating, positive_words, negative_words, sentiment_counts, df_sentiment_by_year):
+def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtered, df_features_merged, df_desc, future_periods, df_avg_rating, df_category_rating, positive_words, negative_words, sentiment_counts, category_sentiment_words, df_sentiment_by_year):
     """Register all callbacks for the dashboard"""
     
     # Update the sentiment counts chart callback to match your color scheme
@@ -481,6 +481,212 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
             import traceback
             traceback.print_exc()
             return empty_chart(f"Error generating sentiment by year chart: {str(e)}")
+    
+    # New callback for Category-Specific Sentiment Word Cloud
+    @app.callback(
+        Output("category-sentiment-wordcloud", "figure"),
+        [Input("shared-category-dropdown", "value"),
+         Input("category-sentiment-dropdown", "value")]
+    )
+    @cache.memoize()
+    def update_category_sentiment_wordcloud(selected_category, selected_sentiment):
+        print(f"Callback triggered: update_category_sentiment_wordcloud with category: {selected_category}, sentiment: {selected_sentiment}")
+        
+        if not selected_category:
+            return empty_chart("Please select a category")
+        
+        # Check if we have data for this category
+        if selected_category not in category_sentiment_words:
+            return empty_chart(f"No sentiment data available for {selected_category}")
+        
+        # Select the appropriate word dictionary based on sentiment and category
+        word_dict = category_sentiment_words[selected_category][selected_sentiment]
+        
+        if not word_dict:
+            return empty_chart(f"No {selected_sentiment} sentiment data available for {selected_category}")
+        
+        try:
+            # Print some debug info
+            print(f"Word dictionary for {selected_category}/{selected_sentiment} has {len(word_dict)} items")
+            print(f"Sample words: {list(word_dict.items())[:5]}")
+            
+            # Create a list of words and their frequencies
+            words = list(word_dict.keys())
+            frequencies = list(word_dict.values())
+            
+            # Sort words by frequency (descending)
+            sorted_indices = sorted(range(len(frequencies)), key=lambda i: frequencies[i], reverse=True)
+            sorted_words = [words[i] for i in sorted_indices]
+            sorted_frequencies = [frequencies[i] for i in sorted_indices]
+            
+            # Limit to top 10 words only for better readability and less overlap
+            max_words = min(10, len(sorted_words))
+            words_to_show = sorted_words[:max_words]
+            freqs_to_show = sorted_frequencies[:max_words]
+            
+            # Apply logarithmic scaling to make differences more apparent
+            # This will make high-frequency words much larger than low-frequency ones
+            max_freq = max(freqs_to_show) if freqs_to_show else 1
+            min_freq = min(freqs_to_show) if freqs_to_show else 1
+            
+            # Use logarithmic scaling for more dramatic size differences
+            if max_freq > min_freq * 5:  # Only use log scaling if there's significant difference
+                # Add 1 to avoid log(1) = 0
+                log_min = math.log(min_freq + 1)
+                log_max = math.log(max_freq + 1)
+                log_range = log_max - log_min
+                
+                # Scale between 20 and 100 for more dramatic size differences
+                font_sizes = [20 + int(80 * (math.log(freq + 1) - log_min) / log_range) for freq in freqs_to_show]
+            else:
+                # Linear scaling for more uniform distributions
+                freq_range = max_freq - min_freq
+                if freq_range == 0:
+                    freq_range = 1
+                # Scale between 20 and 100 for more dramatic size differences
+                font_sizes = [20 + int(80 * (freq - min_freq) / freq_range) for freq in freqs_to_show]
+            
+            # Make the top 3 words even larger to emphasize them
+            if len(font_sizes) >= 3:
+                font_sizes[0] = min(120, font_sizes[0] + 20)  # Top word
+                if len(font_sizes) >= 2:
+                    font_sizes[1] = min(100, font_sizes[1] + 15)  # Second word
+                if len(font_sizes) >= 3:
+                    font_sizes[2] = min(90, font_sizes[2] + 10)  # Third word
+            
+            # Define grid dimensions for word placement - larger grid for fewer words
+            cols = 12  # Number of columns in the grid
+            rows = 12  # Number of rows in the grid
+
+            # Define colors based on sentiment
+            if selected_sentiment == "positive":
+                # Blue to green color palette
+                colors = ['#1f77b4', '#2ca02c', '#3366cc', '#109618', '#0099c6', '#66aa00', '#3366cc']
+            else:
+                # Red to orange color palette
+                colors = ['#d62728', '#ff7f0e', '#e31a1c', '#ff9900', '#dc3912', '#990099', '#ff4500']
+            
+            # Create a figure
+            fig = go.Figure()
+            
+            # Fixed positions for top 10 words to avoid overlap
+            # These positions are manually defined to ensure good spacing
+            fixed_positions = [
+                (cols/2, rows/2),      # Center - for the most frequent word
+                (cols/4, rows/2),      # Left center
+                (3*cols/4, rows/2),    # Right center
+                (cols/2, rows/4),      # Top center
+                (cols/2, 3*rows/4),    # Bottom center
+                (cols/4, rows/4),      # Top left
+                (3*cols/4, rows/4),    # Top right
+                (cols/4, 3*rows/4),    # Bottom left
+                (3*cols/4, 3*rows/4),  # Bottom right
+                (cols/2, rows/3)       # Extra position
+            ]
+            
+            # Add words as scatter points with text
+            for i in range(min(max_words, len(fixed_positions))):
+                word = words_to_show[i]
+                freq = freqs_to_show[i]
+                x, y = fixed_positions[i]
+                
+                # Choose color from the palette
+                color_idx = i % len(colors)
+                
+                fig.add_trace(
+                    go.Scatter(
+                        x=[x],
+                        y=[y],
+                        mode="text",
+                        text=[word],
+                        textfont=dict(
+                            size=font_sizes[i],
+                            color=colors[color_idx]
+                        ),
+                        hoverinfo="text",
+                        hovertext=f"{word}: {freq}",
+                        showlegend=False
+                    )
+                )
+            
+            # Update layout
+            fig.update_layout(
+                title=None,
+                showlegend=False,
+                margin=dict(l=5, r=5, t=5, b=5),
+                height=600,
+                xaxis=dict(
+                    showgrid=False,
+                    showticklabels=False,
+                    zeroline=False,
+                    range=[0, cols]
+                ),
+                yaxis=dict(
+                    showgrid=False,
+                    showticklabels=False,
+                    zeroline=False,
+                    range=[rows, 0]  # Reverse y-axis to start from top
+                ),
+                plot_bgcolor="white",
+                paper_bgcolor="white"
+            )
+            
+            # Add a title annotation
+            sentiment_title = f"{selected_category}: {selected_sentiment.capitalize()} Sentiment Words"
+            fig.add_annotation(
+                text=sentiment_title,
+                xref="paper", yref="paper",
+                x=0.5, y=1.05,
+                showarrow=False,
+                font=dict(
+                    size=18, 
+                    color="#333333",
+                    weight="bold"
+                ),
+                align="center"
+            )
+            
+            # Add insight annotation
+            top_5_words = sorted(word_dict.items(), key=lambda x: x[1], reverse=True)[:5]
+            top_words_text = ", ".join([f"{word}" for word, count in top_5_words])
+            
+            fig.add_annotation(
+                text=f"Top words: {top_words_text}",
+                xref="paper", yref="paper",
+                x=0.5, y=-0.05,
+                showarrow=False,
+                font=dict(size=12, color="#333"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor="rgba(0,0,0,0.1)",
+                borderwidth=1,
+                borderpad=4,
+                align="center"
+            )
+            
+            # Add frequency annotation for each word
+            for i in range(min(max_words, len(fixed_positions))):
+                word = words_to_show[i]
+                freq = freqs_to_show[i]
+                x, y = fixed_positions[i]
+                
+                # Add small annotation with frequency count
+                fig.add_annotation(
+                    x=x,
+                    y=y,
+                    text=f"({freq})",
+                    showarrow=False,
+                    yshift=-font_sizes[i]/2 - 10,  # Position below the word
+                    font=dict(size=10, color="#666666"),
+                    align="center"
+                )
+            
+            return fig
+        
+        except Exception as e:
+            print(f"Error generating category word cloud: {e}")
+            import traceback
+            traceback.print_exc()
+            return empty_chart(f"Error generating category word cloud: {str(e)}")
     
     # Rest of the callbacks remain unchanged
     @app.callback(

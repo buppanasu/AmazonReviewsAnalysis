@@ -42,7 +42,7 @@ df_pivot = load_review_trends_data(cache)
 df_images_filtered, df_features_merged, df_desc = load_product_settings_data(cache)
 df_avg_rating = load_average_rating_data(cache)
 df_category_rating, category_rating_categories = load_category_rating_data(cache)
-positive_words, negative_words, sentiment_counts = load_sentiment_analysis_data(cache)  # Updated to include sentiment_counts
+positive_words, negative_words, sentiment_counts, category_sentiment_words = load_sentiment_analysis_data(cache)  # Updated to include category_sentiment_words
 df_sentiment_by_year = load_sentiment_by_year_data(cache)
 
 # Forecast periods - reduced from 240 to 120 to decrease computation
@@ -196,9 +196,12 @@ register_callbacks(
   positive_words,
   negative_words,
   sentiment_counts,
+  category_sentiment_words,
   df_sentiment_by_year
 )
 
 # Run the Dash App
 if __name__ == "__main__":
   app.run(debug=False)  # Set debug to False in production
+
+    
