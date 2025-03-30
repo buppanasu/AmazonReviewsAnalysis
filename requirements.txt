@@ -81,3 +81,4 @@ Werkzeug==3.0.6
 wordcloud==1.9.4
 zipp==3.21.0
 zstandard==0.23.0
+gunicorn
