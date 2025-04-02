@@ -9,16 +9,35 @@ def load_rolling_avg_data(cache):
     @cache.memoize()
     def _load_data():
         try:
-            # df = pd.read_csv("rolling_time_window_with_category.csv", parse_dates=["timestamp"])
-            df = pd.read_csv("rolling_time_window_with_category.csv", parse_dates=["timestamp"])
-            df.to_csv("rolling_time_window.csv.gz", index=False, compression="gzip")
-
+            # Read from ZIP file
+            import zipfile
+            import io
+            
+            # Open the ZIP file
+            with zipfile.ZipFile("rolling_time_window_with_category.csv.zip", 'r') as zip_ref:
+                # Get the name of the CSV file inside the ZIP
+                # Assuming there's only one file in the ZIP
+                file_name = zip_ref.namelist()[0]
+                
+                # Extract the CSV file to a bytes buffer
+                with zip_ref.open(file_name) as csv_file:
+                    # Read the CSV into a pandas DataFrame
+                    df = pd.read_csv(io.BytesIO(csv_file.read()), parse_dates=["timestamp"])
+            
             # Aggregate data by category and timestamp
             cat_monthly = df.groupby(["new_category", "timestamp"])["rolling_avg_rating"].mean().reset_index()
             categories = cat_monthly["new_category"].unique()
+            
+            # Print some debug info
+            print(f"Loaded {len(df)} rows from ZIP file")
+            print(f"Found {len(categories)} unique categories")
+            print(f"Sample categories: {categories[:5]}")
+            
             return cat_monthly, categories
         except Exception as e:
             print(f"Error loading rolling average data: {e}")
+            import traceback
+            traceback.print_exc()
             return pd.DataFrame(columns=["new_category", "timestamp", "rolling_avg_rating"]), []
     
     return _load_data()
