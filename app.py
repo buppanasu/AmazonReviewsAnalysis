@@ -1,6 +1,7 @@
 import warnings
 from dash import Dash, html, dcc
 from flask_caching import Cache
+import os
 
 # Import components from our refactored modules
 from layout import create_layout
@@ -200,8 +201,11 @@ register_callbacks(
   df_sentiment_by_year
 )
 
-# Run the Dash App
+# # Run the Dash App
+# if __name__ == "__main__":
+#   app.run(debug=False)  # Set debug to False in production
 if __name__ == "__main__":
-  app.run(debug=False)  # Set debug to False in production
+  port = int(os.environ.get("PORT", 8050))  # Default to 8050 for local dev
+  app.run(host="0.0.0.0", port=port, debug=False)
 
     
