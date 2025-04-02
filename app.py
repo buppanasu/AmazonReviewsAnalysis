@@ -201,6 +201,9 @@ register_callbacks(
   df_sentiment_by_year
 )
 
+
+server = app.server
+
 # # Run the Dash App
 # if __name__ == "__main__":
 #   app.run(debug=False)  # Set debug to False in production
@@ -208,4 +211,3 @@ if __name__ == "__main__":
   port = int(os.environ.get("PORT", 8050))  # Default to 8050 for local dev
   app.run(host="0.0.0.0", port=port, debug=False)
 
-    
