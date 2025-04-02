@@ -1,6 +1,6 @@
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend to avoid GUI window creation
-from dash import Input, Output
+from dash import Input, Output, State, no_update
 import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
@@ -14,23 +14,34 @@ import base64
 import random
 import math
 import colorsys
+import traceback
 
 def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtered, df_features_merged, df_desc, future_periods, df_avg_rating, df_category_rating, positive_words, negative_words, sentiment_counts, category_sentiment_words, df_sentiment_by_year):
     """Register all callbacks for the dashboard"""
+    
+    # Add global error handling for all callbacks
+    @app.callback(
+        Output("error-message", "children"),
+        [Input("error-trigger", "children")],
+        prevent_initial_call=True
+    )
+    def display_error(error_msg):
+        if error_msg:
+            return error_msg
+        return ""
     
     # Update the sentiment counts chart callback to match your color scheme
     @app.callback(
         Output("sentiment-counts-chart", "figure"),
         [Input("sentiment-counts-loaded", "children")]
     )
-    @cache.memoize()
     def update_sentiment_counts_chart(_):
-        print("Callback triggered: update_sentiment_counts_chart")
-        
-        if not sentiment_counts:
-            return empty_chart("No sentiment data available")
-        
         try:
+            print("Callback triggered: update_sentiment_counts_chart")
+            
+            if not sentiment_counts:
+                return empty_chart("No sentiment data available")
+            
             # Extract sentiment types and counts
             sentiments = list(sentiment_counts.keys())
             counts = list(sentiment_counts.values())
@@ -126,7 +137,6 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
             return fig
         except Exception as e:
             print(f"Error generating sentiment counts chart: {e}")
-            import traceback
             traceback.print_exc()
             return empty_chart(f"Error generating sentiment counts chart: {str(e)}")
     
@@ -135,17 +145,20 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
         Output("sentiment-wordcloud", "figure"),
         [Input("sentiment-dropdown", "value")]
     )
-    @cache.memoize()
     def update_sentiment_wordcloud(selected_sentiment):
-        print(f"Callback triggered: update_sentiment_wordcloud with sentiment: {selected_sentiment}")
-        
-        # Select the appropriate word dictionary based on sentiment
-        word_dict = positive_words if selected_sentiment == "positive" else negative_words
-        
-        if not word_dict:
-            return empty_chart("No sentiment data available")
-        
         try:
+            print(f"Callback triggered: update_sentiment_wordcloud with sentiment: {selected_sentiment}")
+            
+            # Default to positive if no selection
+            if not selected_sentiment:
+                selected_sentiment = "positive"
+                
+            # Select the appropriate word dictionary based on sentiment
+            word_dict = positive_words if selected_sentiment == "positive" else negative_words
+            
+            if not word_dict:
+                return empty_chart("No sentiment data available")
+            
             # Print some debug info
             print(f"Word dictionary has {len(word_dict)} items")
             print(f"Sample words: {list(word_dict.items())[:5]}")
@@ -324,7 +337,6 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
         
         except Exception as e:
             print(f"Error generating word cloud: {e}")
-            import traceback
             traceback.print_exc()
             return empty_chart(f"Error generating word cloud: {str(e)}")
     
@@ -333,14 +345,13 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
         Output("sentiment-by-year-chart", "figure"),
         [Input("sentiment-by-year-loaded", "children")]
     )
-    @cache.memoize()
     def update_sentiment_by_year_chart(_):
-        print("Callback triggered: update_sentiment_by_year_chart")
-        
-        if df_sentiment_by_year.empty:
-            return empty_chart("No sentiment by year data available")
-        
         try:
+            print("Callback triggered: update_sentiment_by_year_chart")
+            
+            if df_sentiment_by_year.empty:
+                return empty_chart("No sentiment by year data available")
+            
             # Create stacked bar chart for sentiment distribution over years
             fig = go.Figure()
             
@@ -478,7 +489,6 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
             return fig
         except Exception as e:
             print(f"Error generating sentiment by year chart: {e}")
-            import traceback
             traceback.print_exc()
             return empty_chart(f"Error generating sentiment by year chart: {str(e)}")
     
@@ -488,24 +498,27 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
         [Input("shared-category-dropdown", "value"),
          Input("category-sentiment-dropdown", "value")]
     )
-    @cache.memoize()
     def update_category_sentiment_wordcloud(selected_category, selected_sentiment):
-        print(f"Callback triggered: update_category_sentiment_wordcloud with category: {selected_category}, sentiment: {selected_sentiment}")
-        
-        if not selected_category:
-            return empty_chart("Please select a category")
-        
-        # Check if we have data for this category
-        if selected_category not in category_sentiment_words:
-            return empty_chart(f"No sentiment data available for {selected_category}")
-        
-        # Select the appropriate word dictionary based on sentiment and category
-        word_dict = category_sentiment_words[selected_category][selected_sentiment]
-        
-        if not word_dict:
-            return empty_chart(f"No {selected_sentiment} sentiment data available for {selected_category}")
-        
         try:
+            print(f"Callback triggered: update_category_sentiment_wordcloud with category: {selected_category}, sentiment: {selected_sentiment}")
+            
+            if not selected_category:
+                return empty_chart("Please select a category")
+            
+            # Default to positive if no selection
+            if not selected_sentiment:
+                selected_sentiment = "positive"
+                
+            # Check if we have data for this category
+            if selected_category not in category_sentiment_words:
+                return empty_chart(f"No sentiment data available for {selected_category}")
+            
+            # Select the appropriate word dictionary based on sentiment and category
+            word_dict = category_sentiment_words[selected_category][selected_sentiment]
+            
+            if not word_dict:
+                return empty_chart(f"No {selected_sentiment} sentiment data available for {selected_category}")
+            
             # Print some debug info
             print(f"Word dictionary for {selected_category}/{selected_sentiment} has {len(word_dict)} items")
             print(f"Sample words: {list(word_dict.items())[:5]}")
@@ -684,7 +697,6 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
         
         except Exception as e:
             print(f"Error generating category word cloud: {e}")
-            import traceback
             traceback.print_exc()
             return empty_chart(f"Error generating category word cloud: {str(e)}")
     
@@ -693,662 +705,55 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
         Output("category-rating-graph", "figure"),
         [Input("shared-category-dropdown", "value")]
     )
-    @cache.memoize()
     def update_category_rating_graph(selected_category):
-        print(f"Callback triggered: update_category_rating_graph with category: {selected_category}")
-        
-        if selected_category is None:
-            print("No category selected")
-            return empty_chart("Please select a category")
-        
-        # Print dataframe info
-        print(f"df_category_rating shape: {df_category_rating.shape}")
-        print(f"df_category_rating columns: {df_category_rating.columns.tolist()}")
-        print(f"df_category_rating unique categories: {df_category_rating['main_category'].unique().tolist()}")
-        
-        # Filter data for selected category
-        category_data = df_category_rating[df_category_rating["main_category"] == selected_category].copy()
-        print(f"Filtered data for {selected_category}: {len(category_data)} rows")
-        
-        if category_data.empty:
-            print(f"No data available for {selected_category}")
-            return empty_chart(f"No data available for {selected_category}")
-        
-        # Print sample of filtered data
-        print("Sample of filtered data:")
-        print(category_data.head())
-        
-        # Create line chart for category-specific rating over time
-        fig = go.Figure()
-        
-        # Add trace for the rolling average
-        fig.add_trace(
-            go.Scatter(
-                x=category_data["time_period"],
-                y=category_data["rolling_avg"],
-                mode="lines",
-                name="12-Month Rolling Average",
-                line=dict(color="#4361ee", width=3),
-                hovertemplate="<b>%{x|%b %Y}</b><br>Rating: %{y:.2f}<extra></extra>"
-            )
-        )
-        
-        # Customize layout
-        fig.update_layout(
-            title=None,
-            xaxis_title="Time Period",
-            yaxis_title="Category Rating",
-            font=dict(family="Inter, sans-serif"),
-            plot_bgcolor="white",
-            margin=dict(l=10, r=10, t=10, b=10),
-            height=400,
-            legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1,
-                bgcolor="rgba(255,255,255,0.8)",
-                bordercolor="rgba(0,0,0,0.1)",
-                borderwidth=1
-            ),
-            hovermode="x unified"
-        )
-        
-        # Improve axis styling
-        fig.update_xaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-            tickangle=45,
-            tickformat="%b %Y"
-        )
-        
-        # Update y-axis to show full 0-5 range
-        fig.update_yaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-            tickformat=".2f",
-            range=[0, 5],  # Set fixed range from 0 to 5
-            dtick=1  # Set tick interval to 1
-        )
-        
-        # Add annotations for key insights
-        min_rating = category_data["rolling_avg"].min()
-        max_rating = category_data["rolling_avg"].max()
-        min_date = category_data.loc[category_data["rolling_avg"].idxmin(), "time_period"]
-        max_date = category_data.loc[category_data["rolling_avg"].idxmax(), "time_period"]
-        
-        # Add annotation for minimum point
-        fig.add_annotation(
-            x=min_date,
-            y=min_rating,
-            text=f"Min: {min_rating:.2f}",
-            showarrow=True,
-            arrowhead=2,
-            arrowsize=1,
-            arrowwidth=2,
-            arrowcolor="#ff6b6b",
-            ax=0,
-            ay=30,
-            font=dict(size=12, color="#333"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor="#ff6b6b",
-            borderwidth=1,
-            borderpad=4
-        )
-        
-        # Add annotation for maximum point
-        fig.add_annotation(
-            x=max_date,
-            y=max_rating,
-            text=f"Max: {max_rating:.2f}",
-            showarrow=True,
-            arrowhead=2,
-            arrowsize=1,
-            arrowwidth=2,
-            arrowcolor="#4361ee",
-            ax=0,
-            ay=-30,
-            font=dict(size=12, color="#333"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor="#4361ee",
-            borderwidth=1,
-            borderpad=4
-        )
-        
-        # Add overall trend annotation
-        current_rating = category_data["rolling_avg"].iloc[-1]
-        first_rating = category_data["rolling_avg"].iloc[0]
-        trend_direction = "up" if current_rating > first_rating else "down"
-        trend_color = "#2e8b57" if trend_direction == "up" else "#ff6b6b"
-        trend_change = abs(current_rating - first_rating)
-        
-        fig.add_annotation(
-            text=f"Overall Trend: {trend_direction.capitalize()} by {trend_change:.2f} stars",
-            xref="paper", yref="paper",
-            x=0.01, y=0.01,
-            showarrow=False,
-            font=dict(size=12, color="#333", weight="bold"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor=trend_color,
-            borderwidth=1,
-            borderpad=4,
-            align="left",
-            xanchor="left",
-            yanchor="bottom"
-        )
-        
-        print("Figure created successfully")
-        return fig
-    
-    # New callback for Average Rating Over Time
-    @app.callback(
-        Output("average-rating-graph", "figure"),
-        [Input("average-rating-data-loaded", "children")]
-    )
-    @cache.memoize()
-    def update_average_rating_graph(_):
-        if df_avg_rating.empty:
-            return empty_chart("No average rating data available")
-        
-        # Create line chart for average rating over time
-        fig = go.Figure()
-        
-        # Add trace for the rolling average
-        fig.add_trace(
-            go.Scatter(
-                x=df_avg_rating["time_period"],
-                y=df_avg_rating["rolling_avg"],
-                mode="lines",
-                name="12-Month Rolling Average",
-                line=dict(color="#4361ee", width=3),
-                hovertemplate="<b>%{x|%b %Y}</b><br>Rating: %{y:.2f}<extra></extra>"
-            )
-        )
-        
-        # Add trace for the actual average rating (lighter color)
-        fig.add_trace(
-            go.Scatter(
-                x=df_avg_rating["time_period"],
-                y=df_avg_rating["average_rating"],
-                mode="lines",
-                name="Monthly Average",
-                line=dict(color="#a8c0ff", width=1.5),
-                opacity=0.6,
-                hovertemplate="<b>%{x|%b %Y}</b><br>Rating: %{y:.2f}<extra></extra>"
-            )
-        )
-        
-        # Customize layout
-        fig.update_layout(
-            title=None,
-            xaxis_title="Time Period",
-            yaxis_title="Average Rating",
-            font=dict(family="Inter, sans-serif"),
-            plot_bgcolor="white",
-            margin=dict(l=10, r=10, t=10, b=10),
-            height=400,
-            legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1,
-                bgcolor="rgba(255,255,255,0.8)",
-                bordercolor="rgba(0,0,0,0.1)",
-                borderwidth=1
-            ),
-            hovermode="x unified"
-        )
-        
-        # Improve axis styling
-        fig.update_xaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-            tickangle=45,
-            tickformat="%b %Y"
-        )
-        
-        # Update y-axis to show full 0-5 range
-        fig.update_yaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-            tickformat=".2f",
-            range=[0, 5],  # Set fixed range from 0 to 5
-            dtick=1  # Set tick interval to 1
-        )
-        
-        # Add annotations for key insights
-        min_rating = df_avg_rating["rolling_avg"].min()
-        max_rating = df_avg_rating["rolling_avg"].max()
-        min_date = df_avg_rating.loc[df_avg_rating["rolling_avg"].idxmin(), "time_period"]
-        max_date = df_avg_rating.loc[df_avg_rating["rolling_avg"].idxmax(), "time_period"]
-        
-        # Add annotation for minimum point
-        fig.add_annotation(
-            x=min_date,
-            y=min_rating,
-            text=f"Min: {min_rating:.2f}",
-            showarrow=True,
-            arrowhead=2,
-            arrowsize=1,
-            arrowwidth=2,
-            arrowcolor="#ff6b6b",
-            ax=0,
-            ay=30,
-            font=dict(size=12, color="#333"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor="#ff6b6b",
-            borderwidth=1,
-            borderpad=4
-        )
-        
-        # Add annotation for maximum point
-        fig.add_annotation(
-            x=max_date,
-            y=max_rating,
-            text=f"Max: {max_rating:.2f}",
-            showarrow=True,
-            arrowhead=2,
-            arrowsize=1,
-            arrowwidth=2,
-            arrowcolor="#4361ee",
-            ax=0,
-            ay=-30,
-            font=dict(size=12, color="#333"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor="#4361ee",
-            borderwidth=1,
-            borderpad=4
-        )
-        
-        # Add overall trend annotation
-        current_rating = df_avg_rating["rolling_avg"].iloc[-1]
-        first_rating = df_avg_rating["rolling_avg"].iloc[0]
-        trend_direction = "up" if current_rating > first_rating else "down"
-        trend_color = "#2e8b57" if trend_direction == "up" else "#ff6b6b"
-        trend_change = abs(current_rating - first_rating)
-        
-        fig.add_annotation(
-            text=f"Overall Trend: {trend_direction.capitalize()} by {trend_change:.2f} stars",
-            xref="paper", yref="paper",
-            x=0.01, y=0.01,
-            showarrow=False,
-            font=dict(size=12, color="#333", weight="bold"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor=trend_color,
-            borderwidth=1,
-            borderpad=4,
-            align="left",
-            xanchor="left",
-            yanchor="bottom"
-        )
-        
-        return fig
-    
-    @app.callback(
-        Output("graph-1", "figure"),
-        [Input("shared-category-dropdown", "value")]
-    )
-    @cache.memoize()
-    def update_graph_1(selected_category):
-        if selected_category is None:
-            return empty_chart("Please select a category")
-        
-        # Filter data for selected category
-        data = cat_monthly[cat_monthly["new_category"] == selected_category].sort_values("timestamp").copy()
-        
-        if len(data) < 2 or data["rolling_avg_rating"].isna().all():
-            return empty_chart("No data available for this category")
-
-        # Convert timestamp to numeric
-        data["time_numeric"] = data["timestamp"].map(pd.Timestamp.toordinal)
-        
-        X = data["time_numeric"].values
-        y = data["rolling_avg_rating"].values
-        
-        # Check if we have at least two distinct timestamps and ratings
-        if len(np.unique(X)) < 2 or len(np.unique(y[~np.isnan(y)])) < 2:
-            return empty_chart("Insufficient data for trend analysis")
-
-        # Fit a linear model
         try:
-            coef = np.polyfit(X, y, 1)  # slope, intercept
-            poly1d_fn = np.poly1d(coef)
-        except Exception:
-            return empty_chart("Error in trend calculation")
-
-        # Forecast future months - reduced number of points for better performance
-        last_date = data["timestamp"].max()
-        future_dates = [last_date + pd.DateOffset(months=i) for i in range(1, future_periods + 1, 2)]  # Step by 2 months
-        future_numeric = np.array([d.toordinal() for d in future_dates])
-        future_preds = poly1d_fn(future_numeric)
-
-        # Create traces with improved styling
-        hist_trace = go.Scatter(
-            x=data["timestamp"],
-            y=data["rolling_avg_rating"],
-            mode="lines+markers",
-            name=f"Historical Data",
-            line=dict(color="#4361ee", width=2),
-            marker=dict(size=6, color="#4361ee", line=dict(width=1, color="#ffffff")),
-        )
-
-        forecast_trace = go.Scatter(
-            x=future_dates,
-            y=future_preds,
-            mode="lines",
-            name=f"Forecast",
-            line=dict(color="#ff6b6b", width=2, dash="dash"),
-        )
-
-        # Create figure layout with improved styling
-        fig = go.Figure(data=[hist_trace, forecast_trace])
-        fig.update_layout(
-            title=None,
-            xaxis_title="Time Period",
-            yaxis_title="Average Rating",
-            legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1
-            ),
-            font=dict(family="Inter, sans-serif"),
-            plot_bgcolor="white",
-            margin=dict(l=10, r=10, t=10, b=10),
-            hovermode="x unified",
-        )
-        
-        # Add grid lines and improve axis styling
-        fig.update_xaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-            tickformat="%Y",
-        )
-        
-        fig.update_yaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-            range=[max(0, min(data["rolling_avg_rating"].min() - 0.5, 3)), 
-                   min(5, data["rolling_avg_rating"].max() + 0.5)]
-        )
-        
-        # Add a subtle annotation for the category
-        fig.add_annotation(
-            text=f"Category: {selected_category}",
-            xref="paper", yref="paper",
-            x=0.01, y=0.99,
-            showarrow=False,
-            font=dict(size=12, color="#6c757d"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor="rgba(0,0,0,0.1)",
-            borderwidth=1,
-            borderpad=4,
-            opacity=0.8
-        )
-
-        return fig
-
-    # New callback for the "ALL" category visualization
-    @app.callback(
-        Output("graph-2-all", "figure"),
-        [Input("all-category-value", "children")]
-    )
-    @cache.memoize()
-    def update_graph_2_all(all_category):
-        # Always use the "ALL" category
-        selected_category = "ALL"
-
-        # Filter data for ALL category
-        group_data = df2[df2["category"] == selected_category].copy()
-        top5 = group_data.sort_values(by="rating", ascending=False).head(5)
-
-        if top5.empty:
-            return empty_chart("No data available for ALL category")
-
-        # Truncate long product titles and add line breaks for better display
-        max_title_length = 50  # Maximum characters to display
-        top5["display_title"] = top5["product_title"].apply(
-            lambda x: '<br>'.join([x[i:i+max_title_length] for i in range(0, len(x), max_title_length)])
-        )
-
-        # Create color gradient for bars
-        colors = px.colors.sequential.Blues[3:8]
-        
-        # Create bar chart for top 5 products with improved styling
-        trace = go.Bar(
-            y=top5["display_title"],
-            x=top5["rating"],
-            orientation="h",
-            name=selected_category,
-            marker=dict(
-                color=colors,
-                line=dict(width=0)
-            ),
-            hovertemplate="<b>%{y}</b><br>Ratings: %{x}<extra></extra>"
-        )
-
-        # Create figure layout with improved styling
-        fig = go.Figure(data=[trace])
-        fig.update_layout(
-            title=None,
-            xaxis_title="Number of Ratings",
-            yaxis_title=None,
-            margin=dict(l=20, r=10, t=10, b=10),  # Increased left margin
-            height=500,  # Increased height to accommodate wrapped text
-            font=dict(family="Inter, sans-serif"),
-            plot_bgcolor="white",
-            showlegend=False,
-        )
-        
-        # Improve axis styling
-        fig.update_xaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-        )
-        
-        fig.update_yaxes(
-            showgrid=False,
-            zeroline=False,
-            automargin=True,  # This helps with long labels
-        )
-        
-        # Add value labels to the bars
-        for i, value in enumerate(top5["rating"]):
-            fig.add_annotation(
-                x=value,
-                y=top5["display_title"].iloc[i],
-                text=f"{value}",
-                showarrow=False,
-                xshift=5,
-                font=dict(color="white" if value > max(top5["rating"]) * 0.3 else "#333"),
-                xanchor="left"
-            )
-
-        return fig
-
-    @app.callback(
-        Output("graph-2", "figure"),
-        [Input("shared-category-dropdown", "value")]
-    )
-    @cache.memoize()
-    def update_graph_2(selected_category):
-        if selected_category is None:
-            return empty_chart("Please select a category")
-
-        # Filter data for selected category
-        group_data = df2[df2["category"] == selected_category].copy()
-        top5 = group_data.sort_values(by="rating", ascending=False).head(5)
-
-        if top5.empty:
-            return empty_chart("No data available for this category")
-
-        # Truncate long product titles and add line breaks for better display
-        max_title_length = 50  # Maximum characters to display
-        top5["display_title"] = top5["product_title"].apply(
-            lambda x: '<br>'.join([x[i:i+max_title_length] for i in range(0, len(x), max_title_length)])
-        )
-
-        # Create color gradient for bars
-        colors = px.colors.sequential.Blues[3:8]
-        
-        # Create bar chart for top 5 products with improved styling
-        trace = go.Bar(
-            y=top5["display_title"],
-            x=top5["rating"],
-            orientation="h",
-            name=selected_category,
-            marker=dict(
-                color=colors,
-                line=dict(width=0)
-            ),
-            hovertemplate="<b>%{y}</b><br>Ratings: %{x}<extra></extra>"
-        )
-
-        # Create figure layout with improved styling
-        fig = go.Figure(data=[trace])
-        fig.update_layout(
-            title=None,
-            xaxis_title="Number of Ratings",
-            yaxis_title=None,
-            margin=dict(l=20, r=10, t=10, b=10),  # Increased left margin
-            height=500,  # Increased height to accommodate wrapped text
-            font=dict(family="Inter, sans-serif"),
-            plot_bgcolor="white",
-            showlegend=False,
-        )
-        
-        # Improve axis styling
-        fig.update_xaxes(
-            showgrid=True,
-            gridwidth=1,
-            gridcolor="rgba(0,0,0,0.05)",
-            zeroline=False,
-        )
-        
-        fig.update_yaxes(
-            showgrid=False,
-            zeroline=False,
-            automargin=True,  # This helps with long labels
-        )
-        
-        # Add a subtle annotation for the category
-        fig.add_annotation(
-            text=f"Category: {selected_category}",
-            xref="paper", 
-            yref="paper",
-            x=0.01, 
-            y=0.99,
-            showarrow=False,
-            font=dict(size=12, color="#6c757d"),
-            bgcolor="rgba(255,255,255,0.8)",
-            bordercolor="rgba(0,0,0,0.1)",
-            borderwidth=1,
-            borderpad=4,
-            opacity=0.8
-        )
-        
-        # Add value labels to the bars
-        for i, value in enumerate(top5["rating"]):
-            fig.add_annotation(
-                x=value,
-                y=top5["display_title"].iloc[i],
-                text=f"{value}",
-                showarrow=False,
-                xshift=5,
-                font=dict(color="white" if value > max(top5["rating"]) * 0.3 else "#333"),
-                xanchor="left"
-            )
-
-        return fig
-
-
-    @app.callback(
-        Output("review-graph", "figure"),
-        [Input("review-dropdown", "value")]
-    )
-    @cache.memoize()
-    def update_review_graph(selected_type):
-        if selected_type is None:
-            return empty_chart("Please select a review type")
-        
-        # Set colors for different review types
-        color_map = {
-            "overall": "#4361ee",  # Blue
-            "five_star": "#2e8b57",  # Green
-            "one_star": "#ff6b6b"   # Red
-        }
-        
-        # Create figure
-        fig = go.Figure()
-        
-        # If combined view is selected, show all three lines
-        if selected_type == "combined":
-            # Add trace for overall reviews
+            print(f"Callback triggered: update_category_rating_graph with category: {selected_category}")
+            
+            if selected_category is None:
+                print("No category selected")
+                return empty_chart("Please select a category")
+            
+            # Print dataframe info
+            print(f"df_category_rating shape: {df_category_rating.shape}")
+            print(f"df_category_rating columns: {df_category_rating.columns.tolist()}")
+            print(f"df_category_rating unique categories: {df_category_rating['main_category'].unique().tolist()}")
+            
+            # Filter data for selected category
+            category_data = df_category_rating[df_category_rating["main_category"] == selected_category].copy()
+            print(f"Filtered data for {selected_category}: {len(category_data)} rows")
+            
+            if category_data.empty:
+                print(f"No data available for {selected_category}")
+                return empty_chart(f"No data available for {selected_category}")
+            
+            # Print sample of filtered data
+            print("Sample of filtered data:")
+            print(category_data.head())
+            
+            # Create line chart for category-specific rating over time
+            fig = go.Figure()
+            
+            # Add trace for the rolling average
             fig.add_trace(
                 go.Scatter(
-                    x=df_pivot["year"],
-                    y=df_pivot["overall"],
-                    mode="lines+markers",
-                    name="All Reviews",
-                    line=dict(color=color_map["overall"], width=3),
-                    marker=dict(size=8, color=color_map["overall"], line=dict(width=1, color="#ffffff")),
-                    hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra>All Reviews</extra>"
+                    x=category_data["time_period"],
+                    y=category_data["rolling_avg"],
+                    mode="lines",
+                    name="12-Month Rolling Average",
+                    line=dict(color="#4361ee", width=3),
+                    hovertemplate="<b>%{x|%b %Y}</b><br>Rating: %{y:.2f}<extra></extra>"
                 )
             )
             
-            # Add trace for five-star reviews
-            fig.add_trace(
-                go.Scatter(
-                    x=df_pivot["year"],
-                    y=df_pivot["five_star"],
-                    mode="lines+markers",
-                    name="5★ Reviews",
-                    line=dict(color=color_map["five_star"], width=3),
-                    marker=dict(size=8, color=color_map["five_star"], line=dict(width=1, color="#ffffff")),
-                    hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra>5★ Reviews</extra>"
-                )
-            )
-            
-            # Add trace for one-star reviews
-            fig.add_trace(
-                go.Scatter(
-                    x=df_pivot["year"],
-                    y=df_pivot["one_star"],
-                    mode="lines+markers",
-                    name="1★ Reviews",
-                    line=dict(color=color_map["one_star"], width=3),
-                    marker=dict(size=8, color=color_map["one_star"], line=dict(width=1, color="#ffffff")),
-                    hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra>1★ Reviews</extra>"
-                )
-            )
-            
-            # Update layout for combined view
+            # Customize layout
             fig.update_layout(
                 title=None,
-                xaxis_title="Year",
-                yaxis_title="Review Count",
+                xaxis_title="Time Period",
+                yaxis_title="Category Rating",
                 font=dict(family="Inter, sans-serif"),
                 plot_bgcolor="white",
                 margin=dict(l=10, r=10, t=10, b=10),
-                height=450,
-                hovermode="closest",
+                height=400,
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
@@ -1358,143 +763,1149 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
                     bgcolor="rgba(255,255,255,0.8)",
                     bordercolor="rgba(0,0,0,0.1)",
                     borderwidth=1
+                ),
+                hovermode="x unified"
+            )
+            
+            # Improve axis styling
+            fig.update_xaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                tickangle=45,
+                tickformat="%b %Y"
+            )
+            
+            # Update y-axis to show full 0-5 range
+            fig.update_yaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                tickformat=".2f",
+                range=[0, 5],  # Set fixed range from 0 to 5
+                dtick=1  # Set tick interval to 1
+            )
+            
+            # Add annotations for key insights
+            min_rating = category_data["rolling_avg"].min()
+            max_rating = category_data["rolling_avg"].max()
+            min_date = category_data.loc[category_data["rolling_avg"].idxmin(), "time_period"]
+            max_date = category_data.loc[category_data["rolling_avg"].idxmax(), "time_period"]
+            
+            # Add annotation for minimum point
+            fig.add_annotation(
+                x=min_date,
+                y=min_rating,
+                text=f"Min: {min_rating:.2f}",
+                showarrow=True,
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=2,
+                arrowcolor="#ff6b6b",
+                ax=0,
+                ay=30,
+                font=dict(size=12, color="#333"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor="#ff6b6b",
+                borderwidth=1,
+                borderpad=4
+            )
+            
+            # Add annotation for maximum point
+            fig.add_annotation(
+                x=max_date,
+                y=max_rating,
+                text=f"Max: {max_rating:.2f}",
+                showarrow=True,
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=2,
+                arrowcolor="#4361ee",
+                ax=0,
+                ay=-30,
+                font=dict(size=12, color="#333"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor="#4361ee",
+                borderwidth=1,
+                borderpad=4
+            )
+            
+            # Add overall trend annotation
+            current_rating = category_data["rolling_avg"].iloc[-1]
+            first_rating = category_data["rolling_avg"].iloc[0]
+            trend_direction = "up" if current_rating > first_rating else "down"
+            trend_color = "#2e8b57" if trend_direction == "up" else "#ff6b6b"
+            trend_change = abs(current_rating - first_rating)
+            
+            fig.add_annotation(
+                text=f"Overall Trend: {trend_direction.capitalize()} by {trend_change:.2f} stars",
+                xref="paper", yref="paper",
+                x=0.01, y=0.01,
+                showarrow=False,
+                font=dict(size=12, color="#333", weight="bold"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor=trend_color,
+                borderwidth=1,
+                borderpad=4,
+                align="left",
+                xanchor="left",
+                yanchor="bottom"
+            )
+            
+            print("Figure created successfully")
+            return fig
+        except Exception as e:
+            print(f"Error updating category rating graph: {e}")
+            traceback.print_exc()
+            return empty_chart(f"Error updating category rating graph: {str(e)}")
+    
+    # New callback for Average Rating Over Time
+    @app.callback(
+        Output("average-rating-graph", "figure"),
+        [Input("average-rating-data-loaded", "children")]
+    )
+    def update_average_rating_graph(_):
+        try:
+            if df_avg_rating.empty:
+                return empty_chart("No average rating data available")
+            
+            # Create line chart for average rating over time
+            fig = go.Figure()
+            
+            # Add trace for the rolling average
+            fig.add_trace(
+                go.Scatter(
+                    x=df_avg_rating["time_period"],
+                    y=df_avg_rating["rolling_avg"],
+                    mode="lines",
+                    name="12-Month Rolling Average",
+                    line=dict(color="#4361ee", width=3),
+                    hovertemplate="<b>%{x|%b %Y}</b><br>Rating: %{y:.2f}<extra></extra>"
                 )
             )
             
-            # Add annotation for combined view
+            # Add trace for the actual average rating (lighter color)
+            fig.add_trace(
+                go.Scatter(
+                    x=df_avg_rating["time_period"],
+                    y=df_avg_rating["average_rating"],
+                    mode="lines",
+                    name="Monthly Average",
+                    line=dict(color="#a8c0ff", width=1.5),
+                    opacity=0.6,
+                    hovertemplate="<b>%{x|%b %Y}</b><br>Rating: %{y:.2f}<extra></extra>"
+                )
+            )
+            
+            # Customize layout
+            fig.update_layout(
+                title=None,
+                xaxis_title="Time Period",
+                yaxis_title="Average Rating",
+                font=dict(family="Inter, sans-serif"),
+                plot_bgcolor="white",
+                margin=dict(l=10, r=10, t=10, b=10),
+                height=400,
+                legend=dict(
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1,
+                    bgcolor="rgba(255,255,255,0.8)",
+                    bordercolor="rgba(0,0,0,0.1)",
+                    borderwidth=1
+                ),
+                hovermode="x unified"
+            )
+            
+            # Improve axis styling
+            fig.update_xaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                tickangle=45,
+                tickformat="%b %Y"
+            )
+            
+            # Update y-axis to show full 0-5 range
+            fig.update_yaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                tickformat=".2f",
+                range=[0, 5],  # Set fixed range from 0 to 5
+                dtick=1  # Set tick interval to 1
+            )
+            
+            # Add annotations for key insights
+            min_rating = df_avg_rating["rolling_avg"].min()
+            max_rating = df_avg_rating["rolling_avg"].max()
+            min_date = df_avg_rating.loc[df_avg_rating["rolling_avg"].idxmin(), "time_period"]
+            max_date = df_avg_rating.loc[df_avg_rating["rolling_avg"].idxmax(), "time_period"]
+            
+            # Add annotation for minimum point
             fig.add_annotation(
-                text="Review Types Comparison",
+                x=min_date,
+                y=min_rating,
+                text=f"Min: {min_rating:.2f}",
+                showarrow=True,
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=2,
+                arrowcolor="#ff6b6b",
+                ax=0,
+                ay=30,
+                font=dict(size=12, color="#333"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor="#ff6b6b",
+                borderwidth=1,
+                borderpad=4
+            )
+            
+            # Add annotation for maximum point
+            fig.add_annotation(
+                x=max_date,
+                y=max_rating,
+                text=f"Max: {max_rating:.2f}",
+                showarrow=True,
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=2,
+                arrowcolor="#4361ee",
+                ax=0,
+                ay=-30,
+                font=dict(size=12, color="#333"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor="#4361ee",
+                borderwidth=1,
+                borderpad=4
+            )
+            
+            # Add overall trend annotation
+            current_rating = df_avg_rating["rolling_avg"].iloc[-1]
+            first_rating = df_avg_rating["rolling_avg"].iloc[0]
+            trend_direction = "up" if current_rating > first_rating else "down"
+            trend_color = "#2e8b57" if trend_direction == "up" else "#ff6b6b"
+            trend_change = abs(current_rating - first_rating)
+            
+            fig.add_annotation(
+                text=f"Overall Trend: {trend_direction.capitalize()} by {trend_change:.2f} stars",
+                xref="paper", yref="paper",
+                x=0.01, y=0.01,
+                showarrow=False,
+                font=dict(size=12, color="#333", weight="bold"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor=trend_color,
+                borderwidth=1,
+                borderpad=4,
+                align="left",
+                xanchor="left",
+                yanchor="bottom"
+            )
+            
+            return fig
+        except Exception as e:
+            print(f"Error updating average rating graph: {e}")
+            traceback.print_exc()
+            return empty_chart(f"Error updating average rating graph: {str(e)}")
+    
+    @app.callback(
+        Output("graph-1", "figure"),
+        [Input("shared-category-dropdown", "value")]
+    )
+    def update_graph_1(selected_category):
+        try:
+            if selected_category is None:
+                return empty_chart("Please select a category")
+            
+            # Filter data for selected category
+            data = cat_monthly[cat_monthly["new_category"] == selected_category].sort_values("timestamp").copy()
+            
+            if len(data) < 2 or data["rolling_avg_rating"].isna().all():
+                return empty_chart("No data available for this category")
+
+            # Convert timestamp to numeric
+            data["time_numeric"] = data["timestamp"].map(pd.Timestamp.toordinal)
+            
+            X = data["time_numeric"].values
+            y = data["rolling_avg_rating"].values
+            
+            # Check if we have at least two distinct timestamps and ratings
+            if len(np.unique(X)) < 2 or len(np.unique(y[~np.isnan(y)])) < 2:
+                return empty_chart("Insufficient data for trend analysis")
+
+            # Fit a linear model
+            try:
+                coef = np.polyfit(X, y, 1)  # slope, intercept
+                poly1d_fn = np.poly1d(coef)
+            except Exception as e:
+                print(f"Error in trend calculation: {e}")
+                return empty_chart("Error in trend calculation")
+
+            # Forecast future months - reduced number of points for better performance
+            last_date = data["timestamp"].max()
+            future_dates = [last_date + pd.DateOffset(months=i) for i in range(1, future_periods + 1, 2)]  # Step by 2 months
+            future_numeric = np.array([d.toordinal() for d in future_dates])
+            future_preds = poly1d_fn(future_numeric)
+
+            # Create traces with improved styling
+            hist_trace = go.Scatter(
+                x=data["timestamp"],
+                y=data["rolling_avg_rating"],
+                mode="lines+markers",
+                name=f"Historical Data",
+                line=dict(color="#4361ee", width=2),
+                marker=dict(size=6, color="#4361ee", line=dict(width=1, color="#ffffff")),
+            )
+
+            forecast_trace = go.Scatter(
+                x=future_dates,
+                y=future_preds,
+                mode="lines",
+                name=f"Forecast",
+                line=dict(color="#ff6b6b", width=2, dash="dash"),
+            )
+
+            # Create figure layout with improved styling
+            fig = go.Figure(data=[hist_trace, forecast_trace])
+            fig.update_layout(
+                title=None,
+                xaxis_title="Time Period",
+                yaxis_title="Average Rating",
+                legend=dict(
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ),
+                font=dict(family="Inter, sans-serif"),
+                plot_bgcolor="white",
+                margin=dict(l=10, r=10, t=10, b=10),
+                hovermode="x unified",
+            )
+            
+            # Add grid lines and improve axis styling
+            fig.update_xaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                tickformat="%Y",
+            )
+            
+            fig.update_yaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                range=[max(0, min(data["rolling_avg_rating"].min() - 0.5, 3)), 
+                       min(5, data["rolling_avg_rating"].max() + 0.5)]
+            )
+            
+            # Add a subtle annotation for the category
+            fig.add_annotation(
+                text=f"Category: {selected_category}",
                 xref="paper", yref="paper",
                 x=0.01, y=0.99,
                 showarrow=False,
-                font=dict(size=14, color="#333", weight="bold"),
+                font=dict(size=12, color="#6c757d"),
                 bgcolor="rgba(255,255,255,0.8)",
                 bordercolor="rgba(0,0,0,0.1)",
                 borderwidth=1,
                 borderpad=4,
-                opacity=0.9
+                opacity=0.8
+            )
+
+            return fig
+        except Exception as e:
+            print(f"Error updating graph 1: {e}")
+            traceback.print_exc()
+            return empty_chart(f"Error updating graph 1: {str(e)}")
+
+    # New callback for the "ALL" category visualization
+    @app.callback(
+        Output("graph-2-all", "figure"),
+        [Input("all-category-value", "children")]
+    )
+    def update_graph_2_all(all_category):
+        try:
+            # Always use the "ALL" category
+            selected_category = "ALL"
+
+            # Filter data for ALL category
+            group_data = df2[df2["category"] == selected_category].copy()
+            top5 = group_data.sort_values(by="rating", ascending=False).head(5)
+
+            if top5.empty:
+                return empty_chart("No data available for ALL category")
+
+            # Truncate long product titles and add line breaks for better display
+            max_title_length = 50  # Maximum characters to display
+            top5["display_title"] = top5["product_title"].apply(
+                lambda x: '<br>'.join([x[i:i+max_title_length] for i in range(0, len(x), max_title_length)])
+            )
+
+            # Create color gradient for bars
+            colors = px.colors.sequential.Blues[3:8]
+            
+            # Create bar chart for top 5 products with improved styling
+            trace = go.Bar(
+                y=top5["display_title"],
+                x=top5["rating"],
+                orientation="h",
+                name=selected_category,
+                marker=dict(
+                    color=colors,
+                    line=dict(width=0)
+                ),
+                hovertemplate="<b>%{y}</b><br>Ratings: %{x}<extra></extra>"
+            )
+
+            # Create figure layout with improved styling
+            fig = go.Figure(data=[trace])
+            fig.update_layout(
+                title=None,
+                xaxis_title="Number of Ratings",
+                yaxis_title=None,
+                margin=dict(l=20, r=10, t=10, b=10),  # Increased left margin
+                height=500,  # Increased height to accommodate wrapped text
+                font=dict(family="Inter, sans-serif"),
+                plot_bgcolor="white",
+                showlegend=False,
             )
             
-            # Calculate and add insights about the relationship between review types
-            if len(df_pivot) >= 2:
-                # Get the most recent year data
-                latest_year = df_pivot["year"].max()
-                latest_data = df_pivot[df_pivot["year"] == latest_year]
+            # Improve axis styling
+            fig.update_xaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+            )
+            
+            fig.update_yaxes(
+                showgrid=False,
+                zeroline=False,
+                automargin=True,  # This helps with long labels
+            )
+            
+            # Add value labels to the bars
+            for i, value in enumerate(top5["rating"]):
+                fig.add_annotation(
+                    x=value,
+                    y=top5["display_title"].iloc[i],
+                    text=f"{value}",
+                    showarrow=False,
+                    xshift=5,
+                    font=dict(color="white" if value > max(top5["rating"]) * 0.3 else "#333"),
+                    xanchor="left"
+                )
+
+            return fig
+        except Exception as e:
+            print(f"Error updating graph 2 all: {e}")
+            traceback.print_exc()
+            return empty_chart(f"Error updating graph 2 all: {str(e)}")
+
+    @app.callback(
+        Output("graph-2", "figure"),
+        [Input("shared-category-dropdown", "value")]
+    )
+    def update_graph_2(selected_category):
+        try:
+            if selected_category is None:
+                return empty_chart("Please select a category")
+
+            # Filter data for selected category
+            group_data = df2[df2["category"] == selected_category].copy()
+            top5 = group_data.sort_values(by="rating", ascending=False).head(5)
+
+            if top5.empty:
+                return empty_chart("No data available for this category")
+
+            # Truncate long product titles and add line breaks for better display
+            max_title_length = 50  # Maximum characters to display
+            top5["display_title"] = top5["product_title"].apply(
+                lambda x: '<br>'.join([x[i:i+max_title_length] for i in range(0, len(x), max_title_length)])
+            )
+
+            # Create color gradient for bars
+            colors = px.colors.sequential.Blues[3:8]
+            
+            # Create bar chart for top 5 products with improved styling
+            trace = go.Bar(
+                y=top5["display_title"],
+                x=top5["rating"],
+                orientation="h",
+                name=selected_category,
+                marker=dict(
+                    color=colors,
+                    line=dict(width=0)
+                ),
+                hovertemplate="<b>%{y}</b><br>Ratings: %{x}<extra></extra>"
+            )
+
+            # Create figure layout with improved styling
+            fig = go.Figure(data=[trace])
+            fig.update_layout(
+                title=None,
+                xaxis_title="Number of Ratings",
+                yaxis_title=None,
+                margin=dict(l=20, r=10, t=10, b=10),  # Increased left margin
+                height=500,  # Increased height to accommodate wrapped text
+                font=dict(family="Inter, sans-serif"),
+                plot_bgcolor="white",
+                showlegend=False,
+            )
+            
+            # Improve axis styling
+            fig.update_xaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+            )
+            
+            fig.update_yaxes(
+                showgrid=False,
+                zeroline=False,
+                automargin=True,  # This helps with long labels
+            )
+            
+            # Add a subtle annotation for the category
+            fig.add_annotation(
+                text=f"Category: {selected_category}",
+                xref="paper", 
+                yref="paper",
+                x=0.01, 
+                y=0.99,
+                showarrow=False,
+                font=dict(size=12, color="#6c757d"),
+                bgcolor="rgba(255,255,255,0.8)",
+                bordercolor="rgba(0,0,0,0.1)",
+                borderwidth=1,
+                borderpad=4,
+                opacity=0.8
+            )
+            
+            # Add value labels to the bars
+            for i, value in enumerate(top5["rating"]):
+                fig.add_annotation(
+                    x=value,
+                    y=top5["display_title"].iloc[i],
+                    text=f"{value}",
+                    showarrow=False,
+                    xshift=5,
+                    font=dict(color="white" if value > max(top5["rating"]) * 0.3 else "#333"),
+                    xanchor="left"
+                )
+
+            return fig
+        except Exception as e:
+            print(f"Error updating graph 2: {e}")
+            traceback.print_exc()
+            return empty_chart(f"Error updating graph 2: {str(e)}")
+
+
+    @app.callback(
+        Output("review-graph", "figure"),
+        [Input("review-dropdown", "value")]
+    )
+    def update_review_graph(selected_type):
+        try:
+            if selected_type is None:
+                return empty_chart("Please select a review type")
+            
+            # Set colors for different review types
+            color_map = {
+                "overall": "#4361ee",  # Blue
+                "five_star": "#2e8b57",  # Green
+                "one_star": "#ff6b6b"   # Red
+            }
+            
+            # Create figure
+            fig = go.Figure()
+            
+            # If combined view is selected, show all three lines
+            if selected_type == "combined":
+                # Add trace for overall reviews
+                fig.add_trace(
+                    go.Scatter(
+                        x=df_pivot["year"],
+                        y=df_pivot["overall"],
+                        mode="lines+markers",
+                        name="All Reviews",
+                        line=dict(color=color_map["overall"], width=3),
+                        marker=dict(size=8, color=color_map["overall"], line=dict(width=1, color="#ffffff")),
+                        hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra>All Reviews</extra>"
+                    )
+                )
                 
-                if not latest_data.empty:
-                    five_star_percent = (latest_data["five_star"].values[0] / latest_data["overall"].values[0] * 100) if latest_data["overall"].values[0] > 0 else 0
-                    one_star_percent = (latest_data["one_star"].values[0] / latest_data["overall"].values[0] * 100) if latest_data["overall"].values[0] > 0 else 0
+                # Add trace for five-star reviews
+                fig.add_trace(
+                    go.Scatter(
+                        x=df_pivot["year"],
+                        y=df_pivot["five_star"],
+                        mode="lines+markers",
+                        name="5★ Reviews",
+                        line=dict(color=color_map["five_star"], width=3),
+                        marker=dict(size=8, color=color_map["five_star"], line=dict(width=1, color="#ffffff")),
+                        hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra>5★ Reviews</extra>"
+                    )
+                )
+                
+                # Add trace for one-star reviews
+                fig.add_trace(
+                    go.Scatter(
+                        x=df_pivot["year"],
+                        y=df_pivot["one_star"],
+                        mode="lines+markers",
+                        name="1★ Reviews",
+                        line=dict(color=color_map["one_star"], width=3),
+                        marker=dict(size=8, color=color_map["one_star"], line=dict(width=1, color="#ffffff")),
+                        hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra>1★ Reviews</extra>"
+                    )
+                )
+                
+                # Update layout for combined view
+                fig.update_layout(
+                    title=None,
+                    xaxis_title="Year",
+                    yaxis_title="Review Count",
+                    font=dict(family="Inter, sans-serif"),
+                    plot_bgcolor="white",
+                    margin=dict(l=10, r=10, t=10, b=10),
+                    height=450,
+                    hovermode="closest",
+                    legend=dict(
+                        orientation="h",
+                        yanchor="bottom",
+                        y=1.02,
+                        xanchor="right",
+                        x=1,
+                        bgcolor="rgba(255,255,255,0.8)",
+                        bordercolor="rgba(0,0,0,0.1)",
+                        borderwidth=1
+                    )
+                )
+                
+                # Add annotation for combined view
+                fig.add_annotation(
+                    text="Review Types Comparison",
+                    xref="paper", yref="paper",
+                    x=0.01, y=0.99,
+                    showarrow=False,
+                    font=dict(size=14, color="#333", weight="bold"),
+                    bgcolor="rgba(255,255,255,0.8)",
+                    bordercolor="rgba(0,0,0,0.1)",
+                    borderwidth=1,
+                    borderpad=4,
+                    opacity=0.9
+                )
+                
+                # Calculate and add insights about the relationship between review types
+                if len(df_pivot) >= 2:
+                    # Get the most recent year data
+                    latest_year = df_pivot["year"].max()
+                    latest_data = df_pivot[df_pivot["year"] == latest_year]
                     
-                    # Add annotation with insights
+                    if not latest_data.empty:
+                        five_star_percent = (latest_data["five_star"].values[0] / latest_data["overall"].values[0] * 100) if latest_data["overall"].values[0] > 0 else 0
+                        one_star_percent = (latest_data["one_star"].values[0] / latest_data["overall"].values[0] * 100) if latest_data["overall"].values[0] > 0 else 0
+                        
+                        # Add annotation with insights
+                        fig.add_annotation(
+                            text=f"Latest Year ({latest_year}): 5★ {five_star_percent:.1f}% | 1★ {one_star_percent:.1f}% of total",
+                            xref="paper", yref="paper",
+                            x=0.99, y=0.01,
+                            showarrow=False,
+                            font=dict(size=12, color="#333"),
+                            bgcolor="rgba(255,255,255,0.8)",
+                            bordercolor="rgba(0,0,0,0.1)",
+                            borderwidth=1,
+                            borderpad=4,
+                            opacity=0.9,
+                            align="right",
+                            xanchor="right"
+                        )
+            else:
+                # Original code for individual review types
+                title_map = {
+                    "overall": "Overall Reviews Over the Years",
+                    "five_star": "Five Star Reviews Over the Years",
+                    "one_star": "One Star Reviews Over the Years"
+                }
+                
+                # Add area under the line for better visual impact
+                fig.add_trace(
+                    go.Scatter(
+                        x=df_pivot["year"],
+                        y=df_pivot[selected_type],
+                        mode="lines+markers",
+                        name=title_map[selected_type],
+                        line=dict(
+                            color=color_map[selected_type], 
+                            width=3
+                        ),
+                        marker=dict(
+                            size=8, 
+                            color=color_map[selected_type],
+                            line=dict(width=1, color="#ffffff")
+                        ),
+                        fill='tozeroy',
+                        fillcolor=f"rgba({','.join(str(int(c)) for c in px.colors.hex_to_rgb(color_map[selected_type]))},0.1)",
+                        hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra></extra>"
+                    )
+                )
+                
+                # Customize layout with improved styling
+                fig.update_layout(
+                    title=None,
+                    xaxis_title="Year",
+                    yaxis_title="Review Count",
+                    font=dict(family="Inter, sans-serif"),
+                    plot_bgcolor="white",
+                    margin=dict(l=10, r=10, t=10, b=10),
+                    height=450,
+                    hovermode="x unified",
+                    showlegend=False
+                )
+                
+                # Add annotations for key insights
+                max_year = df_pivot.loc[df_pivot[selected_type].idxmax(), "year"]
+                max_value = df_pivot[selected_type].max()
+                
+                # Add annotation for maximum point
+                fig.add_annotation(
+                    x=max_year,
+                    y=max_value,
+                    text=f"Peak: {int(max_value):,}",
+                    showarrow=True,
+                    arrowhead=2,
+                    arrowsize=1,
+                    arrowwidth=2,
+                    arrowcolor=color_map[selected_type],
+                    ax=0,
+                    ay=-40,
+                    font=dict(size=12, color="#333"),
+                    bgcolor="rgba(255,255,255,0.8)",
+                    bordercolor=color_map[selected_type],
+                    borderwidth=1,
+                    borderpad=4
+                )
+                
+                # Add annotation for review type
+                review_type_labels = {
+                    "overall": "All Reviews",
+                    "five_star": "5★ Reviews",
+                    "one_star": "1★ Reviews"
+                }
+                
+                fig.add_annotation(
+                    text=review_type_labels[selected_type],
+                    xref="paper", yref="paper",
+                    x=0.01, y=0.99,
+                    showarrow=False,
+                    font=dict(size=14, color="#333", weight="bold"),
+                    bgcolor="rgba(255,255,255,0.8)",
+                    bordercolor=color_map[selected_type],
+                    borderwidth=2,
+                    borderpad=4,
+                    opacity=0.9
+                )
+            
+            # Common axis styling for both views
+            fig.update_xaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                tickmode="linear",
+                tick0=df_pivot["year"].min(),
+                dtick=1  # Ensure yearly intervals
+            )
+            
+            fig.update_yaxes(
+                showgrid=True,
+                gridwidth=1,
+                gridcolor="rgba(0,0,0,0.05)",
+                zeroline=False,
+                rangemode="tozero"
+            )
+            
+            return fig
+        except Exception as e:
+            print(f"Error updating review graph: {e}")
+            traceback.print_exc()
+            return empty_chart(f"Error updating review graph: {str(e)}")
+
+
+    # Use a single callback for all product setting graphs to reduce overhead
+    @app.callback(
+        [Output("feature-count-graph", "figure"),
+         Output("description-count-graph", "figure"),
+         Output("image-count-graph", "figure")],
+        [Input("product-settings-data-loaded", "children")]
+    )
+    def update_product_settings_graphs(_):
+        try:
+            # Create all three figures at once to reduce overhead
+            feature_fig = create_feature_count_graph(df_features_merged)
+            desc_fig = create_description_count_graph(df_desc)
+            image_fig = create_image_count_graph(df_images_filtered)
+            
+            return feature_fig, desc_fig, image_fig
+        except Exception as e:
+            print(f"Error updating product settings graphs: {e}")
+            traceback.print_exc()
+            empty_fig = empty_chart("Error loading product settings data")
+            return empty_fig, empty_fig, empty_fig
+
+
+def create_feature_count_graph(df_features_merged):
+    try:
+        # Create scatter plot for feature count vs. rating number
+        fig = go.Figure()
+        
+        if not df_features_merged.empty:
+            # Reduce number of points for better performance
+            plot_data = df_features_merged
+            if len(plot_data) > 1000:
+                plot_data = plot_data.sample(1000, random_state=42)
+                
+            fig.add_trace(
+                go.Scatter(
+                    x=plot_data["feature_count"],
+                    y=plot_data["rating_number"],
+                    mode="markers",
+                    marker=dict(
+                        color="#9c27b0",  # Purple
+                        size=6,  # Reduced marker size
+                        opacity=0.7,
+                        line=dict(width=1, color="#ffffff")
+                    ),
+                    hovertemplate="<b>Feature Count:</b> %{x}<br><b>Reviews:</b> %{y:,}<extra></extra>"
+                )
+            )
+            
+            # Add trendline
+            if len(plot_data) > 1:
+                try:
+                    # Calculate trendline
+                    z = np.polyfit(plot_data["feature_count"], plot_data["rating_number"], 1)
+                    p = np.poly1d(z)
+                    
+                    # Get x range for trendline (use fewer points)
+                    x_min = plot_data["feature_count"].min()
+                    x_max = plot_data["feature_count"].max()
+                    x_range = np.linspace(x_min, x_max, 20)  # Reduced number of points
+                    
+                    # Add trendline to plot
+                    fig.add_trace(
+                        go.Scatter(
+                            x=x_range,
+                            y=p(x_range),
+                            mode="lines",
+                            name="Trend",
+                            line=dict(color="#6a1b9a", width=2, dash="dash"),
+                            hoverinfo="skip"
+                        )
+                    )
+                    
+                    # Calculate correlation
+                    correlation = np.corrcoef(plot_data["feature_count"], plot_data["rating_number"])[0, 1]
+                    
+                    # Add correlation annotation
                     fig.add_annotation(
-                        text=f"Latest Year ({latest_year}): 5★ {five_star_percent:.1f}% | 1★ {one_star_percent:.1f}% of total",
+                        text=f"Correlation: {correlation:.2f}",
                         xref="paper", yref="paper",
-                        x=0.99, y=0.01,
+                        x=0.98, y=0.02,
                         showarrow=False,
                         font=dict(size=12, color="#333"),
                         bgcolor="rgba(255,255,255,0.8)",
                         bordercolor="rgba(0,0,0,0.1)",
                         borderwidth=1,
                         borderpad=4,
-                        opacity=0.9,
                         align="right",
                         xanchor="right"
                     )
-        else:
-            # Original code for individual review types
-            title_map = {
-                "overall": "Overall Reviews Over the Years",
-                "five_star": "Five Star Reviews Over the Years",
-                "one_star": "One Star Reviews Over the Years"
-            }
-            
-            # Add area under the line for better visual impact
+                except Exception as e:
+                    print(f"Error calculating trendline: {e}")
+        
+        # Update layout
+        fig.update_layout(
+            title=None,
+            xaxis_title="Number of Product Features",
+            yaxis_title="Number of Reviews",
+            font=dict(family="Inter, sans-serif"),
+            plot_bgcolor="white",
+            margin=dict(l=10, r=10, t=10, b=10),
+            height=400,
+            showlegend=False
+        )
+        
+        # Improve axis styling
+        fig.update_xaxes(
+            showgrid=True,
+            gridwidth=1,
+            gridcolor="rgba(0,0,0,0.05)",
+            zeroline=False
+        )
+        
+        fig.update_yaxes(
+            showgrid=True,
+            gridwidth=1,
+            gridcolor="rgba(0,0,0,0.05)",
+            zeroline=False
+        )
+        
+        # Add insight annotation
+        if not df_features_merged.empty:
+            # Find optimal feature count (highest average rating)
+            feature_groups = df_features_merged.groupby("feature_count")["rating_number"].mean().reset_index()
+            if not feature_groups.empty:
+                optimal_features = feature_groups.loc[feature_groups["rating_number"].idxmax(), "feature_count"]
+                
+                fig.add_annotation(
+                    text=f"Optimal Feature Count: ~{int(optimal_features)}",
+                    xref="paper", yref="paper",
+                    x=0.01, y=0.98,
+                    showarrow=False,
+                    font=dict(size=12, color="#333", weight="bold"),
+                    bgcolor="rgba(255,255,255,0.8)",
+                    bordercolor="#9c27b0",
+                    borderwidth=1,
+                    borderpad=4
+                )
+        
+        return fig
+    except Exception as e:
+        print(f"Error creating feature count graph: {e}")
+        traceback.print_exc()
+        return empty_chart("Error creating feature count graph")
+
+
+def create_description_count_graph(df_desc):
+    try:
+        # Create scatter plot for description count vs. rating number
+        fig = go.Figure()
+        
+        if not df_desc.empty:
+            # Reduce number of points for better performance
+            plot_data = df_desc
+            if len(plot_data) > 1000:
+                plot_data = plot_data.sample(1000, random_state=42)
+                
             fig.add_trace(
                 go.Scatter(
-                    x=df_pivot["year"],
-                    y=df_pivot[selected_type],
-                    mode="lines+markers",
-                    name=title_map[selected_type],
-                    line=dict(
-                        color=color_map[selected_type], 
-                        width=3
-                    ),
+                    x=plot_data["description_count"],
+                    y=plot_data["rating_number"],
+                    mode="markers",
                     marker=dict(
-                        size=8, 
-                        color=color_map[selected_type],
+                        color="#009688",  # Teal
+                        size=6,  # Reduced marker size
+                        opacity=0.7,
                         line=dict(width=1, color="#ffffff")
                     ),
-                    fill='tozeroy',
-                    fillcolor=f"rgba({','.join(str(int(c)) for c in px.colors.hex_to_rgb(color_map[selected_type]))},0.1)",
-                    hovertemplate="<b>Year: %{x}</b><br>Reviews: %{y:,}<extra></extra>"
+                    hovertemplate="<b>Description Length:</b> %{x}<br><b>Reviews:</b> %{y:,}<extra></extra>"
                 )
             )
             
-            # Customize layout with improved styling
-            fig.update_layout(
-                title=None,
-                xaxis_title="Year",
-                yaxis_title="Review Count",
-                font=dict(family="Inter, sans-serif"),
-                plot_bgcolor="white",
-                margin=dict(l=10, r=10, t=10, b=10),
-                height=450,
-                hovermode="x unified",
-                showlegend=False
-            )
-            
-            # Add annotations for key insights
-            max_year = df_pivot.loc[df_pivot[selected_type].idxmax(), "year"]
-            max_value = df_pivot[selected_type].max()
-            
-            # Add annotation for maximum point
-            fig.add_annotation(
-                x=max_year,
-                y=max_value,
-                text=f"Peak: {int(max_value):,}",
-                showarrow=True,
-                arrowhead=2,
-                arrowsize=1,
-                arrowwidth=2,
-                arrowcolor=color_map[selected_type],
-                ax=0,
-                ay=-40,
-                font=dict(size=12, color="#333"),
-                bgcolor="rgba(255,255,255,0.8)",
-                bordercolor=color_map[selected_type],
-                borderwidth=1,
-                borderpad=4
-            )
-            
-            # Add annotation for review type
-            review_type_labels = {
-                "overall": "All Reviews",
-                "five_star": "5★ Reviews",
-                "one_star": "1★ Reviews"
-            }
-            
-            fig.add_annotation(
-                text=review_type_labels[selected_type],
-                xref="paper", yref="paper",
-                x=0.01, y=0.99,
-                showarrow=False,
-                font=dict(size=14, color="#333", weight="bold"),
-                bgcolor="rgba(255,255,255,0.8)",
-                bordercolor=color_map[selected_type],
-                borderwidth=2,
-                borderpad=4,
-                opacity=0.9
-            )
+            # Add trendline
+            if len(plot_data) > 1:
+                try:
+                    # Calculate trendline
+                    z = np.polyfit(plot_data["description_count"], plot_data["rating_number"], 1)
+                    p = np.poly1d(z)
+                    
+                    # Get x range for trendline (use fewer points)
+                    x_min = plot_data["description_count"].min()
+                    x_max = plot_data["description_count"].max()
+                    x_range = np.linspace(x_min, x_max, 20)  # Reduced number of points
+                    
+                    # Add trendline to plot
+                    fig.add_trace(
+                        go.Scatter(
+                            x=x_range,
+                            y=p(x_range),
+                            mode="lines",
+                            name="Trend",
+                            line=dict(color="#00695c", width=2, dash="dash"),
+                            hoverinfo="skip"
+                        )
+                    )
+                    
+                    # Calculate correlation
+                    correlation = np.corrcoef(plot_data["description_count"], plot_data["rating_number"])[0, 1]
+                    
+                    # Add correlation annotation
+                    fig.add_annotation(
+                        text=f"Correlation: {correlation:.2f}",
+                        xref="paper", yref="paper",
+                        x=0.98, y=0.02,
+                        showarrow=False,
+                        font=dict(size=12, color="#333"),
+                        bgcolor="rgba(255,255,255,0.8)",
+                        bordercolor="rgba(0,0,0,0.1)",
+                        borderwidth=1,
+                        borderpad=4,
+                        align="right",
+                        xanchor="right"
+                    )
+                except Exception as e:
+                    print(f"Error calculating trendline: {e}")
         
-        # Common axis styling for both views
+        # Update layout
+        fig.update_layout(
+            title=None,
+            xaxis_title="Description Length (Characters)",
+            yaxis_title="Number of Reviews",
+            font=dict(family="Inter, sans-serif"),
+            plot_bgcolor="white",
+            margin=dict(l=10, r=10, t=10, b=10),
+            height=400,
+            showlegend=False
+        )
+        
+        # Improve axis styling
+        fig.update_xaxes(
+            showgrid=True,
+            gridwidth=1,
+            gridcolor="rgba(0,0,0,0.05)",
+            zeroline=False
+        )
+        
+        fig.update_yaxes(
+            showgrid=True,
+            gridwidth=1,
+            gridcolor="rgba(0,0,0,0.05)",
+            zeroline=False
+        )
+        
+        # Add insight annotation
+        if not df_desc.empty:
+            # Find optimal description length (highest average rating)
+            # Group by ranges of 100 characters for better analysis
+            df_desc_copy = df_desc.copy()
+            df_desc_copy['desc_range'] = (df_desc_copy['description_count'] // 100) * 100
+            desc_groups = df_desc_copy.groupby("desc_range")["rating_number"].mean().reset_index()
+            
+            if not desc_groups.empty:
+                optimal_desc = desc_groups.loc[desc_groups["rating_number"].idxmax(), "desc_range"]
+                
+                fig.add_annotation(
+                    text=f"Optimal Description Length: ~{int(optimal_desc)}-{int(optimal_desc)+100} chars",
+                    xref="paper", yref="paper",
+                    x=0.01, y=0.98,
+                    showarrow=False,
+                    font=dict(size=12, color="#333", weight="bold"),
+                    bgcolor="rgba(255,255,255,0.8)",
+                    bordercolor="#009688",
+                    borderwidth=1,
+                    borderpad=4
+                )
+        
+        return fig
+    except Exception as e:
+        print(f"Error creating description count graph: {e}")
+        traceback.print_exc()
+        return empty_chart("Error creating description count graph")
+
+
+def create_image_count_graph(df_images_filtered):
+    try:
+        # Create scatter plot for image count vs. rating number
+        fig = go.Figure()
+        
+        if not df_images_filtered.empty:
+            # Reduce number of points for better performance
+            plot_data = df_images_filtered
+            if len(plot_data) > 1000:
+                plot_data = plot_data.sample(1000, random_state=42)
+                
+            fig.add_trace(
+                go.Scatter(
+                    x=plot_data["image_count"],
+                    y=plot_data["rating_number"],
+                    mode="markers",
+                    marker=dict(
+                        color="#1976d2",  # Blue
+                        size=6,  # Reduced marker size
+                        opacity=0.7,
+                        line=dict(width=1, color="#ffffff")
+                    ),
+                    hovertemplate="<b>Image Count:</b> %{x}<br><b>Reviews:</b> %{y:,}<extra></extra>"
+                )
+            )
+            
+            # Add trendline
+            if len(plot_data) > 1:
+                try:
+                    # Calculate trendline
+                    z = np.polyfit(plot_data["image_count"], plot_data["rating_number"], 1)
+                    p = np.poly1d(z)
+                    
+                    # Get x range for trendline (use fewer points)
+                    x_min = plot_data["image_count"].min()
+                    x_max = plot_data["image_count"].max()
+                    x_range = np.linspace(x_min, x_max, 20)  # Reduced number of points
+                    
+                    # Add trendline to plot
+                    fig.add_trace(
+                        go.Scatter(
+                            x=x_range,
+                            y=p(x_range),
+                            mode="lines",
+                            name="Trend",
+                            line=dict(color="#0d47a1", width=2, dash="dash"),
+                            hoverinfo="skip"
+                        )
+                    )
+                    
+                    # Calculate correlation
+                    correlation = np.corrcoef(plot_data["image_count"], plot_data["rating_number"])[0, 1]
+                    
+                    # Add correlation annotation
+                    fig.add_annotation(
+                        text=f"Correlation: {correlation:.2f}",
+                        xref="paper", yref="paper",
+                        x=0.98, y=0.02,
+                        showarrow=False,
+                        font=dict(size=12, color="#333"),
+                        bgcolor="rgba(255,255,255,0.8)",
+                        bordercolor="rgba(0,0,0,0.1)",
+                        borderwidth=1,
+                        borderpad=4,
+                        align="right",
+                        xanchor="right"
+                    )
+                except Exception as e:
+                    print(f"Error calculating trendline: {e}")
+        
+        # Update layout
+        fig.update_layout(
+            title=None,
+            xaxis_title="Number of Product Images",
+            yaxis_title="Number of Reviews",
+            font=dict(family="Inter, sans-serif"),
+            plot_bgcolor="white",
+            margin=dict(l=10, r=10, t=10, b=10),
+            height=400,
+            showlegend=False
+        )
+        
+        # Improve axis styling
         fig.update_xaxes(
             showgrid=True,
             gridwidth=1,
             gridcolor="rgba(0,0,0,0.05)",
             zeroline=False,
-            tickmode="linear",
-            tick0=df_pivot["year"].min(),
-            dtick=1  # Ensure yearly intervals
+            dtick=1  # Show every integer tick
         )
         
         fig.update_yaxes(
@@ -1505,382 +1916,28 @@ def register_callbacks(app, cache, cat_monthly, df2, df_pivot, df_images_filtere
             rangemode="tozero"
         )
         
+        # Add insight annotation
+        if not df_images_filtered.empty:
+            # Find optimal image count (highest average rating)
+            image_groups = df_images_filtered.groupby("image_count")["rating_number"].mean().reset_index()
+            if not image_groups.empty:
+                optimal_images = image_groups.loc[image_groups["rating_number"].idxmax(), "image_count"]
+                
+                fig.add_annotation(
+                    text=f"Optimal Image Count: {int(optimal_images)}",
+                    xref="paper", yref="paper",
+                    x=0.01, y=0.98,
+                    showarrow=False,
+                    font=dict(size=12, color="#333", weight="bold"),
+                    bgcolor="rgba(255,255,255,0.8)",
+                    bordercolor="#1976d2",
+                    borderwidth=1,
+                    borderpad=4
+                )
+        
         return fig
-
-
-    # Use a single callback for all product setting graphs to reduce overhead
-    @app.callback(
-        [Output("feature-count-graph", "figure"),
-         Output("description-count-graph", "figure"),
-         Output("image-count-graph", "figure")],
-        [Input("product-settings-data-loaded", "children")]
-    )
-    @cache.memoize()
-    def update_product_settings_graphs(_):
-        # Create all three figures at once to reduce overhead
-        feature_fig = create_feature_count_graph(df_features_merged)
-        desc_fig = create_description_count_graph(df_desc)
-        image_fig = create_image_count_graph(df_images_filtered)
-        
-        return feature_fig, desc_fig, image_fig
-
-
-def create_feature_count_graph(df_features_merged):
-    # Create scatter plot for feature count vs. rating number
-    fig = go.Figure()
-    
-    if not df_features_merged.empty:
-        # Reduce number of points for better performance
-        plot_data = df_features_merged
-        if len(plot_data) > 1000:
-            plot_data = plot_data.sample(1000, random_state=42)
-            
-        fig.add_trace(
-            go.Scatter(
-                x=plot_data["feature_count"],
-                y=plot_data["rating_number"],
-                mode="markers",
-                marker=dict(
-                    color="#9c27b0",  # Purple
-                    size=6,  # Reduced marker size
-                    opacity=0.7,
-                    line=dict(width=1, color="#ffffff")
-                ),
-                hovertemplate="<b>Feature Count:</b> %{x}<br><b>Reviews:</b> %{y:,}<extra></extra>"
-            )
-        )
-        
-        # Add trendline
-        if len(plot_data) > 1:
-            try:
-                # Calculate trendline
-                z = np.polyfit(plot_data["feature_count"], plot_data["rating_number"], 1)
-                p = np.poly1d(z)
-                
-                # Get x range for trendline (use fewer points)
-                x_min = plot_data["feature_count"].min()
-                x_max = plot_data["feature_count"].max()
-                x_range = np.linspace(x_min, x_max, 20)  # Reduced number of points
-                
-                # Add trendline to plot
-                fig.add_trace(
-                    go.Scatter(
-                        x=x_range,
-                        y=p(x_range),
-                        mode="lines",
-                        name="Trend",
-                        line=dict(color="#6a1b9a", width=2, dash="dash"),
-                        hoverinfo="skip"
-                    )
-                )
-                
-                # Calculate correlation
-                correlation = np.corrcoef(plot_data["feature_count"], plot_data["rating_number"])[0, 1]
-                
-                # Add correlation annotation
-                fig.add_annotation(
-                    text=f"Correlation: {correlation:.2f}",
-                    xref="paper", yref="paper",
-                    x=0.98, y=0.02,
-                    showarrow=False,
-                    font=dict(size=12, color="#333"),
-                    bgcolor="rgba(255,255,255,0.8)",
-                    bordercolor="rgba(0,0,0,0.1)",
-                    borderwidth=1,
-                    borderpad=4,
-                    align="right",
-                    xanchor="right"
-                )
-            except Exception as e:
-                print(f"Error calculating trendline: {e}")
-    
-    # Update layout
-    fig.update_layout(
-        title=None,
-        xaxis_title="Number of Product Features",
-        yaxis_title="Number of Reviews",
-        font=dict(family="Inter, sans-serif"),
-        plot_bgcolor="white",
-        margin=dict(l=10, r=10, t=10, b=10),
-        height=400,
-        showlegend=False
-    )
-    
-    # Improve axis styling
-    fig.update_xaxes(
-        showgrid=True,
-        gridwidth=1,
-        gridcolor="rgba(0,0,0,0.05)",
-        zeroline=False
-    )
-    
-    fig.update_yaxes(
-        showgrid=True,
-        gridwidth=1,
-        gridcolor="rgba(0,0,0,0.05)",
-        zeroline=False
-    )
-    
-    # Add insight annotation
-    if not df_features_merged.empty:
-        # Find optimal feature count (highest average rating)
-        feature_groups = df_features_merged.groupby("feature_count")["rating_number"].mean().reset_index()
-        if not feature_groups.empty:
-            optimal_features = feature_groups.loc[feature_groups["rating_number"].idxmax(), "feature_count"]
-            
-            fig.add_annotation(
-                text=f"Optimal Feature Count: ~{int(optimal_features)}",
-                xref="paper", yref="paper",
-                x=0.01, y=0.98,
-                showarrow=False,
-                font=dict(size=12, color="#333", weight="bold"),
-                bgcolor="rgba(255,255,255,0.8)",
-                bordercolor="#9c27b0",
-                borderwidth=1,
-                borderpad=4
-            )
-    
-    return fig
-
-
-def create_description_count_graph(df_desc):
-    # Create scatter plot for description count vs. rating number
-    fig = go.Figure()
-    
-    if not df_desc.empty:
-        # Reduce number of points for better performance
-        plot_data = df_desc
-        if len(plot_data) > 1000:
-            plot_data = plot_data.sample(1000, random_state=42)
-            
-        fig.add_trace(
-            go.Scatter(
-                x=plot_data["description_count"],
-                y=plot_data["rating_number"],
-                mode="markers",
-                marker=dict(
-                    color="#009688",  # Teal
-                    size=6,  # Reduced marker size
-                    opacity=0.7,
-                    line=dict(width=1, color="#ffffff")
-                ),
-                hovertemplate="<b>Description Length:</b> %{x}<br><b>Reviews:</b> %{y:,}<extra></extra>"
-            )
-        )
-        
-        # Add trendline
-        if len(plot_data) > 1:
-            try:
-                # Calculate trendline
-                z = np.polyfit(plot_data["description_count"], plot_data["rating_number"], 1)
-                p = np.poly1d(z)
-                
-                # Get x range for trendline (use fewer points)
-                x_min = plot_data["description_count"].min()
-                x_max = plot_data["description_count"].max()
-                x_range = np.linspace(x_min, x_max, 20)  # Reduced number of points
-                
-                # Add trendline to plot
-                fig.add_trace(
-                    go.Scatter(
-                        x=x_range,
-                        y=p(x_range),
-                        mode="lines",
-                        name="Trend",
-                        line=dict(color="#00695c", width=2, dash="dash"),
-                        hoverinfo="skip"
-                    )
-                )
-                
-                # Calculate correlation
-                correlation = np.corrcoef(plot_data["description_count"], plot_data["rating_number"])[0, 1]
-                
-                # Add correlation annotation
-                fig.add_annotation(
-                    text=f"Correlation: {correlation:.2f}",
-                    xref="paper", yref="paper",
-                    x=0.98, y=0.02,
-                    showarrow=False,
-                    font=dict(size=12, color="#333"),
-                    bgcolor="rgba(255,255,255,0.8)",
-                    bordercolor="rgba(0,0,0,0.1)",
-                    borderwidth=1,
-                    borderpad=4,
-                    align="right",
-                    xanchor="right"
-                )
-            except Exception as e:
-                print(f"Error calculating trendline: {e}")
-    
-    # Update layout
-    fig.update_layout(
-        title=None,
-        xaxis_title="Description Length (Characters)",
-        yaxis_title="Number of Reviews",
-        font=dict(family="Inter, sans-serif"),
-        plot_bgcolor="white",
-        margin=dict(l=10, r=10, t=10, b=10),
-        height=400,
-        showlegend=False
-    )
-    
-    # Improve axis styling
-    fig.update_xaxes(
-        showgrid=True,
-        gridwidth=1,
-        gridcolor="rgba(0,0,0,0.05)",
-        zeroline=False
-    )
-    
-    fig.update_yaxes(
-        showgrid=True,
-        gridwidth=1,
-        gridcolor="rgba(0,0,0,0.05)",
-        zeroline=False
-    )
-    
-    # Add insight annotation
-    if not df_desc.empty:
-        # Find optimal description length (highest average rating)
-        # Group by ranges of 100 characters for better analysis
-        df_desc_copy = df_desc.copy()
-        df_desc_copy['desc_range'] = (df_desc_copy['description_count'] // 100) * 100
-        desc_groups = df_desc_copy.groupby("desc_range")["rating_number"].mean().reset_index()
-        
-        if not desc_groups.empty:
-            optimal_desc = desc_groups.loc[desc_groups["rating_number"].idxmax(), "desc_range"]
-            
-            fig.add_annotation(
-                text=f"Optimal Description Length: ~{int(optimal_desc)}-{int(optimal_desc)+100} chars",
-                xref="paper", yref="paper",
-                x=0.01, y=0.98,
-                showarrow=False,
-                font=dict(size=12, color="#333", weight="bold"),
-                bgcolor="rgba(255,255,255,0.8)",
-                bordercolor="#009688",
-                borderwidth=1,
-                borderpad=4
-            )
-    
-    return fig
-
-
-def create_image_count_graph(df_images_filtered):
-    # Create scatter plot for image count vs. rating number
-    fig = go.Figure()
-    
-    if not df_images_filtered.empty:
-        # Reduce number of points for better performance
-        plot_data = df_images_filtered
-        if len(plot_data) > 1000:
-            plot_data = plot_data.sample(1000, random_state=42)
-            
-        fig.add_trace(
-            go.Scatter(
-                x=plot_data["image_count"],
-                y=plot_data["rating_number"],
-                mode="markers",
-                marker=dict(
-                    color="#1976d2",  # Blue
-                    size=6,  # Reduced marker size
-                    opacity=0.7,
-                    line=dict(width=1, color="#ffffff")
-                ),
-                hovertemplate="<b>Image Count:</b> %{x}<br><b>Reviews:</b> %{y:,}<extra></extra>"
-            )
-        )
-        
-        # Add trendline
-        if len(plot_data) > 1:
-            try:
-                # Calculate trendline
-                z = np.polyfit(plot_data["image_count"], plot_data["rating_number"], 1)
-                p = np.poly1d(z)
-                
-                # Get x range for trendline (use fewer points)
-                x_min = plot_data["image_count"].min()
-                x_max = plot_data["image_count"].max()
-                x_range = np.linspace(x_min, x_max, 20)  # Reduced number of points
-                
-                # Add trendline to plot
-                fig.add_trace(
-                    go.Scatter(
-                        x=x_range,
-                        y=p(x_range),
-                        mode="lines",
-                        name="Trend",
-                        line=dict(color="#0d47a1", width=2, dash="dash"),
-                        hoverinfo="skip"
-                    )
-                )
-                
-                # Calculate correlation
-                correlation = np.corrcoef(plot_data["image_count"], plot_data["rating_number"])[0, 1]
-                
-                # Add correlation annotation
-                fig.add_annotation(
-                    text=f"Correlation: {correlation:.2f}",
-                    xref="paper", yref="paper",
-                    x=0.98, y=0.02,
-                    showarrow=False,
-                    font=dict(size=12, color="#333"),
-                    bgcolor="rgba(255,255,255,0.8)",
-                    bordercolor="rgba(0,0,0,0.1)",
-                    borderwidth=1,
-                    borderpad=4,
-                    align="right",
-                    xanchor="right"
-                )
-            except Exception as e:
-                print(f"Error calculating trendline: {e}")
-    
-    # Update layout
-    fig.update_layout(
-        title=None,
-        xaxis_title="Number of Product Images",
-        yaxis_title="Number of Reviews",
-        font=dict(family="Inter, sans-serif"),
-        plot_bgcolor="white",
-        margin=dict(l=10, r=10, t=10, b=10),
-        height=400,
-        showlegend=False
-    )
-    
-    # Improve axis styling
-    fig.update_xaxes(
-        showgrid=True,
-        gridwidth=1,
-        gridcolor="rgba(0,0,0,0.05)",
-        zeroline=False,
-        dtick=1  # Show every integer tick
-    )
-    
-    fig.update_yaxes(
-        showgrid=True,
-        gridwidth=1,
-        gridcolor="rgba(0,0,0,0.05)",
-        zeroline=False,
-        rangemode="tozero"
-    )
-    
-    # Add insight annotation
-    if not df_images_filtered.empty:
-        # Find optimal image count (highest average rating)
-        image_groups = df_images_filtered.groupby("image_count")["rating_number"].mean().reset_index()
-        if not image_groups.empty:
-            optimal_images = image_groups.loc[image_groups["rating_number"].idxmax(), "image_count"]
-            
-            fig.add_annotation(
-                text=f"Optimal Image Count: {int(optimal_images)}",
-                xref="paper", yref="paper",
-                x=0.01, y=0.98,
-                showarrow=False,
-                font=dict(size=12, color="#333", weight="bold"),
-                bgcolor="rgba(255,255,255,0.8)",
-                bordercolor="#1976d2",
-                borderwidth=1,
-                borderpad=4
-            )
-    
-    return fig
+    except Exception as e:
+        print(f"Error creating image count graph: {e}")
+        traceback.print_exc()
+        return empty_chart("Error creating image count graph")
 
