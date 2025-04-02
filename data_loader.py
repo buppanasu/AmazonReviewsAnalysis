@@ -9,7 +9,10 @@ def load_rolling_avg_data(cache):
     @cache.memoize()
     def _load_data():
         try:
+            # df = pd.read_csv("rolling_time_window_with_category.csv", parse_dates=["timestamp"])
             df = pd.read_csv("rolling_time_window_with_category.csv", parse_dates=["timestamp"])
+            df.to_csv("rolling_time_window.csv.gz", index=False, compression="gzip")
+            
             # Aggregate data by category and timestamp
             cat_monthly = df.groupby(["new_category", "timestamp"])["rolling_avg_rating"].mean().reset_index()
             categories = cat_monthly["new_category"].unique()
