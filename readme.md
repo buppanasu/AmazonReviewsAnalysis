@@ -6,20 +6,22 @@ Welcome to the Big Data Project repository! This project focuses on processing a
 ## Table of Contents
 - [Overview](#overview)
 - [Project Structure](#project-structure)
-- [Key Components](#key-components)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Project Structure
 
 ```bash
 .
-├── data/                 # Directory for raw or intermediate data
-├── notebooks/            # Jupyter notebooks for exploratory data analysis (if applicable)
-├── scripts/              # Additional scripts for automation or setup
+├── Archive_Notebooks_Testing/
+│   ├── eda.ipynb
+│   ├── JJ_Showcase.ipynb
+│   ├── plotly.ipynb
+│   └── WeightedAverageAndVariance.ipynb
+├── DataAnalysis/
+│   ├── Rating_Analysis.ipynb
+│   ├── Review_Analysis.ipynb
+│   └── SentimentAnalysis.ipynb
+├── EDA/
+    ├── spark_eda.ipynb
 ├── src/
 │   └── main/
 │       └── java/
@@ -29,14 +31,14 @@ Welcome to the Big Data Project repository! This project focuses on processing a
 │           │   ├── FinalJoinDriver.java
 │           │   ├── FinalJoinMapper.java
 │           │   ├── FinalMetaJoinMapper.java
-│           │   └── FinalReviewReducer.java (example placeholder if you have one)
+│           │   └── FinalReviewReducer.java 
 │           ├── merge/                 # Intermediate merging stage
 │           │   ├── JoinReducer.java
 │           │   ├── MergeReviewsAndMetaDriver.java
 │           │   └── ReviewsJoinMapper.java
 │           └── preprocessing/         # Data preprocessing components
 │               ├── CleanReviewsDriver.java
-│               ├── CleanReviewsMapper.java (example placeholder if you have one)
-│               └── CleanReviewsReducer.java (example placeholder if you have one)
-├── docs/                 # Additional documentation
+│               ├── CleanReviewsMapper.java 
+│               └── CleanReviewsReducer.java 
+├── docs/                
 └── README.md             # This file
