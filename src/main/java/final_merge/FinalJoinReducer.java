@@ -1,3 +1,17 @@
+/**
+ * Owner: Travis Teo
+ *
+ * Description:
+ * This reducer class is part of a Hadoop MapReduce job that merges cleaned product reviews 
+ * with corresponding product metadata. It receives key-value pairs where the key is the product 
+ * identifier, and the value is tagged as either "metadata" or "review". The reducer:
+ *   - Parses the metadata JSON string if present.
+ *   - Iterates over all review JSON strings.
+ *   - Combines each review with the metadata into a single JSON object.
+ *   - Outputs the combined JSON for further processing.
+ * Debug statements are included to log the key and combined value during processing.
+ */
+
 package final_merge;
 
 import org.apache.hadoop.io.Text;

@@ -1,3 +1,19 @@
+/**
+ * Owner: Travis Teo
+ *
+ * Description:
+ * This MapReduce driver orchestrates a merge job that integrates cleaned reviews
+ * and cleaned product metadata. It leverages two mappers:
+ *   - FinalReviewJoinMapper for the reviews dataset.
+ *   - FinalMetaJoinMapper for the metadata dataset.
+ *
+ * The job merges these datasets on a common key (e.g., product identifier) using
+ * the FinalJoinReducer to perform the join operation. It configures the Hadoop
+ * job, handles input paths for both datasets, deletes any existing output directory,
+ * and manages job submission and completion.
+ */
+
+
 package final_merge;
 
 import org.apache.hadoop.conf.Configuration;

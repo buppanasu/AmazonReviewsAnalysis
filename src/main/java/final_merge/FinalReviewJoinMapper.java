@@ -1,3 +1,15 @@
+/**
+ * Owner: Travis Teo
+ *
+ * Description:
+ * This mapper class is part of a Hadoop MapReduce job that processes and prepares
+ * product metadata for a join operation with product reviews. It cleans the input by
+ * stripping any extraneous characters before the JSON starts, parses the JSON to an ObjectNode,
+ * and injects the "main_category" derived from the input record. Finally, it extracts the
+ * parent_asin to use as the key, emitting the tagged metadata (prefixed with "metadata")
+ * for downstream processing. Debug statements are included to facilitate tracing of the data flow.
+ */
+
 package final_merge;
 
 import org.apache.hadoop.io.LongWritable;

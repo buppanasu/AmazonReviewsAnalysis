@@ -1,3 +1,19 @@
+/**
+ * Owner: Travis Teo
+ *
+ * Description:
+ * This mapper class is part of a Hadoop MapReduce job that preprocesses product reviews.
+ * The CleanReviewsMapper performs the following steps:
+ *   1. Initializes a Jackson ObjectMapper for JSON parsing during the setup phase.
+ *   2. Reads each input line as a JSON string representing a product review.
+ *   3. Parses the JSON string into a JsonNode and converts it into an ObjectNode for modification.
+ *   4. Removes unnecessary fields such as "title" and "asin" (while preserving "asin" for key construction).
+ *   5. Converts the "images" array into its count.
+ *   6. Constructs a composite key using user_id, asin, and timestamp.
+ *   7. Outputs the composite key along with the cleaned JSON string for further processing.
+ * Debug statements are included to trace the processing of each record.
+ */
+
 package preprocessing;
 
 import java.io.IOException;

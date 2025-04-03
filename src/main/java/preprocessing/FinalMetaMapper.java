@@ -1,3 +1,16 @@
+/**
+ * Owner: Travis Teo
+ *
+ * Description:
+ * This mapper class is part of the preprocessing phase in a Hadoop MapReduce pipeline.
+ * It processes product metadata records by reading JSON strings, extracting key fields,
+ * and applying a customized category mapping to standardize the "main_category" values.
+ * The mapper extracts fields such as title, average_rating, rating_number, features,
+ * description, price, image and video counts, store, details, and parent_asin. The output
+ * key is the mapped main_category, and the output value is a JSON string containing the
+ * extracted and cleaned metadata fields. Records with missing parent_asin are skipped.
+ */
+
 package preprocessing;
 
 import java.io.IOException;
