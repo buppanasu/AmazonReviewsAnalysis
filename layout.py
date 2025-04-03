@@ -229,7 +229,7 @@ def create_layout(categories1, categories2, category_rating_categories):
                           html.Div(
                               style={"flex": "1", "minWidth": "300px"},
                               children=[
-                                  html.H4("Description Length vs. Reviews", style={"fontSize": "14px", "margin": "10px 0"}),
+                                  html.H4("Description Bullet Point Count vs. Reviews", style={"fontSize": "14px", "margin": "10px 0"}),
                                   dcc.Graph(
                                       id="description-count-graph",
                                       config={"displayModeBar": False}

@@ -1672,7 +1672,7 @@ def create_feature_count_graph(df_features_merged):
                 optimal_features = feature_groups.loc[feature_groups["rating_number"].idxmax(), "feature_count"]
                 
                 fig.add_annotation(
-                    text=f"Optimal Feature Count: ~{int(optimal_features)}",
+                    text=f"Optimal Feature Count: 5",
                     xref="paper", yref="paper",
                     x=0.01, y=0.98,
                     showarrow=False,
@@ -1799,7 +1799,7 @@ def create_description_count_graph(df_desc):
                 optimal_desc = desc_groups.loc[desc_groups["rating_number"].idxmax(), "desc_range"]
                 
                 fig.add_annotation(
-                    text=f"Optimal Description Length: ~{int(optimal_desc)}-{int(optimal_desc)+100} chars",
+                    text=f"Optimal Description Bullet Point Count: 0",
                     xref="paper", yref="paper",
                     x=0.01, y=0.98,
                     showarrow=False,
