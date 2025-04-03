@@ -1,3 +1,14 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Mapper class for a Hadoop MapReduce job analyzes the temporal trends of product reviews. 
+ * It parses JSON-formatted review records to extract the parent ASIN, review timestamp, and rating. 
+ * The timestamp is converted to a "YYYY-MM" format to group reviews by month. Each emitted key is a 
+ * combination of parent ASIN and month, and the value contains the rating and a count of 1, 
+ * which will be used by the Reducer to compute average ratings over time.
+ */
+
 package analysis.temporaltrends;
 
 import org.apache.hadoop.io.Text;

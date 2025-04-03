@@ -1,3 +1,13 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Reducer class for a Hadoop MapReduce job outputs the engagement data for each product 
+ * by category or overall. For each key (main category or "ALL"), it writes all associated 
+ * product records, each containing a product title and its rating count. This allows 
+ * downstream processing or sorting to identify top-engagement products within each group.
+ */
+
 package analysis.topengagement;
 
 import java.io.IOException;

@@ -1405,7 +1405,7 @@ def create_description_count_graph():
             optimal_desc = desc_groups.loc[desc_groups["rating_number"].idxmax(), "desc_range"]
             
             fig.add_annotation(
-                text=f"Optimal Description Length: ~{int(optimal_desc)}-{int(optimal_desc)+100} chars",
+                text=f"Optimal Description BulletPt Count: ~{int(optimal_desc)}-{int(optimal_desc)+100} chars",
                 xref="paper", yref="paper",
                 x=0.01, y=0.98,
                 showarrow=False,

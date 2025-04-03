@@ -1,3 +1,13 @@
+/**
+ * Owner: Farhan
+ *
+ * Description:
+ * This Mapper class for a Hadoop MapReduce job analyzes product descriptions from JSON-formatted metadata. 
+ * It extracts the parent ASIN, counts the number of items in the "description" field (assumed to be a JSON array), 
+ * and retrieves the product's rating number. It outputs the parent ASIN as the key and a comma-separated value 
+ * containing the description count and rating number.
+ */
+
 package analysis.productdescriptionanalysis;
 
 import java.io.IOException;

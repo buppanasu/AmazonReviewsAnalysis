@@ -1,3 +1,13 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Mapper class for a Hadoop MapReduce job processes product review data in JSON format. 
+ * It extracts the "rating" field from each review, converts the rating to an integer, 
+ * and emits the rating as the key with a count of 1 as the value. 
+ * This data is used to calculate the distribution of product ratings.
+ */
+
 package analysis.overallproductratingdistribution;
 import java.io.IOException;
 import org.apache.hadoop.io.IntWritable;

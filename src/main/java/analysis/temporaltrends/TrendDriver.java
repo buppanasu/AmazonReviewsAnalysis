@@ -1,3 +1,13 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Driver class sets up and runs two Hadoop MapReduce jobs to analyze temporal trends 
+ * in product reviews. One job processes all reviews to compute average ratings and counts 
+ * over time, while the other focuses only on reviews marked as "verified purchase". 
+ * The driver configures both jobs, sets input/output paths, and executes them sequentially.
+ */
+
 package analysis.temporaltrends;
 
 import org.apache.hadoop.conf.Configuration;

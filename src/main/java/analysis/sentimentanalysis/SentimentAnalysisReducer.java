@@ -1,3 +1,13 @@
+/**
+ * Owner: Alan
+ *
+ * Description:
+ * This Reducer class for a Hadoop MapReduce job outputs the sentiment-related review data 
+ * for each product. It receives a parent ASIN as the key and one or more values containing 
+ * the main category, timestamp, and review text. The reducer writes out each key-value pair 
+ * directly, preserving the extracted review information.
+ */
+
 package analysis.sentimentanalysis;
 
 import org.apache.hadoop.io.Text;

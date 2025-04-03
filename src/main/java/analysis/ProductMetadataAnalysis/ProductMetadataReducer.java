@@ -1,3 +1,13 @@
+/**
+ * Owner: Farhan
+ *
+ * Description:
+ * This Reducer class for a Hadoop MapReduce job handles the output of product metadata analysis. 
+ * For each product (identified by its parent ASIN), it writes out the corresponding metadata string, 
+ * which includes image count, rating number, and video count. The current implementation assumes each 
+ * product appears only once, but it can be extended to handle aggregation if multiple entries exist.
+ */
+
 package analysis.ProductMetadataAnalysis;
 
 import java.io.IOException;
