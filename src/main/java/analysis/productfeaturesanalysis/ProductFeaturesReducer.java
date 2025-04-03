@@ -1,3 +1,13 @@
+/**
+ * Owner: Farhan
+ *
+ * Description:
+ * This Reducer class for a Hadoop MapReduce job processes the output of product features analysis. 
+ * For each product (identified by its parent ASIN), it emits the first encountered value, 
+ * which typically contains the feature count and rating number. This approach assumes 
+ * that duplicate entries are either identical or the first occurrence is sufficient.
+ */
+
 package analysis.productfeaturesanalysis;
 
 import java.io.IOException;

@@ -1,3 +1,13 @@
+/**
+ * Owner: Alan
+ *
+ * Description:
+ * This is the Driver class for a Hadoop MapReduce job that performs sentiment analysis 
+ * on Amazon product reviews. It configures the job by setting the Mapper and Reducer classes, 
+ * specifies input and output paths, and defines the key/value types for output. 
+ * The job processes review data and extracts sentiment-related information.
+ */
+
 package analysis.sentimentanalysis;
 
 import org.apache.hadoop.conf.Configuration;

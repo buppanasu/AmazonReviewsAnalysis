@@ -1,3 +1,14 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Reducer class for a Hadoop MapReduce job computes temporal trends in product ratings. 
+ * It aggregates ratings and counts for each key (a combination of parent ASIN and month), 
+ * then calculates the average rating. The output is formatted with the parent ASIN, 
+ * time period (YYYY-MM), average rating, and total number of ratings, providing insight 
+ * into how product sentiment changes over time.
+ */
+
 package analysis.temporaltrends;
 
 import org.apache.hadoop.io.Text;

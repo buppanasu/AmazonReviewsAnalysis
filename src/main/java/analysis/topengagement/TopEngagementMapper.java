@@ -1,3 +1,14 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Mapper class for a Hadoop MapReduce job identifies high-engagement products by parsing 
+ * JSON-formatted review metadata. It extracts the main category, product title, and number of ratings 
+ * (rating_number) for each product. It emits two records per product: one keyed by the main category 
+ * and another under a generic "ALL" key for global ranking. The output value is a comma-separated 
+ * string of product title and rating count.
+ */
+
 package analysis.topengagement;
 
 import java.io.IOException;

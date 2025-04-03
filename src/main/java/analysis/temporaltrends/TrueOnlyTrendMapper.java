@@ -1,3 +1,14 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Mapper class for a Hadoop MapReduce job filters and analyzes only verified purchase reviews 
+ * to study temporal rating trends. It parses each review's JSON, checks if the review is marked as 
+ * "verified_purchase", and if so, extracts the parent ASIN, timestamp, and rating. The timestamp 
+ * is formatted to "YYYY-MM" to group data by month. Each key is a combination of product ID and month, 
+ * and the value includes the rating and a count of 1 for aggregation in the reducer.
+ */
+
 package analysis.temporaltrends;
 
 import org.apache.hadoop.io.Text;

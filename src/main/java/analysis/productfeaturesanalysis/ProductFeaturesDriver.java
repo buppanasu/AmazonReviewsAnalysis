@@ -1,3 +1,14 @@
+/**
+ * Owner: Farhan
+ *
+ * Description:
+ * This is the Driver class for a Hadoop MapReduce job that analyzes product features 
+ * from JSON-formatted metadata. It configures the job by setting the Mapper and Reducer 
+ * classes, defines input and output paths, and specifies the output key and value types. 
+ * The goal is to extract and analyze the number of features and corresponding rating data 
+ * for each product.
+ */
+
 package analysis.productfeaturesanalysis;
 
 import org.apache.hadoop.conf.Configuration;

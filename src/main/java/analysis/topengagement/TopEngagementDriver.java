@@ -1,3 +1,13 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This Driver class sets up and executes a Hadoop MapReduce job to identify products 
+ * with the highest engagement based on review data. It configures the job with the 
+ * appropriate Mapper and Reducer classes, sets input and output paths, and specifies 
+ * Text as the key and value types. The output format uses a comma as the field separator.
+ */
+
 package analysis.topengagement;
 
 import org.apache.hadoop.conf.Configuration;

@@ -1,3 +1,14 @@
+/**
+ * Owner: Farhan
+ *
+ * Description:
+ * This Mapper class processes product review data in Hadoop MapReduce. 
+ * It reads input lines containing a product category and a JSON string, 
+ * extracts the product's parent ASIN, counts the number of features listed, 
+ * and retrieves the rating number. The output key is the parent ASIN, 
+ * and the output value is a comma-separated string of feature count and rating number.
+ */
+
 package analysis.productfeaturesanalysis;
 
 import java.io.IOException;

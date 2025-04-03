@@ -1,3 +1,13 @@
+/**
+ * Owner: Farhan
+ *
+ * Description:
+ * This is the Driver class for a Hadoop MapReduce job that performs analysis on product metadata. 
+ * It sets up the job configuration, specifies the Mapper and Reducer classes, and defines the 
+ * input and output paths as well as the output key/value types. The job processes metadata to 
+ * extract and summarize key product attributes.
+ */
+
 package analysis.ProductMetadataAnalysis;
 
 import org.apache.hadoop.conf.Configuration;

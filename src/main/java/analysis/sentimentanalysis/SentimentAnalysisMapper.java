@@ -1,3 +1,13 @@
+/**
+ * Owner: Alan
+ *
+ * Description:
+ * This Mapper class for a Hadoop MapReduce job extracts sentiment-related fields from 
+ * JSON-formatted Amazon product reviews. For each input line, it parses the JSON to retrieve 
+ * the main category, review timestamp, and review text, using the parent ASIN as the key. 
+ * It emits the parent ASIN and a tab-separated string of the extracted fields as the output.
+ */
+
 package analysis.sentimentanalysis;
 
 import org.apache.hadoop.io.LongWritable;

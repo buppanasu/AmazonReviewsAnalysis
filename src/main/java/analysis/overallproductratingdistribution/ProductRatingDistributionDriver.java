@@ -1,3 +1,14 @@
+/**
+ * Owner: Yu Rui
+ *
+ * Description:
+ * This is the Driver class for the Hadoop MapReduce job that calculates 
+ * the distribution of overall product ratings. It sets up the configuration, 
+ * specifies the Mapper and Reducer classes, and defines input/output paths 
+ * and key/value types. The job reads product rating data and outputs how 
+ * frequently each rating appears.
+ */
+
 package analysis.overallproductratingdistribution;
 
 import org.apache.hadoop.fs.Path;

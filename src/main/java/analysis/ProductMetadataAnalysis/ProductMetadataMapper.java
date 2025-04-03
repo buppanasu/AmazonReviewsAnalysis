@@ -1,3 +1,13 @@
+/**
+ * Owner: Farhan
+ *
+ * Description:
+ * This Mapper class for a Hadoop MapReduce job processes product metadata from JSON strings. 
+ * For each line, it extracts the product identifier ("parent_asin") and collects additional metadata 
+ * such as image count, rating number, and video count. The output key is the product ID, and the value 
+ * is a CSV-formatted string containing the extracted metadata. Malformed or incomplete records are skipped.
+ */
+
 package analysis.ProductMetadataAnalysis;
 
 import java.io.IOException;
