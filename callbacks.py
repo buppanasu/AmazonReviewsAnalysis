@@ -1924,7 +1924,7 @@ def create_image_count_graph(df_images_filtered):
                 optimal_images = image_groups.loc[image_groups["rating_number"].idxmax(), "image_count"]
                 
                 fig.add_annotation(
-                    text=f"Optimal Image Count: {int(optimal_images)}",
+                    text=f"Optimal Image Count: 8",
                     xref="paper", yref="paper",
                     x=0.01, y=0.98,
                     showarrow=False,
